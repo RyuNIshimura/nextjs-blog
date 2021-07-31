@@ -1,0 +1,52 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "author": "Ryu Nishimura",
+  "dependencies": {
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.3",
+    "contentful": "^8.4.2",
+    "dayjs": "^1.10.6",
+    "keyboardjs": "^2.6.4",
+    "next": "^11.0.1",
+    "next-sitemap": "^1.6.140",
+    "next-themes": "^0.0.15",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-infinite-scroller": "^1.2.4",
+    "react-markdown": "^6.0.2",
+    "react-syntax-highlighter": "^15.4.4",
+    "rehype-katex": "^5.0.0",
+    "rehype-raw": "^5.1.0",
+    "remark": "^13.0.0",
+    "remark-gfm": "^1.0.0",
+    "remark-html": "^13.0.1",
+    "remark-math": "^4.0.0",
+    "sass": "^1.36.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.31.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-plugin-react": "^7.24.0",
+    "fixpack": "^4.0.0",
+    "husky": "^7.0.1",
+    "postcss": "^8.3.6",
+    "rss": "^1.2.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.20.1",
+    "tailwindcss": "^2.2.7"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "next build && next-sitemap",
+    "dev": "next dev",
+    "lint": "eslint --ext js,jsx --fix .",
+    "start": "next start",
+    "stylelint": "stylelint \"**/styles/*.scss\" --fix"
+  }
+}
