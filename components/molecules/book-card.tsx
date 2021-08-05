@@ -34,7 +34,7 @@ export default function BookCard({ book }: any) {
               {book.fields.description.substr(0, 100) + '...'}
             </div>
             <div className="flex flex-nowrap mt-2">
-              {book.fields.tags.map((tag, i) => (
+              {book.fields.tags.map((tag: any, i: any) => (
                 <a key={`${tag.fields.slug}-${i}`} href={`/tag/${tag.fields.slug}`}
                   className="mr-2 inline-flex items-center pl-1 pr-2 py-1 text-gray-800 text-xs font-bold bg-gray-100 dark:bg-gray-300 hover:bg-gray-200 rounded-full">
                   <PaperClipIcon className="h-4 w-4 mr-1"/>
