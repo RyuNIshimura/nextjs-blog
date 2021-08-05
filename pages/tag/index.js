@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Tag from '@/components/atoms/tag.js'
-import client from '@/lib/contentful.js'
+import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION } from '@/lib/constants'
 
 export default function TagList({ tags, categories }) {

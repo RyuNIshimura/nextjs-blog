@@ -1,4 +1,4 @@
-import { SNS_ITEMS } from '@/lib/constants.js'
+import { SNS_ITEMS } from '@/lib/constants'
 
 export default function Footer() {
   return (

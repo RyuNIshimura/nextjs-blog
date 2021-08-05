@@ -15,10 +15,10 @@ import ArticleCard from '@/components/molecules/article-card.js'
 import { customComponents } from '@/components/atoms/custom-components.js'
 import Tag from '@/components/atoms/tag.js'
 import { TwitterIcon } from '@/components/svg.js'
-import client from '@/lib/contentful.js'
+import client from '@/lib/contentful'
 import generateTableOfContents from '@/lib/generate-table-of-contents.js'
 import { tweet } from 'lib/tweet.js'
-import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from 'lib/constants.js'
+import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from 'lib/constants'
 
 function copy(text) {
   navigator.clipboard.writeText(text)

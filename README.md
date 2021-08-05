@@ -45,6 +45,7 @@ yarn install
 ```
 
 ## Code quality
+- 🔶 TypeScript — Adding static type definitions
 - 📏 ESLint — JavaScript linter
 - 💖 StyleLint - CSS linter
 - 🐶 Husky — Use git hooks with ease

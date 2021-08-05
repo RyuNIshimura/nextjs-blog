@@ -2,8 +2,8 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import ArticleCard from '@/components/molecules/article-card.js'
-import client from '@/lib/contentful.js'
-import { PER_SEARCH } from 'lib/constants.js'
+import client from '@/lib/contentful'
+import { PER_SEARCH } from 'lib/constants'
 
 export default function SearchModal({ open, parentCallback }) {
   const [snippets, setSnippets] = useState([])
