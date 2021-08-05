@@ -5,7 +5,7 @@ import { vs2015, tomorrowNightBlue } from 'react-syntax-highlighter/dist/cjs/sty
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { ControlIcon } from '@/components/svg.js'
-import { BASE_URL } from 'lib/constants.ts'
+import { BASE_URL } from 'lib/constants'
 import { useTheme } from 'next-themes'
 
 // 拡張子の取得

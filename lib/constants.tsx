@@ -1,3 +1,5 @@
+import { TwitterIcon, GitHubIcon } from '@/components/svg'
+
 export const APP_NAME: string = 'Nishimura Club'
 export const BASE_URL: string = 'https://nishimura.club'
 export const META_DESCRIPTION: string = 'nishimura.club'
@@ -17,11 +19,17 @@ export const SNS_ITEMS: Sns[] = [
   {
     name: 'Twitter',
     href: `https://twitter.com/${TWITTER_ID}`,
-    icon: ''
+    // eslint-disable-next-line react/display-name
+    icon: (props: any) => (
+      <TwitterIcon {...props} />
+    )
   },
   {
     name: 'GitHub',
     href: `https://github.com/${GITHUB_ID}`,
-    icon: ''
+    // eslint-disable-next-line react/display-name
+    icon: (props: any) => (
+      <GitHubIcon {...props} />
+    )
   }
 ]

@@ -18,7 +18,7 @@ import { TwitterIcon } from '@/components/svg.js'
 import client from '@/lib/contentful'
 import generateTableOfContents from '@/lib/generate-table-of-contents.js'
 import { tweet } from 'lib/tweet.js'
-import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from 'lib/constants.ts'
+import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from 'lib/constants'
 
 function copy(text) {
   navigator.clipboard.writeText(text)

@@ -1,6 +1,6 @@
 import RSS from 'rss'
 import client from '@/lib/contentful'
-import { BASE_URL, PER_PAGE } from '@/lib/constants.ts'
+import { BASE_URL, PER_PAGE } from '@/lib/constants'
 
 async function generateFeedXml() {
   const feed = new RSS({
