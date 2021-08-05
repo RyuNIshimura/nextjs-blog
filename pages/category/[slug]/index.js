@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroller'
 import ArticleCard from '@/components/molecules/article-card.js'
 import Breadcrumbs from '@/components/molecules/breadcrumbs.js'
 import client from '@/lib/contentful.js'
-import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants.js'
+import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants.ts'
 
 function IndexPage({ initialArticles, total, category, pages }) {
   const [articles, setArticles] = useState(initialArticles)

@@ -25,6 +25,8 @@
     "sass": "^1.36.0"
   },
   "devDependencies": {
+    "@types/node": "^16.4.12",
+    "@types/react": "^17.0.15",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.31.0",
     "eslint-config-next": "^11.0.1",
@@ -38,7 +40,8 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.20.1",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^2.2.7",
+    "typescript": "^4.3.5"
   },
   "license": "MIT",
   "private": true,

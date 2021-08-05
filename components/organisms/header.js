@@ -4,7 +4,7 @@ import { SearchIcon } from '@heroicons/react/solid'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import SearchModal from '@/components/molecules/search-modal.js'
 import Switch from '@/components/atoms/switch.js'
-import { APP_NAME, SNS_ITEMS } from '@/lib/constants.js'
+import { APP_NAME, SNS_ITEMS } from '@/lib/constants.ts'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
@@ -369,7 +369,7 @@ export default function Header() {
                 </div>
                 <div className="flex-1 px-2 flex justify-center lg:ml-6 lg:justify-end">
                   <div className="hidden lg:flex my-auto">
-                    {SNS_ITEMS.map((item) => (
+                    {/* {SNS_ITEMS.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
@@ -379,7 +379,7 @@ export default function Header() {
                         <span className="sr-only">{item.name}</span>
                         <item.icon className="h-6 w-6" aria-hidden="true" />
                       </a>
-                    ))}
+                    ))} */}
                   </div>
                   <div className="hidden lg:block mx-3 my-auto">
                     <Switch />

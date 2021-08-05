@@ -70,7 +70,7 @@ export default function About({ works }) {
                   </span>
                 </h1>
                 <div className="mt-8 flex justify-center space-x-6 md:order-2">
-                  {SNS_ITEMS.map((item) => (
+                  {/* {SNS_ITEMS.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -80,7 +80,7 @@ export default function About({ works }) {
                       <span className="sr-only">{item.name}</span>
                       <item.icon className="h-10 w-10" aria-hidden="true" />
                     </a>
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </div>
