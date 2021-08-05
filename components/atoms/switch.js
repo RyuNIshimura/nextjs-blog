@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Switch } from '@headlessui/react'
 import { useTheme } from 'next-themes'
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
-import { classNames } from '@/lib/style-utils.js'
+import { classNames } from  '@/lib/style-utils'
 
 export default function SwitchColorMode() {
   const { theme, setTheme } = useTheme()
