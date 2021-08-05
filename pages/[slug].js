@@ -103,7 +103,7 @@ function ArticlePage({
                   onClick={() => tweet(article)}
                   className="cursor-pointer mr-2 inline-flex items-center px-2 py-1 text-blue-500 text-sm font-medium bg-blue-100 hover:bg-blue-200 border border-blue-100 rounded-full"
                 >
-                  <TwitterIcon/>
+                  <TwitterIcon className="h-4 w-4 mr-1"/>
                   ツイート
                 </div>
               </div>
