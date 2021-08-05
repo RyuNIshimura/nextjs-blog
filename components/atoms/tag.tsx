@@ -1,6 +1,6 @@
 import { PaperClipIcon } from '@heroicons/react/outline'
 
-export default function Tag({ tag }) {
+export default function Tag({ tag }: any) {
   return (
     <a 
       href={`/tag/${tag.fields.slug}`}

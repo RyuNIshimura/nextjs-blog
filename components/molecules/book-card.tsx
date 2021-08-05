@@ -2,7 +2,7 @@
 // import dayjs from 'dayjs'
 import { PaperClipIcon } from '@heroicons/react/outline'
 
-export default function BookCard({ book }) {
+export default function BookCard({ book }: any) {
   return (
     <div
       key={book.fields.title}

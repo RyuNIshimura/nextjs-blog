@@ -4,38 +4,36 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015, tomorrowNightBlue } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid'
 import { PaperClipIcon } from '@heroicons/react/outline'
-import { ControlIcon } from '@/components/svg.js'
+import { ControlIcon } from '@/components/svg'
 import { BASE_URL } from 'lib/constants'
 import { useTheme } from 'next-themes'
 
 // 拡張子の取得
-function getExtend(filename)
+function getExtend(filename: string)
 {
   const pos = filename.lastIndexOf('.')
   if (pos === -1) return ''
   return filename.slice(pos + 1)
 }
 
-function copy(text) {
+function copy(text: string) {
   navigator.clipboard.writeText(text)
 }
 
 export const customComponents = {
-  a({href, children, ...props}) {
+  a({href, children, ...props}: any) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
       </a>
     )
   },
-  h2({ node, children, ...props }) {
+  h2({ node, children, ...props }: any) {
     const router = useRouter()
-    console.log(router.query.slug)
     let id = ''
     if (node.children[0].value) {
       id = node.children[0].value
     }
-    console.log(id)
     return <h2 
       // eslint-disable-next-line react/no-children-prop
       id={id}
@@ -49,13 +47,13 @@ export const customComponents = {
     </h2>
   },
   // eslint-disable-next-line no-unused-vars
-  code({ node, inline, className, children, ...props }) {
+  code({ node, inline, className, children, ...props }: any) {
     const [enableCopy, setEnableCopy] = useState(true)
     // eslint-disable-next-line no-unused-vars
     const { theme, setTheme } = useTheme()
     const code = String(children).replace(/\n$/, '')
 
-    function copySnippet(code) {
+    function copySnippet(code: string) {
       navigator.clipboard.writeText(code)
       setEnableCopy(false)
       setTimeout(() => { setEnableCopy(true) }, 500)

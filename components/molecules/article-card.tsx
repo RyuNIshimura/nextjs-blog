@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { RefreshIcon } from '@heroicons/react/solid'
 
-export default function ArticleCard({ article }) {
+export default function ArticleCard({ article }: any) {
   return (
     <div
       key={article.fields.title}

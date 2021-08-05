@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import InfiniteScroll from 'react-infinite-scroller'
-import ArticleCard from '@/components/molecules/article-card.js'
-import Breadcrumbs from '@/components/molecules/breadcrumbs.js'
+import ArticleCard from '@/components/molecules/article-card'
+import Breadcrumbs from '@/components/molecules/breadcrumbs'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants'
 

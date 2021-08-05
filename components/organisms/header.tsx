@@ -135,7 +135,7 @@ export default function Header() {
     })
   }
 
-  const _handleSearchModal = (bool) => {
+  const _handleSearchModal = (bool: boolean | ((prevState: boolean) => boolean)) => {
     setOpenSearchModal(bool)
   }
 
