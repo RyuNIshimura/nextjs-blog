@@ -5,10 +5,10 @@ import ArticleCard from '@/components/molecules/article-card'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants'
 
-function IndexPage({ initialArticles, total }) {
+function IndexPage({ initialArticles, total }: any) {
   const [articles, setArticles] = useState(initialArticles)
 
-  const getArticles = async (page) => {
+  const getArticles = async (page: number) => {
     const res = await client.getEntries({
       content_type: 'article',
       order: '-sys.updatedAt',
@@ -39,7 +39,7 @@ function IndexPage({ initialArticles, total }) {
         loader={<div className="lg:mx-auto mx-5 my-2" key={1}>ロード中 ...</div>}
         useWindow={true}
       >
-        {articles.map((article) => (
+        {articles.map((article: any) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </InfiniteScroll>

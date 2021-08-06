@@ -3,7 +3,7 @@ import Tag from '@/components/atoms/tag'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION } from '@/lib/constants'
 
-export default function TagList({ tags, categories }) {
+export default function TagList({ tags, categories }: any) {
   return (
     <>
       <Head>
@@ -25,9 +25,9 @@ export default function TagList({ tags, categories }) {
                   タグ一覧
                 </h1>
                 <div className="my-8">
-                  {tags.map((t, i) => (
-                    <span className="leading-10" key={`${t.fields.slug}-${i}`}>
-                      <Tag tag={t} />
+                  {tags.map((tag: any, i: number) => (
+                    <span className="leading-10" key={`${tag.fields.slug}-${i}`}>
+                      <Tag tag={tag} />
                     </span>
                   ))}
                 </div>
@@ -37,9 +37,9 @@ export default function TagList({ tags, categories }) {
                   カテゴリ一覧
                 </h1>
                 <div className="my-8">
-                  {categories.map((c, i) => (
-                    <span className="leading-10" key={`${c.fields.slug}-${i}`}>
-                      <Tag tag={c} />
+                  {categories.map((category: any, i: number) => (
+                    <span className="leading-10" key={`${category.fields.slug}-${i}`}>
+                      <Tag tag={category} />
                     </span>
                   ))}
                 </div>
@@ -57,7 +57,7 @@ export async function getServerSideProps() {
     .getEntries({
       content_type: 'tags'
     })
-    .then((res) => res.items)
+    .then((res: any) => res.items)
     .catch(console.error)
 
 
@@ -65,7 +65,7 @@ export async function getServerSideProps() {
     .getEntries({
       content_type: 'types'
     })
-    .then((res) => res.items)
+    .then((res: any) => res.items)
     .catch(console.error)
 
   return {

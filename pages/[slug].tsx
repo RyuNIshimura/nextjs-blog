@@ -20,7 +20,7 @@ import generateTableOfContents from '@/lib/generate-table-of-contents'
 import { tweet } from '@/lib/tweet'
 import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from '@/lib/constants'
 
-function copy(text) {
+function copy(text: string) {
   navigator.clipboard.writeText(text)
 }
 
@@ -31,10 +31,10 @@ function ArticlePage({
   initialArticles,
   total,
   relatedTag
-}) {
+}: any) {
   const [articles, setArticles] = useState(initialArticles)
 
-  const getArticles = async (page) => {
+  const getArticles = async (page: number) => {
     const res = await client.getEntries({
       content_type: 'article',
       'fields.tag.sys.id': relatedTag.sys.id,
@@ -48,39 +48,35 @@ function ArticlePage({
 
   return (
     <>
+      {/* TODO: hid が エラーになるので修正する */}
       <Head>
         <title>{article.fields.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content={article.fields.keywords} />
         <meta
           name="description"
-          hid="description"
           content={description}
         />
-        <meta hid="og:type" property="og:type" content="website" />
-        <meta hid="og:site_name" property="og:site_name" content="nishimura.club" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="nishimura.club" />
         <meta
-          hid="og:url"
           property="og:url"
           content={`https://nishimura.club/${article.fields.slug}`}
         />
-        <meta hid="og:title" property="og:title" content={article.fields.title} />
+        <meta property="og:title" content={article.fields.title} />
         <meta
-          hid="og:description"
           property="og:description"
           content={description}
         />
         <meta
-          hid="og:image"
           property="og:image"
           content={`https:${article.fields.image.fields.file.url}`}
         />
         <meta
-          hid="twitter:image"
           property="twitter:image"
           content={`https:${article.fields.image.fields.file.url}`}
         />
-        <meta hid="twitter:card" content="summary" />
+        <meta content="summary" />
       </Head>
       <div className="lg:mx-auto mx-3 sm:mx-5 my-2 max-w-screen-xl">
         <div className="grid lg:grid-cols-4 grid-cols-1">
@@ -94,8 +90,8 @@ function ArticlePage({
             </h1>
             <div className="flex flex-nowrap items-center justify-between">
               <div>
-                {article.fields.tag.map((t, i) => (
-                  <Tag key={`${t.fields.slug}-${i}`} tag={t} />
+                {article.fields.tag.map((tag: any, i: number) => (
+                  <Tag key={`${tag.fields.slug}-${i}`} tag={tag} />
                 ))}
               </div>
               <div className="ml-2 sm:flex-shrink-0 sm:flex sm:items-center">
@@ -137,7 +133,7 @@ function ArticlePage({
                 loader={<div className="lg:mx-auto mx-5 my-2" key={1}>ロード中 ...</div>}
                 useWindow={true}
               >
-                {articles.map((article) => (
+                {articles.map((article: any) => (
                   <ArticleCard key={article.fields.slug} article={article} />
                 ))}
               </InfiniteScroll>
@@ -177,7 +173,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   const article = await client.getEntries({
     content_type: 'article',
     'fields.slug': params.slug

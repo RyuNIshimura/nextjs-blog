@@ -1,9 +1,9 @@
 import { BASE_URL } from '@/lib/constants'
 
-export function tweet(article) {
-  let shareURL = 'https://twitter.com/share?'
+export function tweet(article: any) {
+  let shareURL: string = 'https://twitter.com/share?'
 
-  const params = {
+  const params: any = {
     url: `${BASE_URL}/${article.fields.slug}`, 
     text: article.fields.title,
   }

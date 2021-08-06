@@ -6,13 +6,13 @@ import Breadcrumbs from '@/components/molecules/breadcrumbs'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants'
 
-function IndexPage({ initialArticles, total, tag, pages }) {
+function IndexPage({ initialArticles, total, category, pages }: any) {
   const [articles, setArticles] = useState(initialArticles)
 
-  const getArticles = async (page) => {
+  const getArticles = async (page: number) => {
     const res = await client.getEntries({
       content_type: 'article',
-      'fields.tag.sys.id': tag.sys.id,
+      'fields.type.sys.id': category.sys.id,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
       skip: PER_PAGE * (page - 1)
@@ -24,10 +24,10 @@ function IndexPage({ initialArticles, total, tag, pages }) {
   return (
     <>
       <Head>
-        <title>{ `${APP_NAME} - ${tag.fields.name}` }</title>
+        <title>{ `${APP_NAME} - ${category.fields.name}` }</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={ META_DESCRIPTION } />
-        <meta property="og:title" content={ `${APP_NAME} - ${tag.fields.name}` } />
+        <meta property="og:title" content={ `${APP_NAME} - ${category.fields.name}` } />
         <meta property="og:description" content={ META_DESCRIPTION } />
         <meta property="og:image" content="https://nishimura.club/ogp.png" />
         <meta name="twitter:image" content="https://nishimura.club/ogp.png"/>
@@ -42,7 +42,7 @@ function IndexPage({ initialArticles, total, tag, pages }) {
         loader={<div className="lg:mx-auto mx-5 my-2" key={1}>ロード中 ...</div>}
         useWindow={true}
       >
-        {articles.map((article) => (
+        {articles.map((article: any) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </InfiniteScroll>
@@ -50,19 +50,19 @@ function IndexPage({ initialArticles, total, tag, pages }) {
   )
 }
 
-export async function getServerSideProps({ params }) {
-  const tag = await client
+export async function getServerSideProps({ params }: any) {
+  const category = await client
     .getEntries({
-      content_type: 'tags',
+      content_type: 'types',
       'fields.slug': params.slug
     })
-    .then((res) => res.items[0])
+    .then((res: any) => res.items[0])
     .catch(console.error)
 
 
   const articles = await client.getEntries({
     content_type: 'article',
-    'fields.tag.sys.id': tag.sys.id,
+    'fields.type.sys.id': category.sys.id,
     order: '-sys.updatedAt',
     limit: PER_PAGE
   })
@@ -71,10 +71,9 @@ export async function getServerSideProps({ params }) {
     props: {
       initialArticles: articles.items,
       total: articles.total,
-      tag: tag,
+      category: category,
       pages: [
-        { name: tag.fields.type.fields.name, href: `/category/${tag.fields.type.fields.slug}`, current: false },
-        { name: tag.fields.name, href: `/tag/${tag.fields.slug}`, current: true },
+        { name: category.fields.name, href: `/category/${category.fields.slug}`, current: true },
       ]
     }
   }

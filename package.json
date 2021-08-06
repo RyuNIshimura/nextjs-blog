@@ -26,6 +26,7 @@
     "sass": "^1.36.0"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.7",
     "@types/node": "^16.4.12",
     "@types/react": "^17.0.15",
     "@types/react-infinite-scroller": "^1.2.2",
