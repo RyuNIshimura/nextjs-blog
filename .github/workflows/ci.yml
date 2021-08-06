@@ -28,4 +28,5 @@ jobs:
     - run: yarn fixpack
     - run: yarn lint
     - run: yarn stylelint
+    - run: yarn type-check
     - run: yarn next lint

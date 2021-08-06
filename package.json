@@ -1,6 +1,7 @@
 {
   "name": "blog",
-  "version": "0.1.0",
+  "description": "Next.js blog using contentful",
+  "version": "1.0.0",
   "author": "Ryu Nishimura",
   "dependencies": {
     "@headlessui/react": "^1.4.0",
@@ -29,6 +30,7 @@
     "@types/react": "^17.0.15",
     "@types/react-infinite-scroller": "^1.2.2",
     "@types/react-syntax-highlighter": "^13.5.2",
+    "@types/rss": "^0.0.29",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.31.0",
     "eslint-config-next": "^11.0.1",
@@ -50,8 +52,9 @@
   "scripts": {
     "build": "next build && next-sitemap",
     "dev": "next dev",
-    "lint": "eslint --ext js,jsx --fix .",
+    "lint": "eslint --ext js,jsx,ts,tsx --fix .",
     "start": "next start",
-    "stylelint": "stylelint \"**/styles/*.scss\" --fix"
+    "stylelint": "stylelint \"**/styles/*.scss\" --fix",
+    "type-check": "tsc"
   }
 }
