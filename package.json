@@ -47,12 +47,19 @@
     "tailwindcss": "^2.2.7",
     "typescript": "^4.3.5"
   },
+  "keywords": [
+    "blog",
+    "javascript",
+    "nextjs",
+    "typescript"
+  ],
   "license": "MIT",
   "private": true,
   "scripts": {
     "build": "next build && next-sitemap",
     "dev": "next dev",
     "lint": "eslint --ext js,jsx,ts,tsx --fix .",
+    "postinstall": "husky install",
     "start": "next start",
     "stylelint": "stylelint \"**/styles/*.scss\" --fix",
     "type-check": "tsc"

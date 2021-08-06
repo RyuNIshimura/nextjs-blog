@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { useTheme } from 'next-themes'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { vs2015, tomorrowNightBlue } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { ControlIcon } from '@/components/svg'
-import { BASE_URL } from 'lib/constants'
-import { useTheme } from 'next-themes'
+import { BASE_URL } from '@/lib/constants'
 
 // 拡張子の取得
 function getExtend(filename: string)

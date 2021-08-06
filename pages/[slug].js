@@ -17,8 +17,8 @@ import Tag from '@/components/atoms/tag'
 import { TwitterIcon } from '@/components/svg'
 import client from '@/lib/contentful'
 import generateTableOfContents from '@/lib/generate-table-of-contents'
-import { tweet } from 'lib/tweet'
-import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from 'lib/constants'
+import { tweet } from '@/lib/tweet'
+import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from '@/lib/constants'
 
 function copy(text) {
   navigator.clipboard.writeText(text)

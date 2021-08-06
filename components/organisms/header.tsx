@@ -1,16 +1,13 @@
 import { useState, Fragment } from 'react'
-import { Disclosure } from '@headlessui/react'
-import { SearchIcon } from '@heroicons/react/solid'
+import { Popover, Transition, Disclosure } from '@headlessui/react'
+import { SearchIcon, ChevronDownIcon } from '@heroicons/react/solid'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import SearchModal from '@/components/molecules/search-modal.js'
+import SearchModal from '@/components/molecules/search-modal'
 import Switch from '@/components/atoms/switch'
 import { APP_NAME, SNS_ITEMS } from '@/lib/constants'
-import { Popover, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
 
 const navigation = [
   { name: 'ホーム', href: '/' },
-  // { name: 'Works', href: '/works' },
   { name: 'About Me', href: '/about' },
   { name: 'タグ一覧', href: '/tag' },
   { name: 'オススメの本', href: '/book' },
