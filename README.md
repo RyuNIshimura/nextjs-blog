@@ -34,12 +34,10 @@ cp .env.example .env.local
 ```
 
 ```sh
-docker-compose build
 docker-compose up
-docker-compose exec app bash
 ```
 
-It uses Docker, but can be built locally.
+It can also be built in a local environment.
 
 ```sh
 yarn install
