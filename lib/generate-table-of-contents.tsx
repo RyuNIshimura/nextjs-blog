@@ -1,4 +1,4 @@
-import * as remark from 'remark'
+import remark from 'remark'
 import html from 'remark-html'
 
 function extractTagText(htmlString: string, targetTag: string) {
