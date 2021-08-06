@@ -1,5 +1,3 @@
-// import Link from 'next/link'
-// import dayjs from 'dayjs'
 import { PaperClipIcon } from '@heroicons/react/outline'
 
 export default function BookCard({ book }: any) {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Switch } from '@headlessui/react'
 import { useTheme } from 'next-themes'
+import { Switch } from '@headlessui/react'
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
 import { classNames } from  '@/lib/style-utils'
 
