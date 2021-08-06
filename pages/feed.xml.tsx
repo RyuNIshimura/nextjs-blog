@@ -1,3 +1,4 @@
+import { GetServerSidePropsContext } from 'next'
 import RSS from 'rss'
 import client from '@/lib/contentful'
 import { BASE_URL, PER_PAGE } from '@/lib/constants'
@@ -44,7 +45,7 @@ async function generateFeedXml() {
   return feed.xml()
 }
 
-export const getServerSideProps = async ({ res }) => {
+export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => {
   const xml = await generateFeedXml() // フィードのXMLを生成する（後述）
 
   res.statusCode = 200

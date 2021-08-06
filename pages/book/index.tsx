@@ -5,10 +5,10 @@ import BookCard from '@/components/molecules/book-card'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants'
 
-function BookPage({ initialBooks, total }) {
+function BookPage({ initialBooks, total }: any) {
   const [books, setBooks] = useState(initialBooks)
 
-  const getBooks = async (page) => {
+  const getBooks = async (page: number) => {
     const res = await client.getEntries({
       content_type: 'book',
       order: '-sys.updatedAt',
@@ -39,7 +39,7 @@ function BookPage({ initialBooks, total }) {
         loader={<div className="lg:mx-auto mx-5 my-2" key={1}>ロード中 ...</div>}
         useWindow={true}
       >
-        {books.map((book) => (
+        {books.map((book: { fields: { title: any } }) => (
           <BookCard key={book.fields.title} book={book} />
         ))}
       </InfiniteScroll>

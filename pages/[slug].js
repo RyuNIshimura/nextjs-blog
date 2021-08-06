@@ -10,14 +10,14 @@ import 'katex/dist/katex.min.css'
 import dayjs from 'dayjs'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { ClockIcon, RefreshIcon } from '@heroicons/react/solid'
-import TableOfContents from '@/components/molecules/table-of-contents.js'
-import ArticleCard from '@/components/molecules/article-card.js'
-import { customComponents } from '@/components/atoms/custom-components.js'
-import Tag from '@/components/atoms/tag.js'
-import { TwitterIcon } from '@/components/svg.js'
+import TableOfContents from '@/components/molecules/table-of-contents'
+import ArticleCard from '@/components/molecules/article-card'
+import { customComponents } from '@/components/atoms/custom-components'
+import Tag from '@/components/atoms/tag'
+import { TwitterIcon } from '@/components/svg'
 import client from '@/lib/contentful'
-import generateTableOfContents from '@/lib/generate-table-of-contents.js'
-import { tweet } from 'lib/tweet.js'
+import generateTableOfContents from '@/lib/generate-table-of-contents'
+import { tweet } from 'lib/tweet'
 import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from 'lib/constants'
 
 function copy(text) {
@@ -103,7 +103,7 @@ function ArticlePage({
                   onClick={() => tweet(article)}
                   className="cursor-pointer mr-2 inline-flex items-center px-2 py-1 text-blue-500 text-sm font-medium bg-blue-100 hover:bg-blue-200 border border-blue-100 rounded-full"
                 >
-                  <TwitterIcon/>
+                  <TwitterIcon className="h-4 w-4 mr-1"/>
                   ツイート
                 </div>
               </div>

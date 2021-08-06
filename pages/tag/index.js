@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Tag from '@/components/atoms/tag.js'
+import Tag from '@/components/atoms/tag'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION } from '@/lib/constants'
 
