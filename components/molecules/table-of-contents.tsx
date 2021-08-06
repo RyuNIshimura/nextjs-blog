@@ -1,7 +1,7 @@
-export default function TableOfContents(props) {
+export default function TableOfContents(props: any) {
   return (
     <nav className="space-y-1" aria-label="Sidebar">
-      {props.tableOfContents.map((content) => (
+      {props.tableOfContents.map((content: any) => (
         <a
           key={content.name}
           href={`#${content.id}`}

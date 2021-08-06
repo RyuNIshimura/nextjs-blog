@@ -5,7 +5,7 @@ import ArticleCard from '@/components/molecules/article-card'
 import client from '@/lib/contentful'
 import { PER_SEARCH } from '@/lib/constants'
 
-export default function SearchModal({ open, parentCallback }) {
+export default function SearchModal({ open, parentCallback }: any) {
   const [snippets, setSnippets] = useState([])
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function SearchModal({ open, parentCallback }) {
     }
   }, [open])
 
-  const _handleChange = async (e) => {
+  const _handleChange = async (e: { preventDefault: any; target: { value: any } }) => {
     e.preventDefault
     if (!e.target.value) {
       setSnippets([])
@@ -82,7 +82,7 @@ export default function SearchModal({ open, parentCallback }) {
                 </div>
                 {!!snippets.length && 
                   <div className="mt-5 max-w-full bg-gray-100 dark:bg-gray-900 rounded-sm">
-                    {snippets.map((article, i) => (
+                    {snippets.map((article: any, i: number) => (
                       <div key={`${article.fields.slug}-${i}`} className="mb-5">
                         <ArticleCard article={article} />
                       </div>
