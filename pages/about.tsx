@@ -3,7 +3,7 @@ import WorkCard from '@/components/molecules/work-card'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION, SNS_ITEMS } from '@/lib/constants'
 
-export default function About({ works }) {
+export default function About({ works }: any) {
   return (
     <>
       <Head>
@@ -46,7 +46,7 @@ export default function About({ works }) {
                 <div 
                   className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2"
                 >
-                  {works.map((work) => (
+                  {works.map((work: any) => (
                     <WorkCard key={work.fields.slug} work={work} />
                   ))}
                 </div>
