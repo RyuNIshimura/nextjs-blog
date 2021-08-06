@@ -10,6 +10,7 @@
     "dayjs": "^1.10.6",
     "keyboardjs": "^2.6.4",
     "next": "^11.0.1",
+    "next-pwa": "^5.2.24",
     "next-sitemap": "^1.6.140",
     "next-themes": "^0.0.15",
     "react": "^17.0.2",

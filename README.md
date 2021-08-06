@@ -12,6 +12,7 @@ Keep all your information in one blog 🖌
 - ✨ Integration with Contentful
 - 🔎 Full-text search using Contentful
 - ⭐️ Integration with TailwindCSS
+- ⚡️ Integration with PWA
 - 🔥 Awesome markdown parser
 - 🌗 Switching dark mode
 - 🗺 Generating a sitemap
