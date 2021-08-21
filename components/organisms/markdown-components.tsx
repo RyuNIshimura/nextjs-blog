@@ -6,21 +6,10 @@ import { vs2015, tomorrowNightBlue } from 'react-syntax-highlighter/dist/cjs/sty
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { ControlIcon } from '@/components/svg'
+import { getExtend, copyText } from '@/lib/markdown-utils'
 import { BASE_URL } from '@/lib/constants'
 
-// 拡張子の取得
-function getExtend(filename: string)
-{
-  const pos = filename.lastIndexOf('.')
-  if (pos === -1) return ''
-  return filename.slice(pos + 1)
-}
-
-function copy(text: string) {
-  navigator.clipboard.writeText(text)
-}
-
-export const customComponents = {
+export const MarkdownComponents = {
   a({href, children, ...props}: any) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
@@ -29,6 +18,7 @@ export const customComponents = {
     )
   },
   h2({ node, children, ...props }: any) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const router = useRouter()
     let id = ''
     if (node.children[0].value) {
@@ -41,15 +31,17 @@ export const customComponents = {
     >
       {String(children).replace(/\n$/, '')}
       <PaperClipIcon 
-        className="clip cursor-pointer inline-flex ml-1 relative bottom-1 text-gray-500 h-6 w-6 hover:text-gray-300"
-        onClick={() => copy(`${BASE_URL}/${router.query.slug}#${id}`)}
+        className="relative inline-flex w-6 h-6 ml-1 text-gray-500 cursor-pointer clip bottom-1 hover:text-gray-300"
+        onClick={() => copyText(`${BASE_URL}/${router.query.slug}#${id}`)}
       />
     </h2>
   },
   // eslint-disable-next-line no-unused-vars
   code({ node, inline, className, children, ...props }: any) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [enableCopy, setEnableCopy] = useState(true)
     // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { theme, setTheme } = useTheme()
     const code = String(children).replace(/\n$/, '')
 
@@ -79,22 +71,22 @@ export const customComponents = {
 
     return !inline || match ? (
       <>
-        <div className="snippet-controls flex items-center justify-between">
+        <div className="flex items-center justify-between snippet-controls">
           <div className="flex items-center">
             <div>
               <ControlIcon />
             </div>
-            <div className="flex text-gray-200 ml-2">
+            <div className="flex ml-2 text-gray-200">
               <div>{fileName}</div>
             </div>
           </div>
           <div className="flex mr-2">
             {enableCopy ? <ClipboardIcon 
               onClick={() => copySnippet(code)}
-              className="h-6 w-6 text-gray-200 cursor-pointer"
+              className="w-6 h-6 text-gray-200 cursor-pointer"
               aria-hidden="true"
             /> : <CheckIcon 
-              className="h-6 w-6 text-pink-400 cursor-pointer"
+              className="w-6 h-6 text-pink-400 cursor-pointer"
               aria-hidden="true"
             />}
           </div>

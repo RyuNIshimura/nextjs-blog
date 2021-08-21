@@ -1,9 +1,3 @@
-// html {
-//   body {
-//     @apply bg-gray-50;
-//   }
-// }
-
 html {
   &.dark {
     body {
@@ -23,7 +17,7 @@ html {
 
 .article {
   h1 {
-    @apply my-8 text-2xl sm:text-3xl font-bold text-gray-700 dark:text-gray-200;
+    @apply my-8 text-2xl font-bold text-gray-700 sm:text-3xl dark:text-gray-200;
 
     .title-clip {
       display: none;
@@ -41,7 +35,7 @@ html {
   }
 
   h2 {
-    @apply my-8 sm:my-5 text-xl sm:text-2xl font-bold text-gray-700 dark:text-gray-200 border-b border-gray-300 leading-10 pb-2;
+    @apply pb-2 my-8 text-xl font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-5 sm:text-2xl dark:text-gray-200;
 
     .clip {
       display: none;
@@ -53,27 +47,27 @@ html {
   }
 
   h3 {
-    @apply my-3 sm:my-5 text-lg sm:text-xl font-bold text-gray-700 dark:text-gray-200 border-b border-gray-300 leading-10 pb-2;
+    @apply pb-2 my-3 text-lg font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-5 sm:text-xl dark:text-gray-200;
   }
 
   p {
-    @apply my-2 sm:my-5 break-words text-base sm:text-base text-gray-600 dark:text-gray-100 leading-8 sm:leading-9;
+    @apply my-2 text-base leading-8 text-gray-600 break-words sm:my-5 sm:text-base dark:text-gray-100 sm:leading-9;
   }
 
   a {
-    @apply text-blue-500 font-medium underline;
+    @apply font-medium text-blue-500 underline;
   }
 
   ul {
-    @apply list-disc mx-5;
+    @apply mx-5 list-disc;
 
     li {
-      @apply my-2 text-base sm:text-base text-gray-600 dark:text-gray-100 leading-10 break-words;
+      @apply my-2 text-base leading-10 text-gray-600 break-words sm:text-base dark:text-gray-100;
     }
   }
 
   code {
-    @apply text-pink-500 text-base font-medium leading-10 break-words;
+    @apply text-base font-medium leading-10 text-pink-500 break-words;
   }
 
   pre {
@@ -83,25 +77,25 @@ html {
       @apply rounded-sm;
 
       code {
-        @apply text-gray-300 text-base font-medium leading-6 break-words;
+        @apply text-base font-medium leading-6 text-gray-300 break-words;
       }
     }
   }
 
   blockquote {
-    @apply p-2 my-10 rounded-sm italic border-l-4 border-blue-500 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-100 border-gray-500;
+    @apply p-2 my-10 italic text-gray-600 bg-gray-100 border-l-4 border-gray-500 border-blue-500 rounded-sm dark:bg-gray-700 dark:text-gray-100;
   }
 
   img {
-    @apply my-10 rounded-sm max-h-96 shadow mx-auto;
+    @apply mx-auto my-10 rounded-sm shadow max-h-96;
   }
 
   iframe {
-    @apply my-10 rounded-sm max-w-full shadow mx-auto;
+    @apply max-w-full mx-auto my-10 rounded-sm shadow;
   }
 
   .html {
-    @apply relative my-8 p-4 shadow-lg rounded-md bg-gray-50 dark:bg-gray-800 border-2 border-gray-300;
+    @apply relative p-4 my-8 border-2 border-gray-300 rounded-md shadow-lg bg-gray-50 dark:bg-gray-800;
 
     &::before {
       @apply bg-gray-200 dark:text-gray-700;
@@ -134,7 +128,7 @@ html {
     font-size: 0.875em;
     width: 100%;
 
-    @apply bg-gray-100 my-8;
+    @apply my-8 bg-gray-100;
 
     tbody {
       border-color: inherit;
@@ -154,7 +148,7 @@ html {
         text-align: left;
         white-space: nowrap;
 
-        @apply p-1 bg-gray-200 dark:text-gray-700 overflow-auto;
+        @apply p-1 overflow-auto bg-gray-200 dark:text-gray-700;
       }
 
       td {

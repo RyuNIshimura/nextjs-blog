@@ -1,7 +1,18 @@
 import remark from 'remark'
 import html from 'remark-html'
 
-function extractTagText(htmlString: string, targetTag: string) {
+export function getExtend(filename: string)
+{
+  const pos = filename.lastIndexOf('.')
+  if (pos === -1) return ''
+  return filename.slice(pos + 1)
+}
+
+export function copyText(text: string) {
+  navigator.clipboard.writeText(text)
+}
+
+export function extractTagText(htmlString: string, targetTag: string) {
   const tableOfContents: { name: string; id: string }[] = []
 
   const tagMatchPattern = new RegExp('<' + targetTag + '(?: .+?)?>.*?</' + targetTag + '>', 'g')
@@ -21,12 +32,12 @@ function extractTagText(htmlString: string, targetTag: string) {
   return tableOfContents
 }
 
-function removeTags(htmlString: string) {
+export function removeTags(htmlString: string) {
   const removeTagPattern = new RegExp('<("[^"]*"|\'[^\']*\'|[^\'">])*>', 'g')
   return htmlString.replace(removeTagPattern, '').slice(0, 120) + '…'
 }
 
-export default async function generateTableOfContents(markdown: any) {
+export async function generateTableOfContents(markdown: any) {
   const result = await remark().use(html).process(markdown)
   const htmlString = result.toString()
   const description = removeTags(htmlString)

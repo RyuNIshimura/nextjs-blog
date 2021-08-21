@@ -21,7 +21,7 @@ Keep all your information in one blog 🖌
 - 💰 Integration with Google Adsense
 
 ## Requirements
-- Node.js: 12+
+- Node.js: 14.x+
 - API Key for Contentful
 
 ## Setup
@@ -47,7 +47,6 @@ yarn install
 ## Code quality
 - 🔶 TypeScript — Adding static type definitions
 - 📏 ESLint — JavaScript linter
-- 💖 StyleLint - CSS linter
 - 🐶 Husky — Use git hooks with ease
 - 🤖 Dependabot - Dependency update
 - 👷 PR Workflow - Linters on pull requests
