@@ -6,21 +6,10 @@ import { vs2015, tomorrowNightBlue } from 'react-syntax-highlighter/dist/cjs/sty
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { ControlIcon } from '@/components/svg'
+import { getExtend, copyText } from '@/lib/markdown-utils'
 import { BASE_URL } from '@/lib/constants'
 
-// 拡張子の取得
-function getExtend(filename: string)
-{
-  const pos = filename.lastIndexOf('.')
-  if (pos === -1) return ''
-  return filename.slice(pos + 1)
-}
-
-function copy(text: string) {
-  navigator.clipboard.writeText(text)
-}
-
-export const CustomComponents = {
+export const MarkdownComponents = {
   a({href, children, ...props}: any) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
@@ -43,7 +32,7 @@ export const CustomComponents = {
       {String(children).replace(/\n$/, '')}
       <PaperClipIcon 
         className="relative inline-flex w-6 h-6 ml-1 text-gray-500 cursor-pointer clip bottom-1 hover:text-gray-300"
-        onClick={() => copy(`${BASE_URL}/${router.query.slug}#${id}`)}
+        onClick={() => copyText(`${BASE_URL}/${router.query.slug}#${id}`)}
       />
     </h2>
   },

@@ -10,9 +10,9 @@ import 'katex/dist/katex.min.css'
 import dayjs from 'dayjs'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { ClockIcon, RefreshIcon } from '@heroicons/react/solid'
+import { MarkdownComponents } from '@/components/organisms/markdown-components'
 import TableOfContents from '@/components/molecules/table-of-contents'
 import ArticleCard from '@/components/molecules/article-card'
-import { CustomComponents } from '@/components/atoms/custom-components'
 import Tag from '@/components/atoms/tag'
 import { TwitterIcon } from '@/components/svg'
 import client from '@/lib/contentful'
@@ -116,7 +116,7 @@ function ArticlePage({
             </div>
             <ReactMarkdown
               className="markdown-body"
-              components={CustomComponents}
+              components={MarkdownComponents}
               linkTarget="_blank"
               // eslint-disable-next-line react/no-children-prop
               children={article.fields.body}
