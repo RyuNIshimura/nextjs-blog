@@ -12,7 +12,7 @@ import { PaperClipIcon } from '@heroicons/react/outline'
 import { ClockIcon, RefreshIcon } from '@heroicons/react/solid'
 import TableOfContents from '@/components/molecules/table-of-contents'
 import ArticleCard from '@/components/molecules/article-card'
-import { customComponents } from '@/components/atoms/custom-components'
+import { CustomComponents } from '@/components/atoms/custom-components'
 import Tag from '@/components/atoms/tag'
 import { TwitterIcon } from '@/components/svg'
 import client from '@/lib/contentful'
@@ -78,17 +78,17 @@ function ArticlePage({
         />
         <meta content="summary" />
       </Head>
-      <div className="lg:mx-auto mx-3 sm:mx-5 my-2 max-w-screen-xl">
-        <div className="grid lg:grid-cols-4 grid-cols-1">
-          <div className="article lg:col-span-3 col-span-2">
+      <div className="max-w-screen-xl mx-3 my-2 lg:mx-auto sm:mx-5">
+        <div className="grid grid-cols-1 lg:grid-cols-4">
+          <div className="col-span-2 article lg:col-span-3">
             <h1>
               {article.fields.title}
               <PaperClipIcon 
-                className="title-clip cursor-pointer relative bottom-1 inline-flex h-6 w-6 ml-1 text-gray-500 hover:text-gray-300"
+                className="relative inline-flex w-6 h-6 ml-1 text-gray-500 cursor-pointer title-clip bottom-1 hover:text-gray-300"
                 onClick={() => copy(`${BASE_URL}/${article.fields.slug}`)}
               />
             </h1>
-            <div className="flex flex-nowrap items-center justify-between">
+            <div className="flex items-center justify-between flex-nowrap">
               <div>
                 {article.fields.tag.map((tag: any, i: number) => (
                   <Tag key={`${tag.fields.slug}-${i}`} tag={tag} />
@@ -97,9 +97,9 @@ function ArticlePage({
               <div className="ml-2 sm:flex-shrink-0 sm:flex sm:items-center">
                 <div
                   onClick={() => tweet(article)}
-                  className="cursor-pointer mr-2 inline-flex items-center px-2 py-1 text-blue-500 text-sm font-medium bg-blue-100 hover:bg-blue-200 border border-blue-100 rounded-full"
+                  className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-blue-500 bg-blue-100 border border-blue-100 rounded-full cursor-pointer hover:bg-blue-200"
                 >
-                  <TwitterIcon className="h-4 w-4 mr-1"/>
+                  <TwitterIcon className="w-4 h-4 mr-1"/>
                   ツイート
                 </div>
               </div>
@@ -116,7 +116,7 @@ function ArticlePage({
             </div>
             <ReactMarkdown
               className="markdown-body"
-              components={customComponents}
+              components={CustomComponents}
               linkTarget="_blank"
               // eslint-disable-next-line react/no-children-prop
               children={article.fields.body}
@@ -126,11 +126,11 @@ function ArticlePage({
             <div className="mt-10">
               <h2 className="my-8 text-2xl font-bold text-gray-700 dark:text-gray-200">関連記事</h2>
               <InfiniteScroll
-                className="m-0 grid grid-cols-1 gap-4 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-3"
+                className="grid grid-cols-1 gap-4 m-0 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-3"
                 pageStart={1}
                 loadMore={getArticles}
                 hasMore={articles.length < total}
-                loader={<div className="lg:mx-auto mx-5 my-2" key={1}>ロード中 ...</div>}
+                loader={<div className="mx-5 my-2 lg:mx-auto" key={1}>ロード中 ...</div>}
                 useWindow={true}
               >
                 {articles.map((article: any) => (
@@ -139,7 +139,7 @@ function ArticlePage({
               </InfiniteScroll>
             </div>
           </div>
-          <div className="lg:block hidden lg:col-span-1 col-span-2 h-screen sticky top-16 ml-5">
+          <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
             <TableOfContents tableOfContents={tableOfContents} />
           </div>
         </div>

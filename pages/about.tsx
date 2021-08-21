@@ -16,35 +16,33 @@ export default function About({ works }: any) {
         <meta name="twitter:image" content="https://nishimura.club/ogp.png"/>
         <meta name="twitter:card" content="summary"/>
       </Head>
-      <div className="lg:mx-auto mx-3 sm:mx-5 my-2 max-w-screen-2xl">
-        <div className="relative py-16 bg-white dark:bg-gray-900 overflow-hidden">
+      <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
+        <div className="relative py-16 overflow-hidden bg-white dark:bg-gray-900">
           <div className="relative px-4 sm:px-6 lg:px-8">
-            <div className="text-lg max-w-screen-xl mx-auto">
-              <div className="mb-8 max-w-screen-xl">
+            <div className="max-w-screen-xl mx-auto text-lg">
+              <div className="max-w-screen-xl mb-8">
                 <h1>
-                  <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
                     Profile
                   </span>
                 </h1>
                 <img
-                  className="my-8 h-12 w-auto sm:h-12 mx-auto"
+                  className="w-auto h-12 mx-auto my-8 sm:h-12"
                   src="/icon.png"
                   alt={ APP_NAME }
                 />
-                <p className="mt-8 mx-auto text-xl text-center text-gray-500 dark:text-gray-200 leading-8 max-w-screen-md">
-                  フロントエンドの開発者で、JAMStackやサーバレスアーキテクチャが好きです。
-                  <br/>
-                  UIUXと機械学習に焦点を当てています。
+                <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500 dark:text-gray-200">
+                  フロントエンドの開発者です
                 </p>
               </div>
               <div className="my-12">
                 <h1>
-                  <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
                     Works
                   </span>
                 </h1>
                 <div 
-                  className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2"
+                  className="grid grid-cols-1 gap-6 mt-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2"
                 >
                   {works.map((work: any) => (
                     <WorkCard key={work.fields.slug} work={work} />
@@ -53,23 +51,23 @@ export default function About({ works }: any) {
               </div>
               <div className="my-12">
                 <h1>
-                  <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
                     Skills
                   </span>
                 </h1>
-                <p className="mx-auto mt-8 text-center text-xl text-gray-500 dark:text-gray-200 leading-8 max-w-screen-md">
-                  <strong>好きな技術: </strong> Firebase, Next.js, Contentful, Stripe
+                <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500 dark:text-gray-200">
+                  <strong>好きな技術: </strong> Next.js, Contentful
                   <br/>
-                  <strong>好きな言語: </strong> JavaScript, Python
+                  <strong>好きな言語: </strong> JavaScript
                 </p>
               </div>
               <div className="my-8">
                 <h1>
-                  <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
                   Contact
                   </span>
                 </h1>
-                <div className="mt-8 flex justify-center space-x-6 md:order-2">
+                <div className="flex justify-center mt-8 space-x-6 md:order-2">
                   {SNS_ITEMS.map((item) => (
                     <a
                       key={item.name}
@@ -78,7 +76,7 @@ export default function About({ works }: any) {
                       rel="noopener noreferrer"
                       className="text-gray-700 dark:text-gray-200 hover:text-gray-500">
                       <span className="sr-only">{item.name}</span>
-                      <item.icon className="h-10 w-10" aria-hidden="true" />
+                      <item.icon className="w-10 h-10" aria-hidden="true" />
                     </a>
                   ))}
                 </div>

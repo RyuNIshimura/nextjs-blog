@@ -1,21 +1,16 @@
 version: 2
 updates:
-  # npm の依存関係を維持する
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
       time: "09:00"
-      # 日本標準時 (UTC +09:00) を使用する
       timezone: "Asia/Tokyo"
-    # バージョン更新のプルリクエストを発行する
     target-branch: "main"
-    # バージョン更新のみのプルリクエストのラベル
     labels:
       - "npm dependencies"
       - 'automerge'
     allow:
-      # Allow both direct and indirect updates for all packages
       - dependency-type: "direct"
     reviewers:
       - "RyuNIshimura"

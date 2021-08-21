@@ -3,6 +3,4 @@
 
 yarn fixpack && \
 yarn lint && \
-yarn stylelint && \
-yarn type-check && \
-yarn next lint
+yarn type-check
