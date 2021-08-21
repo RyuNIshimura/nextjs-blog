@@ -16,8 +16,8 @@ import ArticleCard from '@/components/molecules/article-card'
 import Tag from '@/components/atoms/tag'
 import { TwitterIcon } from '@/components/svg'
 import client from '@/lib/contentful'
-import generateTableOfContents from '@/lib/generate-table-of-contents'
-import { tweet } from '@/lib/tweet'
+import { generateTableOfContents } from '@/lib/markdown-utils'
+import { tweet } from '@/lib/share-utils'
 import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from '@/lib/constants'
 
 function copy(text: string) {
@@ -97,7 +97,7 @@ function ArticlePage({
               <div className="ml-2 sm:flex-shrink-0 sm:flex sm:items-center">
                 <div
                   onClick={() => tweet(article)}
-                  className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-blue-500 bg-blue-100 border border-blue-100 rounded-full cursor-pointer hover:bg-blue-200"
+                  className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-blue-500 bg-blue-100 border border-blue-100 rounded-lg cursor-pointer hover:bg-blue-200"
                 >
                   <TwitterIcon className="w-4 h-4 mr-1"/>
                   ツイート

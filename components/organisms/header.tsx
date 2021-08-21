@@ -8,7 +8,8 @@ import Switch from '@/components/atoms/switch'
 import { APP_NAME, SNS_ITEMS } from '@/lib/constants'
 
 const navigation = [
-  { name: 'ホーム', href: '/' }
+  { name: 'ホーム', href: '/' },
+  { name: 'About', href: '/about' },
 ]
 
 const options = [
@@ -36,6 +37,7 @@ const options = [
     name: 'Prisma',
     href: '/tag/prisma'
   },
+  { name: 'その他', href: '/tag' },
 ]
 
 export default function Header() {
@@ -79,7 +81,7 @@ export default function Header() {
                       {navigation.map((item, itemIdx) => (
                         <a
                           key={`${item.name}-${itemIdx}`} href={item.href}
-                          className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-full dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75">
+                          className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75">
                           {item.name}
                         </a>
                       ))}
@@ -90,7 +92,7 @@ export default function Header() {
                       {({ open }) => (
                         <>
                           <Popover.Button
-                            className='inline-flex items-center px-3 py-2 ml-2 text-base font-bold text-gray-800 border border-transparent rounded-full dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75 group'
+                            className='inline-flex items-center px-3 py-2 ml-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75 group'
                           >
                             <span>WEB開発</span>
                             <ChevronDownIcon
@@ -161,7 +163,7 @@ export default function Header() {
                         <SearchIcon className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div
-                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-500 bg-gray-100 border border-transparent rounded-full cursor-pointer sm:text-sm"
+                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-500 bg-gray-100 border border-transparent rounded-lg cursor-pointer sm:text-sm"
                         onClick={() => setOpenSearchModal(true)}
                       >
                           Search
@@ -169,7 +171,7 @@ export default function Header() {
                       <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                         <button
                           type="button"
-                          className="inline-flex items-center px-2 py-1.5 text-sm leading-4 font-medium rounded-sm text-gray-500 focus:outline-none"
+                          className="inline-flex items-center px-2 py-1.5 text-sm leading-4 font-medium rounded-lg text-gray-500 focus:outline-none"
                         >
                             ⌘K
                         </button>
@@ -179,7 +181,7 @@ export default function Header() {
                 </div>
                 <div className="flex lg:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-800 bg-white rounded-sm dark:bg-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 dark:focus:ring-offset-white focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-800 bg-white rounded-lg dark:bg-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 dark:focus:ring-offset-white focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XIcon className="block w-6 h-6" aria-hidden="true" />
@@ -197,7 +199,7 @@ export default function Header() {
                   <Fragment key={item.name}>
                     <a
                       href={item.href}
-                      className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-sm dark:bg-gray-800 dark:text-white text-md">
+                      className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg dark:bg-gray-800 dark:text-white text-md">
                       {item.name}
                     </a>
                   </Fragment>
