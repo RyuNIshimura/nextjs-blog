@@ -74,7 +74,7 @@ html {
     @apply my-4 sm:my-5;
 
     div {
-      @apply rounded-md shadow;
+      @apply rounded-md;
 
       code {
         @apply text-base font-medium leading-6 text-gray-300 break-words;

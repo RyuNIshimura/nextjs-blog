@@ -105,11 +105,11 @@ function ArticlePage({
               </div>
             </div>
             <div className="flex mt-5">
-              <div className="flex">
+              <div className="flex items-center">
                 <ClockIcon className="h-5 text-gray-400 text-md" />
                 <span className="ml-1 text-gray-400 text-md">{dayjs(article.fields.publishDate).format('YYYY年MM月DD日')}</span>
               </div>
-              <div className="flex ml-2">
+              <div className="flex items-center ml-2">
                 <RefreshIcon className="h-5 text-gray-400 text-md" />
                 <span className="ml-1 text-gray-400 text-md">{dayjs(article.sys.updatedAt).format('YYYY年MM月DD日')}</span>
               </div>

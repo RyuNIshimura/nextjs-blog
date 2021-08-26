@@ -31,7 +31,7 @@ export const MarkdownComponents = {
     >
       {String(children).replace(/\n$/, '')}
       <PaperClipIcon 
-        className="relative inline-flex w-6 h-6 ml-1 text-gray-500 cursor-pointer clip bottom-1 hover:text-gray-300"
+        className="relative inline-flex w-5 h-5 mt-1 ml-1 text-gray-500 cursor-pointer clip bottom-1 hover:text-gray-300"
         onClick={() => copyText(`${BASE_URL}/${router.query.slug}#${id}`)}
       />
     </h2>
