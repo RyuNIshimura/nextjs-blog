@@ -38,7 +38,7 @@ export function removeTags(htmlString: string) {
 }
 
 export async function generateTableOfContents(markdown: any) {
-  const result = await remark().use(html).process(markdown)
+  const result = await remark()?.use(html)?.process(markdown)
   const htmlString = result.toString()
   const description = removeTags(htmlString)
   const tableOfContents = extractTagText(htmlString, 'h2')

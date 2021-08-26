@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { vs2015, tomorrowNightBlue } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid'
 import { PaperClipIcon } from '@heroicons/react/outline'
 import { ControlIcon } from '@/components/svg'
@@ -94,7 +94,7 @@ export const MarkdownComponents = {
         <SyntaxHighlighter
           className={className}
           customStyle={containerStyle}
-          style={theme === 'dark' ? tomorrowNightBlue : vs2015}
+          style={theme === 'dark' ? tomorrow : tomorrow}
           language={matchedExt || fileName}
           PreTag="div"
           // eslint-disable-next-line react/no-children-prop

@@ -35,7 +35,7 @@ html {
   }
 
   h2 {
-    @apply pb-2 my-8 text-xl font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-5 sm:text-2xl dark:text-gray-200;
+    @apply pb-4 my-8 text-xl font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-2xl dark:text-gray-200;
 
     .clip {
       display: none;
@@ -47,7 +47,7 @@ html {
   }
 
   h3 {
-    @apply pb-2 my-3 text-lg font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-5 sm:text-xl dark:text-gray-200;
+    @apply pb-4 my-3 text-lg font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-xl dark:text-gray-200;
   }
 
   p {
@@ -55,7 +55,7 @@ html {
   }
 
   a {
-    @apply font-medium text-blue-500 underline;
+    @apply font-normal text-blue-400 underline;
   }
 
   ul {
@@ -74,7 +74,7 @@ html {
     @apply my-4 sm:my-5;
 
     div {
-      @apply rounded-sm;
+      @apply rounded-md shadow;
 
       code {
         @apply text-base font-medium leading-6 text-gray-300 break-words;

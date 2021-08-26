@@ -24,6 +24,10 @@ Keep all your information in one blog 🖌
 - Node.js: 14.x+
 - API Key for Contentful
 
+Content Delivery API は読み取り専用です。
+
+[Content Delivery API | Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)
+
 ## Setup
 
 Copy the .env.example and set the API Key for Contentful.
@@ -51,6 +55,9 @@ yarn install
 - 🤖 Dependabot - Dependency update
 - 👷 PR Workflow - Linters on pull requests
 - 🗂 Absolute import - Import folders and files using the @ prefix
+
+## Writing Tools
+- [URL Slug Generator - slugify.online](https://slugify.online/) - Slugの作成
 
 ## Security
 We are using [GitGuardian](https://www.gitguardian.com/) to try to protect our secrets. If you see any security risks, please let me know.
