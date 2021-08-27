@@ -16,12 +16,12 @@ export default function TagList({ tags, categories }: any) {
         <meta name="twitter:image" content="https://nishimura.club/ogp.png"/>
         <meta name="twitter:card" content="summary"/>
       </Head>
-      <div className="lg:mx-auto mx-3 sm:mx-5 my-2 max-w-screen-2xl">
-        <div className="relative py-16 bg-white dark:bg-gray-900 overflow-hidden">
+      <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
+        <div className="relative py-16 overflow-hidden bg-white dark:bg-gray-900">
           <div className="relative px-4 sm:px-6 lg:px-8">
-            <div className="text-lg max-w-screen-xl mx-auto">
-              <div className="mb-8 max-w-screen-xl">
-                <h1 className="font-bold text-2xl text-center">
+            <div className="max-w-screen-xl mx-auto text-lg">
+              <div className="max-w-screen-xl mb-8">
+                <h1 className="text-2xl font-bold text-center">
                   タグ一覧
                 </h1>
                 <div className="my-8">
@@ -33,7 +33,7 @@ export default function TagList({ tags, categories }: any) {
                 </div>
               </div>
               <div>
-                <h1 className="font-bold text-2xl text-center">
+                <h1 className="text-2xl font-bold text-center">
                   カテゴリ一覧
                 </h1>
                 <div className="my-8">
@@ -54,17 +54,13 @@ export default function TagList({ tags, categories }: any) {
 
 export async function getServerSideProps() {
   const tags = await client
-    .getEntries({
-      content_type: 'tags'
-    })
+    .getEntries({ content_type: 'tags' })
     .then((res: any) => res.items)
     .catch(console.error)
 
 
   const categories = await client
-    .getEntries({
-      content_type: 'types'
-    })
+    .getEntries({ content_type: 'types' })
     .then((res: any) => res.items)
     .catch(console.error)
 
