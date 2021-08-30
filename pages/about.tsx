@@ -2,7 +2,12 @@ import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import WorkCard from '@/components/molecules/work-card';
 import client from '@/lib/contentful';
-import { APP_NAME, META_DESCRIPTION, SNS_ITEMS } from '@/lib/constants';
+import {
+  APP_NAME,
+  BASE_URL,
+  META_DESCRIPTION,
+  SNS_ITEMS,
+} from '@/lib/constants';
 
 export default function About({ works }: any) {
   return (
@@ -13,8 +18,8 @@ export default function About({ works }: any) {
         <meta name="description" content={META_DESCRIPTION} />
         <meta property="og:title" content={`${APP_NAME} - About`} />
         <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content="https://nishimura.club/ogp.png" />
-        <meta name="twitter:image" content="https://nishimura.club/ogp.png" />
+        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
+        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
       <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">

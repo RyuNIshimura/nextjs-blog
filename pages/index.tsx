@@ -6,6 +6,7 @@ import ArticleCard from '@/components/molecules/article-card';
 import client from '@/lib/contentful';
 import {
   APP_NAME,
+  BASE_URL,
   META_DESCRIPTION,
   PER_PAGE,
   ARTICLE_TYPE,
@@ -33,8 +34,8 @@ function IndexPage({ initialArticles, total }: any) {
         <meta name="description" content={META_DESCRIPTION} />
         <meta property="og:title" content={APP_NAME} />
         <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content="https://nishimura.club/ogp.png" />
-        <meta name="twitter:image" content="https://nishimura.club/ogp.png" />
+        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
+        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
       <InfiniteScroll

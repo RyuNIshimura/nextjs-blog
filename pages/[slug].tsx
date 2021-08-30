@@ -20,6 +20,7 @@ import client from '@/lib/contentful';
 import { generateTableOfContents } from '@/lib/markdown-utils';
 import { tweet } from '@/lib/share-utils';
 import {
+  APP_NAME,
   BASE_URL,
   PER_PAGE,
   RELATED_ARTICLES_LIMIT,
@@ -61,10 +62,10 @@ function ArticlePage({
         <meta name="keywords" content={article.fields.keywords} />
         <meta name="description" content={description} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="nishimura.club" />
+        <meta property="og:site_name" content={APP_NAME} />
         <meta
           property="og:url"
-          content={`https://nishimura.club/${article.fields.slug}`}
+          content={`${BASE_URL}/${article.fields.slug}`}
         />
         <meta property="og:title" content={article.fields.title} />
         <meta property="og:description" content={description} />

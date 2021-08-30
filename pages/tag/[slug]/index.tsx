@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/molecules/breadcrumbs';
 import client from '@/lib/contentful';
 import {
   APP_NAME,
+  BASE_URL,
   META_DESCRIPTION,
   PER_PAGE,
   ARTICLE_TYPE,
@@ -39,8 +40,8 @@ function IndexPage({ initialArticles, total, tag, pages }: any) {
           content={`${APP_NAME} - ${tag.fields.name}`}
         />
         <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content="https://nishimura.club/ogp.png" />
-        <meta name="twitter:image" content="https://nishimura.club/ogp.png" />
+        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
+        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
       <Breadcrumbs pages={pages} />

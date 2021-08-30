@@ -4,7 +4,12 @@ import Head from 'next/head';
 import InfiniteScroll from 'react-infinite-scroller';
 import BookCard from '@/components/molecules/book-card';
 import client from '@/lib/contentful';
-import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants';
+import {
+  APP_NAME,
+  BASE_URL,
+  META_DESCRIPTION,
+  PER_PAGE,
+} from '@/lib/constants';
 
 function BookPage({ initialBooks, total }: any) {
   const [books, setBooks] = useState(initialBooks);
@@ -28,8 +33,8 @@ function BookPage({ initialBooks, total }: any) {
         <meta name="description" content={META_DESCRIPTION} />
         <meta property="og:title" content={APP_NAME} />
         <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content="https://nishimura.club/ogp.png" />
-        <meta name="twitter:image" content="https://nishimura.club/ogp.png" />
+        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
+        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
       <InfiniteScroll

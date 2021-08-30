@@ -4,6 +4,7 @@ import Tag from '@/components/atoms/tag';
 import client from '@/lib/contentful';
 import {
   APP_NAME,
+  BASE_URL,
   META_DESCRIPTION,
   TAG_TYPE,
   CATEGORY_TYPE,
@@ -18,8 +19,8 @@ export default function TagList({ tags, categories }: any) {
         <meta name="description" content={META_DESCRIPTION} />
         <meta property="og:title" content={`${APP_NAME} - タグ一覧`} />
         <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content="https://nishimura.club/ogp.png" />
-        <meta name="twitter:image" content="https://nishimura.club/ogp.png" />
+        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
+        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
       <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
