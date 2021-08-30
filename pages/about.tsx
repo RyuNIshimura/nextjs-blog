@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { GetServerSideProps } from 'next'
 import WorkCard from '@/components/molecules/work-card'
 import client from '@/lib/contentful'
 import { APP_NAME, META_DESCRIPTION, SNS_ITEMS } from '@/lib/constants'
@@ -89,7 +90,7 @@ export default function About({ works }: any) {
   )
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const works = await client.getEntries({
     content_type: 'work',
     order: '-sys.updatedAt'
