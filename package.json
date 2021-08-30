@@ -4,7 +4,7 @@
   "author": "Ryu Nishimura",
   "dependencies": {
     "@headlessui/react": "^1.4.0",
-    "@heroicons/react": "^1.0.3",
+    "@heroicons/react": "^1.0.4",
     "contentful": "^8.4.2",
     "dayjs": "^1.10.6",
     "keyboardjs": "^2.6.4",
