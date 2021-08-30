@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Tag from '@/components/atoms/tag'
 import client from '@/lib/contentful'
@@ -52,7 +53,7 @@ export default function TagList({ tags, categories }: any) {
   )
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const tags = await client
     .getEntries({ content_type: 'tags' })
     .then((res: any) => res.items)

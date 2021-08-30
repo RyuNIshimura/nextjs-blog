@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import InfiniteScroll from 'react-infinite-scroller'
 import ArticleCard from '@/components/molecules/article-card'
@@ -32,11 +33,11 @@ function IndexPage({ initialArticles, total }: any) {
         <meta name="twitter:card" content="summary"/>
       </Head>
       <InfiniteScroll
-        className="m-0 sm:m-8 grid grid-cols-1 gap-6 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
+        className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
         pageStart={1}
         loadMore={getArticles}
         hasMore={articles.length < total}
-        loader={<div className="lg:mx-auto mx-5 my-2" key={1}>ロード中 ...</div>}
+        loader={<div className="mx-5 my-2 lg:mx-auto" key={1}>ロード中 ...</div>}
         useWindow={true}
       >
         {articles.map((article: any) => (
@@ -47,7 +48,7 @@ function IndexPage({ initialArticles, total }: any) {
   )
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const articles = await client.getEntries({
     content_type: 'article',
     order: '-sys.updatedAt',

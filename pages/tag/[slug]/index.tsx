@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import InfiniteScroll from 'react-infinite-scroller'
 import ArticleCard from '@/components/molecules/article-card'
@@ -35,11 +36,11 @@ function IndexPage({ initialArticles, total, tag, pages }: any) {
       </Head>
       <Breadcrumbs pages={pages} />
       <InfiniteScroll
-        className="m-0 sm:m-8 grid grid-cols-1 gap-6 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
+        className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
         pageStart={1}
         loadMore={getArticles}
         hasMore={articles.length < total}
-        loader={<div className="lg:mx-auto mx-5 my-2" key={1}>ロード中 ...</div>}
+        loader={<div className="mx-5 my-2 lg:mx-auto" key={1}>ロード中 ...</div>}
         useWindow={true}
       >
         {articles.map((article: any) => (
@@ -50,11 +51,11 @@ function IndexPage({ initialArticles, total, tag, pages }: any) {
   )
 }
 
-export async function getServerSideProps({ params }: any) {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const tag = await client
     .getEntries({
       content_type: 'tags',
-      'fields.slug': params.slug
+      'fields.slug': params?.slug
     })
     .then((res: any) => res.items[0])
     .catch(console.error)

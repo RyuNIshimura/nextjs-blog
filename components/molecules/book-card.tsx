@@ -4,38 +4,38 @@ export default function BookCard({ book }: any) {
   return (
     <div
       key={book.fields.title}
-      className="col-span-1 shadow flex flex-col bg-white dark:bg-gray-800 rounded-sm">
-      <div className="flex-1 flex flex-col p-4 sm:p-6">
-        <div className="flex sm:block items-center">
-          <div className="w-20 sm:w-auto mr-4 sm:mr-0">
+      className="flex flex-col col-span-1 bg-white rounded-sm shadow dark:bg-gray-800">
+      <div className="flex flex-col flex-1 p-4 sm:p-6">
+        <div className="flex items-center sm:block">
+          <div className="w-20 mr-4 sm:w-auto sm:mr-0">
             <a 
               href={`${book.fields.link}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                className="object-contain h-36 w-full"
+                className="object-contain w-full h-36"
                 src={book.fields.image.fields.file.url}
                 alt=""
               />
             </a>
           </div>
-          <div className="flex-1 sm:block mt-0 sm:mt-5">
+          <div className="flex-1 mt-0 sm:block sm:mt-5">
             <a 
               href={`${book.fields.link}`} 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 dark:text-gray-200 hover:text-gray-400 lg:text-base 2xl:text-lg font-bold">
+              className="font-bold text-gray-700 dark:text-gray-200 hover:text-gray-400 lg:text-base 2xl:text-lg">
               {book.fields.title}
             </a>
-            <div className="flex flex-nowrap text-gray-600 dark:text-gray-200 mt-2 text-sm">
+            <div className="flex mt-2 text-sm text-gray-600 flex-nowrap dark:text-gray-200">
               {book.fields.description.substr(0, 100) + '...'}
             </div>
-            <div className="flex flex-nowrap mt-2">
-              {book.fields.tags.map((tag: any, i: any) => (
+            <div className="flex mt-2 flex-nowrap">
+              {book.fields.tags.map((tag: any, i: number) => (
                 <a key={`${tag.fields.slug}-${i}`} href={`/tag/${tag.fields.slug}`}
-                  className="mr-2 inline-flex items-center pl-1 pr-2 py-1 text-gray-800 text-xs font-bold bg-gray-100 dark:bg-gray-300 hover:bg-gray-200 rounded-full">
-                  <PaperClipIcon className="h-4 w-4 mr-1"/>
+                  className="inline-flex items-center py-1 pl-1 pr-2 mr-2 text-xs font-bold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-300 hover:bg-gray-200">
+                  <PaperClipIcon className="w-4 h-4 mr-1"/>
                   {tag.fields.name}
                 </a>
               ))}

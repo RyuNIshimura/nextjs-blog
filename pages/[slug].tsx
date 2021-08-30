@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
@@ -148,7 +149,7 @@ function ArticlePage({
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   let articles = await client.getEntries({
     content_type: 'article',
     limit: 1
@@ -173,7 +174,16 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }: any) {
+export const getStaticProps: GetStaticProps = async ({params}) => {
+  if (!params?.slug) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
+
   const article = await client.getEntries({
     content_type: 'article',
     'fields.slug': params.slug
