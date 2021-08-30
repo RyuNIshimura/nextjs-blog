@@ -158,12 +158,12 @@ export default function Header() {
                     <label htmlFor="search" className="sr-only">
                         Search
                     </label>
-                    <div className="relative mr-2 text-gray-400 focus-within:text-gray-600">
+                    <div className="relative mr-2 text-gray-600 border-b border-gray-600">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <SearchIcon className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div
-                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-500 bg-gray-100 border border-transparent rounded-lg cursor-pointer sm:text-sm"
+                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer sm:text-sm"
                         onClick={() => setOpenSearchModal(true)}
                       >
                           Search
@@ -171,7 +171,7 @@ export default function Header() {
                       <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                         <button
                           type="button"
-                          className="inline-flex items-center px-2 py-1.5 text-sm leading-4 font-medium rounded-lg text-gray-500 focus:outline-none"
+                          className="hidden sm:inline-flex items-center px-2 py-1.5 text-sm leading-4 font-medium rounded-lg bg-gray-100 border-gray-200 border text-gray-600 focus:outline-none"
                         >
                             ⌘K
                         </button>

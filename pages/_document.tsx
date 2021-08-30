@@ -5,11 +5,12 @@ import Document, {
   NextScript,
 } from 'next/document'
 import { GA_TRACKING_ID } from '@/lib/gtag'
+const LANG = 'ja'
 
 export default class extends Document {
   render() {
     return (
-      <Html>
+      <Html lang={LANG}>
         <Head>
           {/* <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}`}
             crossOrigin="anonymous"></script>
