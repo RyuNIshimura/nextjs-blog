@@ -1,4 +1,4 @@
-name: Linter and Test
+name: Ci
 
 on:
   push:

@@ -1,4 +1,4 @@
-import { SNS_ITEMS } from '@/lib/constants'
+import { SNS_ITEMS } from '@/lib/constants';
 
 export default function Footer() {
   return (
@@ -11,7 +11,8 @@ export default function Footer() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-200 hover:text-gray-500">
+              className="text-gray-600 dark:text-gray-200 hover:text-gray-500"
+            >
               <span className="sr-only">{item.name}</span>
               <item.icon className="w-6 h-6" aria-hidden="true" />
             </a>
@@ -24,5 +25,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

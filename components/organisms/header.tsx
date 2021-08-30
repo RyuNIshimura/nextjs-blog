@@ -1,64 +1,67 @@
-import { useState, Fragment } from 'react'
-import Link from 'next/link'
-import { Popover, Transition, Disclosure } from '@headlessui/react'
-import { SearchIcon, ChevronDownIcon } from '@heroicons/react/solid'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import SearchModal from '@/components/molecules/search-modal'
-import Switch from '@/components/atoms/switch'
-import { APP_NAME, SNS_ITEMS } from '@/lib/constants'
+import { useState, Fragment } from 'react';
+import Link from 'next/link';
+import { Popover, Transition, Disclosure } from '@headlessui/react';
+import { SearchIcon, ChevronDownIcon } from '@heroicons/react/solid';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import SearchModal from '@/components/molecules/search-modal';
+import Switch from '@/components/atoms/switch';
+import { APP_NAME, SNS_ITEMS } from '@/lib/constants';
 
 const navigation = [
   { name: 'ホーム', href: '/' },
   { name: 'About', href: '/about' },
-]
+];
 
 const options = [
   {
     name: 'JavaScript',
-    href: '/tag/javascript'
+    href: '/tag/javascript',
   },
   {
     name: 'TypeScript',
-    href: '/tag/typescript'
+    href: '/tag/typescript',
   },
   {
     name: 'ReactJS',
-    href: '/tag/reactjs'
+    href: '/tag/reactjs',
   },
   {
     name: 'NextJS',
-    href: '/tag/nextjs'
+    href: '/tag/nextjs',
   },
   {
     name: 'NestJS',
-    href: '/tag/nestjs'
+    href: '/tag/nestjs',
   },
   {
     name: 'Prisma',
-    href: '/tag/prisma'
+    href: '/tag/prisma',
   },
   { name: 'その他', href: '/tag' },
-]
+];
 
 export default function Header() {
-  const [openSearchModal, setOpenSearchModal] = useState(false)
+  const [openSearchModal, setOpenSearchModal] = useState(false);
 
   if (typeof window !== 'undefined') {
-    const keyboardJS = require('keyboardjs')
+    const keyboardJS = require('keyboardjs');
     keyboardJS.bind('command + k', () => {
-      setOpenSearchModal(!openSearchModal)
-    })
+      setOpenSearchModal(!openSearchModal);
+    });
   }
 
-  const _handleSearchModal = (bool: boolean | ((prevState: boolean) => boolean)) => {
-    setOpenSearchModal(bool)
-  }
+  const _handleSearchModal = (
+    bool: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setOpenSearchModal(bool);
+  };
 
   return (
     <>
       <Disclosure
         as="nav"
-        className="bg-white border-opacity-25 dark:bg-gray-900 shadow-0 sm:shadow lg:border-none">
+        className="bg-white border-opacity-25 dark:bg-gray-900 shadow-0 sm:shadow lg:border-none"
+      >
         {({ open }) => (
           <>
             <div className="max-w-full px-2 mx-auto sm:px-4 lg:px-8">
@@ -67,11 +70,11 @@ export default function Header() {
                   <div className="flex-shrink-0">
                     <Link href="/">
                       <a className="flex">
-                        <span className="sr-only">{ APP_NAME }</span>
+                        <span className="sr-only">{APP_NAME}</span>
                         <img
                           className="w-auto h-6 sm:h-6"
                           src="/icon.png"
-                          alt={ APP_NAME }
+                          alt={APP_NAME}
                         />
                       </a>
                     </Link>
@@ -80,8 +83,10 @@ export default function Header() {
                     <div className="flex space-x-4">
                       {navigation.map((item, itemIdx) => (
                         <a
-                          key={`${item.name}-${itemIdx}`} href={item.href}
-                          className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75">
+                          key={`${item.name}-${itemIdx}`}
+                          href={item.href}
+                          className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75"
+                        >
                           {item.name}
                         </a>
                       ))}
@@ -91,12 +96,10 @@ export default function Header() {
                     <Popover className="relative">
                       {({ open }) => (
                         <>
-                          <Popover.Button
-                            className='inline-flex items-center px-3 py-2 ml-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75 group'
-                          >
+                          <Popover.Button className="inline-flex items-center px-3 py-2 ml-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75 group">
                             <span>WEB開発</span>
                             <ChevronDownIcon
-                              className='w-5 h-5 ml-2 text-gray-800 dark:text-white'
+                              className="w-5 h-5 ml-2 text-gray-800 dark:text-white"
                               aria-hidden="true"
                             />
                           </Popover.Button>
@@ -124,7 +127,9 @@ export default function Header() {
                                       className="flex items-start px-1 py-3 -m-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
                                     >
                                       <div className="ml-4">
-                                        <p className="text-sm font-bold text-gray-800 dark:text-white">{item.name}</p>
+                                        <p className="text-sm font-bold text-gray-800 dark:text-white">
+                                          {item.name}
+                                        </p>
                                       </div>
                                     </a>
                                   ))}
@@ -145,7 +150,8 @@ export default function Header() {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden mx-2 my-auto text-gray-600 lg:block dark:text-white hover:text-gray-400">
+                        className="hidden mx-2 my-auto text-gray-600 lg:block dark:text-white hover:text-gray-400"
+                      >
                         <span className="sr-only">{item.name}</span>
                         <item.icon className="w-6 h-6" aria-hidden="true" />
                       </a>
@@ -154,9 +160,12 @@ export default function Header() {
                   <div className="hidden mx-3 my-auto lg:block">
                     <Switch />
                   </div>
-                  <div id="search-container" className="w-full max-w-lg lg:max-w-xs">
+                  <div
+                    id="search-container"
+                    className="w-full max-w-lg lg:max-w-xs"
+                  >
                     <label htmlFor="search" className="sr-only">
-                        Search
+                      Search
                     </label>
                     <div className="relative mr-2 text-gray-600 border-b border-gray-600">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -166,14 +175,14 @@ export default function Header() {
                         className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer sm:text-sm"
                         onClick={() => setOpenSearchModal(true)}
                       >
-                          Search
+                        Search
                       </div>
                       <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                         <button
                           type="button"
                           className="hidden sm:inline-flex items-center px-2 py-1.5 text-sm leading-4 font-medium rounded-lg bg-gray-100 border-gray-200 border text-gray-600 focus:outline-none"
                         >
-                            ⌘K
+                          ⌘K
                         </button>
                       </div>
                     </div>
@@ -195,26 +204,26 @@ export default function Header() {
 
             <Disclosure.Panel className="lg:hidden">
               <div className="px-2 pt-2 pb-3 m-1 space-y-1 bg-white border-gray-800 rounded-md shadow dark:bg-gray-800 border-1">
-                {navigation.map((item) =>
+                {navigation.map((item) => (
                   <Fragment key={item.name}>
                     <a
                       href={item.href}
-                      className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg dark:bg-gray-800 dark:text-white text-md">
+                      className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg dark:bg-gray-800 dark:text-white text-md"
+                    >
                       {item.name}
                     </a>
                   </Fragment>
-                )}
+                ))}
                 <Fragment>
-                  <div
-                    className="flex px-3 py-2 bg-white dark:bg-gray-800"
-                  >
+                  <div className="flex px-3 py-2 bg-white dark:bg-gray-800">
                     {SNS_ITEMS.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mr-4 text-gray-600 dark:text-white hover:text-gray-400">
+                        className="mr-4 text-gray-600 dark:text-white hover:text-gray-400"
+                      >
                         <span className="sr-only">{item.name}</span>
                         <item.icon className="w-6 h-6" aria-hidden="true" />
                       </a>
@@ -222,9 +231,7 @@ export default function Header() {
                   </div>
                 </Fragment>
                 <Fragment>
-                  <div
-                    className="block px-3 py-2 bg-white dark:bg-gray-800"
-                  >
+                  <div className="block px-3 py-2 bg-white dark:bg-gray-800">
                     <Switch />
                   </div>
                 </Fragment>
@@ -233,7 +240,7 @@ export default function Header() {
           </>
         )}
       </Disclosure>
-      <SearchModal open={ openSearchModal } parentCallback={ _handleSearchModal } />
+      <SearchModal open={openSearchModal} parentCallback={_handleSearchModal} />
     </>
-  )
+  );
 }

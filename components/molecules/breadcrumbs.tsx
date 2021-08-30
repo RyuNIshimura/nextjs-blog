@@ -1,15 +1,21 @@
-import Link from 'next/link'
-import { HomeIcon } from '@heroicons/react/solid'
+import Link from 'next/link';
+import { HomeIcon } from '@heroicons/react/solid';
 
 export default function Breadcrumbs({ pages }: any) {
   return (
-    <nav className="my-5 bg-white dark:bg-gray-900 flex" aria-label="Breadcrumb">
-      <ol className="max-w-full w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8">
+    <nav
+      className="flex my-5 bg-white dark:bg-gray-900"
+      aria-label="Breadcrumb"
+    >
+      <ol className="flex w-full max-w-full px-4 mx-auto space-x-4 sm:px-6 lg:px-8">
         <li className="flex">
           <div className="flex items-center">
             <Link href="/">
               <a className="text-gray-700 dark:text-white hover:text-gray-400">
-                <HomeIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
+                <HomeIcon
+                  className="flex-shrink-0 w-5 h-5"
+                  aria-hidden="true"
+                />
                 <span className="sr-only">Home</span>
               </a>
             </Link>
@@ -41,5 +47,5 @@ export default function Breadcrumbs({ pages }: any) {
         ))}
       </ol>
     </nav>
-  )
+  );
 }

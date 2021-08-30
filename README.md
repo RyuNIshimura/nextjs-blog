@@ -24,7 +24,7 @@ Keep all your information in one blog 🖌
 - Node.js: 14.x+
 - API Key for Contentful
 
-Content Delivery API は読み取り専用です。
+Content Delivery API is read-only.
 
 [Content Delivery API | Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)
 
@@ -32,20 +32,21 @@ Content Delivery API は読み取り専用です。
 
 Copy the .env.example and set the API Key for Contentful.
 
-```sh
+```bash
 cp .env.example .env.local
 ```
 
-```sh
+```bash
 docker-compose build
+docker run --rm exec app yarn install
 docker-compose up
-docker-compose exec app bash
 ```
 
-It uses Docker, but can be built locally.
+It can be built without using Docker.
 
-```sh
+```bash
 yarn install
+yarn dev
 ```
 
 ## Code quality
@@ -57,7 +58,7 @@ yarn install
 - 🗂 Absolute import - Import folders and files using the @ prefix
 
 ## Writing Tools
-- [URL Slug Generator - slugify.online](https://slugify.online/) - Slugの作成
+- [URL Slug Generator - slugify.online](https://slugify.online/) - Generate a slug
 
 ## Security
 We are using [GitGuardian](https://www.gitguardian.com/) to try to protect our secrets. If you see any security risks, please let me know.

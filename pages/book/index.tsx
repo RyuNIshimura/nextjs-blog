@@ -1,43 +1,52 @@
-import { useState } from 'react'
-import { GetServerSideProps } from 'next'
-import Head from 'next/head'
-import InfiniteScroll from 'react-infinite-scroller'
-import BookCard from '@/components/molecules/book-card'
-import client from '@/lib/contentful'
-import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants'
+import { useState } from 'react';
+import { GetServerSideProps } from 'next';
+import Head from 'next/head';
+import InfiniteScroll from 'react-infinite-scroller';
+import BookCard from '@/components/molecules/book-card';
+import client from '@/lib/contentful';
+import {
+  APP_NAME,
+  BASE_URL,
+  META_DESCRIPTION,
+  PER_PAGE,
+} from '@/lib/constants';
 
 function BookPage({ initialBooks, total }: any) {
-  const [books, setBooks] = useState(initialBooks)
+  const [books, setBooks] = useState(initialBooks);
 
   const getBooks = async (page: number) => {
     const res = await client.getEntries({
       content_type: 'book',
       order: '-sys.updatedAt',
       limit: PER_PAGE,
-      skip: PER_PAGE * (page - 1)
-    })
+      skip: PER_PAGE * (page - 1),
+    });
 
-    setBooks(books.concat(res.items))
-  }
+    setBooks(books.concat(res.items));
+  };
 
   return (
     <>
       <Head>
-        <title>{ APP_NAME }</title>
+        <title>{APP_NAME}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={ META_DESCRIPTION } />
-        <meta property="og:title" content={ APP_NAME } />
-        <meta property="og:description" content={ META_DESCRIPTION } />
-        <meta property="og:image" content="https://nishimura.club/ogp.png" />
-        <meta name="twitter:image" content="https://nishimura.club/ogp.png"/>
-        <meta name="twitter:card" content="summary"/>
+        <meta name="description" content={META_DESCRIPTION} />
+        <meta property="og:title" content={APP_NAME} />
+        <meta property="og:description" content={META_DESCRIPTION} />
+        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
+        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
+        <meta name="twitter:card" content="summary" />
       </Head>
       <InfiniteScroll
         className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
         pageStart={1}
         loadMore={getBooks}
         hasMore={books.length < total}
-        loader={<div className="mx-5 my-2 lg:mx-auto" key={1}>ロード中 ...</div>}
+        loader={
+          <div className="mx-5 my-2 lg:mx-auto" key={1}>
+            ロード中 ...
+          </div>
+        }
         useWindow={true}
       >
         {books.map((book: { fields: { title: any } }) => (
@@ -45,22 +54,22 @@ function BookPage({ initialBooks, total }: any) {
         ))}
       </InfiniteScroll>
     </>
-  )
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const books = await client.getEntries({
     content_type: 'book',
     order: '-sys.updatedAt',
-    limit: PER_PAGE
-  })
+    limit: PER_PAGE,
+  });
 
   return {
     props: {
       initialBooks: books.items,
-      total: books.total
-    }
-  }
-}
+      total: books.total,
+    },
+  };
+};
 
-export default BookPage
+export default BookPage;
