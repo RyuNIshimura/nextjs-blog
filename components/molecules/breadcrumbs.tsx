@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { HomeIcon } from '@heroicons/react/solid';
+import { BreadcrumbPage } from '@/lib/types';
 
-export default function Breadcrumbs({ pages }: any) {
+export default function Breadcrumbs({ pages }: { pages: BreadcrumbPage[] }) {
   return (
     <nav
       className="flex my-5 bg-white dark:bg-gray-900"

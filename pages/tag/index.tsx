@@ -6,8 +6,7 @@ import {
   APP_NAME,
   BASE_URL,
   META_DESCRIPTION,
-  TAG_TYPE,
-  CATEGORY_TYPE,
+  CONTENT_TYPE,
 } from '@/lib/constants';
 
 export default function TagList({ tags, categories }: any) {
@@ -63,12 +62,12 @@ export default function TagList({ tags, categories }: any) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const tags = await client
-    .getEntries({ content_type: TAG_TYPE })
+    .getEntries({ content_type: CONTENT_TYPE.TAG })
     .then((res: any) => res.items)
     .catch(console.error);
 
   const categories = await client
-    .getEntries({ content_type: CATEGORY_TYPE })
+    .getEntries({ content_type: CONTENT_TYPE.CATEGORY })
     .then((res: any) => res.items)
     .catch(console.error);
 

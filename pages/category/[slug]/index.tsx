@@ -10,16 +10,16 @@ import {
   BASE_URL,
   META_DESCRIPTION,
   PER_PAGE,
-  ARTICLE_TYPE,
-  CATEGORY_TYPE,
+  CONTENT_TYPE,
 } from '@/lib/constants';
+import { BreadcrumbPage } from '@/lib/types';
 
 function IndexPage({ initialArticles, total, category, pages }: any) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: ARTICLE_TYPE,
+      content_type: CONTENT_TYPE.ARTICLE,
       'fields.type.sys.id': category.sys.id,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
@@ -68,31 +68,33 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const category = await client
     .getEntries({
-      content_type: CATEGORY_TYPE,
+      content_type: CONTENT_TYPE.CATEGORY,
       'fields.slug': params?.slug,
     })
     .then((res: any) => res.items[0])
     .catch(console.error);
 
   const articles = await client.getEntries({
-    content_type: ARTICLE_TYPE,
+    content_type: CONTENT_TYPE.ARTICLE,
     'fields.type.sys.id': category.sys.id,
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });
+
+  const pages: BreadcrumbPage[] = [
+    {
+      name: category.fields.name,
+      href: `/category/${category.fields.slug}`,
+      current: true,
+    },
+  ];
 
   return {
     props: {
       initialArticles: articles.items,
       total: articles.total,
       category: category,
-      pages: [
-        {
-          name: category.fields.name,
-          href: `/category/${category.fields.slug}`,
-          current: true,
-        },
-      ],
+      pages: pages,
     },
   };
 };

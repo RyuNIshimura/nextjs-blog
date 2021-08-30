@@ -9,6 +9,7 @@ import {
   BASE_URL,
   META_DESCRIPTION,
   PER_PAGE,
+  CONTENT_TYPE,
 } from '@/lib/constants';
 
 function BookPage({ initialBooks, total }: any) {
@@ -16,7 +17,7 @@ function BookPage({ initialBooks, total }: any) {
 
   const getBooks = async (page: number) => {
     const res = await client.getEntries({
-      content_type: 'book',
+      content_type: CONTENT_TYPE.BOOK,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
       skip: PER_PAGE * (page - 1),
@@ -59,7 +60,7 @@ function BookPage({ initialBooks, total }: any) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const books = await client.getEntries({
-    content_type: 'book',
+    content_type: CONTENT_TYPE.BOOK,
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });

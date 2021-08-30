@@ -3,9 +3,15 @@ import { Dialog, Transition } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
 import ArticleCard from '@/components/molecules/article-card';
 import client from '@/lib/contentful';
-import { PER_SEARCH, ARTICLE_TYPE } from '@/lib/constants';
+import { PER_SEARCH, CONTENT_TYPE } from '@/lib/constants';
 
-export default function SearchModal({ open, parentCallback }: any) {
+export default function SearchModal({
+  open,
+  parentCallback,
+}: {
+  open: boolean;
+  parentCallback: any;
+}) {
   const [snippets, setSnippets] = useState([]);
 
   useEffect(() => {
@@ -24,7 +30,7 @@ export default function SearchModal({ open, parentCallback }: any) {
       return;
     }
     const response = await client.getEntries({
-      content_type: ARTICLE_TYPE,
+      content_type: CONTENT_TYPE.ARTICLE,
       order: '-sys.updatedAt',
       query: e.target.value,
       limit: PER_SEARCH,

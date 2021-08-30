@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 import { TwitterIcon, GitHubIcon } from '@/components/svg';
+import { Sns } from '@/lib/types';
 
 /**
  * App Settings.
@@ -20,18 +21,16 @@ export const RELATED_ARTICLES_LIMIT: number = 9;
  * Contentful data model content types.
  * https://www.contentful.com/developers/docs/concepts/data-model/
  **/
-export const ARTICLE_TYPE: string = 'article'; // ex) posts
-export const CATEGORY_TYPE: string = 'types'; // ex) categories
-export const TAG_TYPE: string = 'tags'; // ex) tags
+export enum CONTENT_TYPE {
+  ARTICLE = 'article', // ex) posts
+  CATEGORY = 'types', // ex) categories
+  TAG = 'tags', // ex) tags
+  BOOK = 'book', // optional
+}
 
 /**
  * Display SNS links in Header, Footer, and About.
  **/
-interface Sns {
-  name: string;
-  href: string;
-  icon: any;
-}
 export const TWITTER_ID: string = 'ryunishimura87'; // ex)@xxxxxxxx
 export const GITHUB_ID: string = 'RyuNIshimura';
 export const SNS_ITEMS: Sns[] = [
