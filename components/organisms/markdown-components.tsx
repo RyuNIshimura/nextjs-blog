@@ -1,74 +1,76 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import { useTheme } from 'next-themes'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid'
-import { PaperClipIcon } from '@heroicons/react/outline'
-import { ControlIcon } from '@/components/svg'
-import { getExtend, copyText } from '@/lib/markdown-utils'
-import { BASE_URL } from '@/lib/constants'
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid';
+import { PaperClipIcon } from '@heroicons/react/outline';
+import { ControlIcon } from '@/components/svg';
+import { getExtend, copyText } from '@/lib/markdown-utils';
+import { BASE_URL } from '@/lib/constants';
 
 export const MarkdownComponents = {
-  a({href, children, ...props}: any) {
+  a({ href, children, ...props }: any) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
       </a>
-    )
+    );
   },
   h2({ node, children, ...props }: any) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const router = useRouter()
-    let id = ''
+    const router = useRouter();
+    let id = '';
     if (node.children[0].value) {
-      id = node.children[0].value
+      id = node.children[0].value;
     }
-    return <h2 
-      // eslint-disable-next-line react/no-children-prop
-      id={id}
-      {...props} 
-    >
-      {String(children).replace(/\n$/, '')}
-      <PaperClipIcon 
-        className="relative inline-flex w-5 h-5 mt-1 ml-1 text-gray-500 cursor-pointer clip bottom-1 hover:text-gray-300"
-        onClick={() => copyText(`${BASE_URL}/${router.query.slug}#${id}`)}
-      />
-    </h2>
+    return (
+      <h2
+        // eslint-disable-next-line react/no-children-prop
+        id={id}
+        {...props}
+      >
+        {String(children).replace(/\n$/, '')}
+        <PaperClipIcon
+          className="relative inline-flex w-5 h-5 mt-1 ml-1 text-gray-500 cursor-pointer clip bottom-1 hover:text-gray-300"
+          onClick={() => copyText(`${BASE_URL}/${router.query.slug}#${id}`)}
+        />
+      </h2>
+    );
   },
-  // eslint-disable-next-line no-unused-vars
   code({ node, inline, className, children, ...props }: any) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [enableCopy, setEnableCopy] = useState(true)
-    // eslint-disable-next-line no-unused-vars
+    const [enableCopy, setEnableCopy] = useState(true);
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { theme, setTheme } = useTheme()
-    const code = String(children).replace(/\n$/, '')
+    const { theme, setTheme } = useTheme();
+    const code = String(children).replace(/\n$/, '');
 
     function copySnippet(code: string) {
-      navigator.clipboard.writeText(code)
-      setEnableCopy(false)
-      setTimeout(() => { setEnableCopy(true) }, 500)
+      navigator.clipboard.writeText(code);
+      setEnableCopy(false);
+      setTimeout(() => {
+        setEnableCopy(true);
+      }, 500);
     }
 
-    const match = /language-([\w./]*)/.exec(className || '')
-    let fileName = ''
+    const match = /language-([\w./]*)/.exec(className || '');
+    let fileName = '';
     if (match) {
-      fileName = match[1]
+      fileName = match[1];
     }
 
-    let matchedExt = getExtend(fileName)
+    let matchedExt = getExtend(fileName);
 
     // Custom Highlight
     if (matchedExt === 'js' || fileName === 'js') {
-      matchedExt = 'javascript'
+      matchedExt = 'javascript';
     } else if (matchedExt === 'py' || fileName === 'py') {
-      matchedExt = 'python'
+      matchedExt = 'python';
     } else if (matchedExt === 'sh' || fileName === 'sh') {
-      matchedExt = 'bash'
+      matchedExt = 'bash';
     }
 
-    const containerStyle = { paddingTop: '48px' }
+    const containerStyle = { paddingTop: '48px' };
 
     return !inline || match ? (
       <>
@@ -82,14 +84,18 @@ export const MarkdownComponents = {
             </div>
           </div>
           <div className="flex mr-2">
-            {enableCopy ? <ClipboardIcon 
-              onClick={() => copySnippet(code)}
-              className="w-6 h-6 text-gray-200 cursor-pointer"
-              aria-hidden="true"
-            /> : <CheckIcon 
-              className="w-6 h-6 text-pink-400 cursor-pointer"
-              aria-hidden="true"
-            />}
+            {enableCopy ? (
+              <ClipboardIcon
+                onClick={() => copySnippet(code)}
+                className="w-6 h-6 text-gray-200 cursor-pointer"
+                aria-hidden="true"
+              />
+            ) : (
+              <CheckIcon
+                className="w-6 h-6 text-pink-400 cursor-pointer"
+                aria-hidden="true"
+              />
+            )}
           </div>
         </div>
         <SyntaxHighlighter
@@ -110,6 +116,6 @@ export const MarkdownComponents = {
         children={code}
         {...props}
       />
-    )
-  }
-}
+    );
+  },
+};
