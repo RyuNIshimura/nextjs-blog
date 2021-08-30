@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import ArticleCard from '@/components/molecules/article-card'
 import client from '@/lib/contentful'
-import { PER_SEARCH } from '@/lib/constants'
+import { PER_SEARCH, ARTICLE_TYPE } from '@/lib/constants'
 
 export default function SearchModal({ open, parentCallback }: any) {
   const [snippets, setSnippets] = useState([])
@@ -22,7 +22,7 @@ export default function SearchModal({ open, parentCallback }: any) {
     }
     const response = await client
       .getEntries({
-        content_type: 'article',
+        content_type: ARTICLE_TYPE,
         order: '-sys.updatedAt',
         query: e.target.value,
         limit: PER_SEARCH,
@@ -32,8 +32,8 @@ export default function SearchModal({ open, parentCallback }: any) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" static className="fixed z-50 inset-0 overflow-y-auto" open={open} onClose={parentCallback}>
-        <div className="flex sm:items-end justify-center sm:min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <Dialog as="div" static className="fixed inset-0 z-50 overflow-y-auto" open={open} onClose={parentCallback}>
+        <div className="flex justify-center px-4 pt-4 pb-20 text-center sm:items-end sm:min-h-screen sm:block sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -43,7 +43,7 @@ export default function SearchModal({ open, parentCallback }: any) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -60,19 +60,19 @@ export default function SearchModal({ open, parentCallback }: any) {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0"
           >
             <div 
-              className="max-h-96 overflow-y-scroll inline-block align-bottom bg-gray-100 dark:bg-gray-900 rounded-sm text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-3xl sm:w-full"
+              className="inline-block overflow-hidden overflow-y-scroll text-left align-bottom transition-all transform bg-gray-100 rounded-sm shadow-xl max-h-96 dark:bg-gray-900 sm:align-middle sm:max-w-3xl sm:w-full"
             >
               <div id="search-container" className="w-full px-8 py-4">
                 <label htmlFor="search" className="sr-only">
                   Search
                 </label>
                 <div className="relative text-gray-400">
-                  <div className="dark:text-white pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                    <SearchIcon className="h-5 w-5" aria-hidden="true" />
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none dark:text-white">
+                    <SearchIcon className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <input
                     id="search"
-                    className="block w-full sm:text-base bg-gray-100 dark:bg-gray-900 border-b border-gray-400 py-2 pl-10 pr-3 leading-5 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none"
+                    className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-900 placeholder-gray-500 bg-gray-100 border-b border-gray-400 sm:text-base dark:bg-gray-900 dark:text-white focus:outline-none"
                     placeholder="Search"
                     type="search"
                     name="search"
@@ -81,7 +81,7 @@ export default function SearchModal({ open, parentCallback }: any) {
                   />
                 </div>
                 {!!snippets.length && 
-                  <div className="mt-5 max-w-full bg-gray-100 dark:bg-gray-900 rounded-sm">
+                  <div className="max-w-full mt-5 bg-gray-100 rounded-sm dark:bg-gray-900">
                     {snippets.map((article: any, i: number) => (
                       <div key={`${article.fields.slug}-${i}`} className="mb-5">
                         <ArticleCard article={article} />

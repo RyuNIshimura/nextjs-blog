@@ -5,14 +5,14 @@ import InfiniteScroll from 'react-infinite-scroller'
 import ArticleCard from '@/components/molecules/article-card'
 import Breadcrumbs from '@/components/molecules/breadcrumbs'
 import client from '@/lib/contentful'
-import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants'
+import { APP_NAME, META_DESCRIPTION, PER_PAGE, ARTICLE_TYPE, CATEGORY_TYPE } from '@/lib/constants'
 
 function IndexPage({ initialArticles, total, category, pages }: any) {
   const [articles, setArticles] = useState(initialArticles)
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: 'article',
+      content_type: ARTICLE_TYPE,
       'fields.type.sys.id': category.sys.id,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
@@ -55,7 +55,7 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const category = await client
     .getEntries({
-      content_type: 'types',
+      content_type: CATEGORY_TYPE,
       'fields.slug': params?.slug
     })
     .then((res: any) => res.items[0])
@@ -63,7 +63,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
 
   const articles = await client.getEntries({
-    content_type: 'article',
+    content_type: ARTICLE_TYPE,
     'fields.type.sys.id': category.sys.id,
     order: '-sys.updatedAt',
     limit: PER_PAGE

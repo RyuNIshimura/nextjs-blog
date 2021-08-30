@@ -19,7 +19,7 @@ import { TwitterIcon } from '@/components/svg'
 import client from '@/lib/contentful'
 import { generateTableOfContents } from '@/lib/markdown-utils'
 import { tweet } from '@/lib/share-utils'
-import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT } from '@/lib/constants'
+import { BASE_URL, PER_PAGE, RELATED_ARTICLES_LIMIT, ARTICLE_TYPE } from '@/lib/constants'
 
 function copy(text: string) {
   navigator.clipboard.writeText(text)
@@ -37,7 +37,7 @@ function ArticlePage({
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: 'article',
+      content_type: ARTICLE_TYPE,
       'fields.tag.sys.id': relatedTag.sys.id,
       order: '-sys.updatedAt',
       limit: RELATED_ARTICLES_LIMIT,
@@ -151,7 +151,7 @@ function ArticlePage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let articles = await client.getEntries({
-    content_type: 'article',
+    content_type: ARTICLE_TYPE,
     limit: 1
   })
   const total = articles.total
@@ -161,7 +161,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = []
   for (const l of maxPageArray) {
     articles = await client.getEntries({
-      content_type: 'article',
+      content_type: ARTICLE_TYPE,
       order: '-fields.publishDate',
       limit: PER_PAGE,
       skip: PER_PAGE * (l - 1)
@@ -185,7 +185,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   }
 
   const article = await client.getEntries({
-    content_type: 'article',
+    content_type: ARTICLE_TYPE,
     'fields.slug': params.slug
   })
   const { tableOfContents, description } = await generateTableOfContents(article.items[0].fields.body)
@@ -193,7 +193,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   const relatedTag = article.items[0].fields.tag[0]
 
   const initialArticles = await client.getEntries({
-    content_type: 'article',
+    content_type: ARTICLE_TYPE,
     'fields.tag.sys.id': relatedTag.sys.id,
     order: '-sys.updatedAt',
     limit: RELATED_ARTICLES_LIMIT

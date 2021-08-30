@@ -59,12 +59,13 @@ export const MarkdownComponents = {
 
     let matchedExt = getExtend(fileName)
 
-    // NOTE: highlightjsの場合、下記を記載してハイライトさせる
-    // TODO: うまくできていない
+    // Custom Highlight
     if (matchedExt === 'js' || fileName === 'js') {
       matchedExt = 'javascript'
     } else if (matchedExt === 'py' || fileName === 'py') {
       matchedExt = 'python'
+    } else if (matchedExt === 'sh' || fileName === 'sh') {
+      matchedExt = 'bash'
     }
 
     const containerStyle = { paddingTop: '48px' }

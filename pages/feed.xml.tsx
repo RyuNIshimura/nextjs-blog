@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from 'next'
 import RSS from 'rss'
 import client from '@/lib/contentful'
-import { BASE_URL, PER_PAGE } from '@/lib/constants'
+import { BASE_URL, PER_PAGE, ARTICLE_TYPE } from '@/lib/constants'
 
 async function generateFeedXml() {
   const feed = new RSS({
@@ -15,7 +15,7 @@ async function generateFeedXml() {
   // 例としてpostsを含めるイメージ
   // このあたりの書き方はライブラリのドキュメントを参考にしてください
   let articles = await client.getEntries({
-    content_type: 'article',
+    content_type: ARTICLE_TYPE,
     limit: 1
   })
   const total = articles.total
@@ -25,7 +25,7 @@ async function generateFeedXml() {
   const paths = []
   for (const l of maxPageArray) {
     articles = await client.getEntries({
-      content_type: 'article',
+      content_type: ARTICLE_TYPE,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
       skip: PER_PAGE * (l - 1)

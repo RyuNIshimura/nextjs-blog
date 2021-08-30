@@ -4,14 +4,14 @@ import Head from 'next/head'
 import InfiniteScroll from 'react-infinite-scroller'
 import ArticleCard from '@/components/molecules/article-card'
 import client from '@/lib/contentful'
-import { APP_NAME, META_DESCRIPTION, PER_PAGE } from '@/lib/constants'
+import { APP_NAME, META_DESCRIPTION, PER_PAGE, ARTICLE_TYPE } from '@/lib/constants'
 
 function IndexPage({ initialArticles, total }: any) {
   const [articles, setArticles] = useState(initialArticles)
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: 'article',
+      content_type: ARTICLE_TYPE,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
       skip: PER_PAGE * (page - 1)
@@ -50,7 +50,7 @@ function IndexPage({ initialArticles, total }: any) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const articles = await client.getEntries({
-    content_type: 'article',
+    content_type: ARTICLE_TYPE,
     order: '-sys.updatedAt',
     limit: PER_PAGE
   })

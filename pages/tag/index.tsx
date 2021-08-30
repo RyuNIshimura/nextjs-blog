@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Tag from '@/components/atoms/tag'
 import client from '@/lib/contentful'
-import { APP_NAME, META_DESCRIPTION } from '@/lib/constants'
+import { APP_NAME, META_DESCRIPTION, TAG_TYPE, CATEGORY_TYPE } from '@/lib/constants'
 
 export default function TagList({ tags, categories }: any) {
   return (
@@ -55,13 +55,13 @@ export default function TagList({ tags, categories }: any) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const tags = await client
-    .getEntries({ content_type: 'tags' })
+    .getEntries({ content_type: TAG_TYPE })
     .then((res: any) => res.items)
     .catch(console.error)
 
 
   const categories = await client
-    .getEntries({ content_type: 'types' })
+    .getEntries({ content_type: CATEGORY_TYPE })
     .then((res: any) => res.items)
     .catch(console.error)
 
