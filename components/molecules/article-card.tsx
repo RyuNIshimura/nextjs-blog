@@ -16,7 +16,7 @@ export default function ArticleCard({ article }: any) {
                 <img
                   className="h-10 mx-auto sm:h-16"
                   src={article.fields.image.fields.file.url}
-                  alt={article.fields.name}
+                  alt={article.fields.title}
                 />
               </a>
             </Link>
