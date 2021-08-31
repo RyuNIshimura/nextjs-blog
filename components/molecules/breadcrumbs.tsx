@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { HomeIcon } from '@heroicons/react/solid';
-import { BreadcrumbPage } from '@/lib/types';
+import { BreadcrumbPage } from '@/@types/index';
 
 export default function Breadcrumbs({ pages }: { pages: BreadcrumbPage[] }) {
   return (

@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import { TwitterIcon, GitHubIcon } from '@/components/svg';
-import { Sns } from '@/lib/types';
+import { Sns } from '@/@types/index';
 
 /**
  * App Settings.

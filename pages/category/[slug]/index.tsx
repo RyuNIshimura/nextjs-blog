@@ -12,7 +12,7 @@ import {
   PER_PAGE,
   CONTENT_TYPE,
 } from '@/lib/constants';
-import { BreadcrumbPage } from '@/lib/types';
+import { BreadcrumbPage } from '@/@types/index';
 import { IArticle, ITypes } from '@/@types/generated/contentful';
 
 interface Props {

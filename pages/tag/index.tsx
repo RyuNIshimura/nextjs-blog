@@ -68,20 +68,16 @@ export default function TagList({ tags, categories }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const tags = await client
-    .getEntries({ content_type: CONTENT_TYPE.TAG })
-    .then((res: any) => res.items)
-    .catch(console.error);
+  const tags = await client.getEntries({ content_type: CONTENT_TYPE.TAG });
 
-  const categories = await client
-    .getEntries({ content_type: CONTENT_TYPE.CATEGORY })
-    .then((res: any) => res.items)
-    .catch(console.error);
+  const categories = await client.getEntries({
+    content_type: CONTENT_TYPE.CATEGORY,
+  });
 
   return {
     props: {
-      tags,
-      categories,
+      tags: tags.items,
+      categories: categories.items,
     },
   };
 };

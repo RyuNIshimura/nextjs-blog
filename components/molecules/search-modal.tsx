@@ -4,6 +4,7 @@ import { SearchIcon } from '@heroicons/react/solid';
 import ArticleCard from '@/components/molecules/article-card';
 import client from '@/lib/contentful';
 import { PER_SEARCH, CONTENT_TYPE } from '@/lib/constants';
+import { IArticle } from '@/@types/generated/contentful';
 
 export default function SearchModal({
   open,
@@ -96,7 +97,7 @@ export default function SearchModal({
                 </div>
                 {!!snippets.length && (
                   <div className="max-w-full mt-5 bg-gray-100 rounded-sm dark:bg-gray-900">
-                    {snippets.map((article: any, i: number) => (
+                    {snippets.map((article: IArticle, i: number) => (
                       <div key={`${article.fields.slug}-${i}`} className="mb-5">
                         <ArticleCard article={article} />
                       </div>
