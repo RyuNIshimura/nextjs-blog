@@ -11,8 +11,15 @@ import {
   PER_PAGE,
   CONTENT_TYPE,
 } from '@/lib/constants';
+import { EntryCollection } from 'contentful';
+import { IArticleFields } from '@/@types/generated/contentful';
 
-function IndexPage({ initialArticles, total }: any) {
+interface Props {
+  initialArticles: EntryCollection<IArticleFields>[];
+  total: number;
+}
+
+function IndexPage({ initialArticles, total }: Props) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
@@ -58,9 +65,9 @@ function IndexPage({ initialArticles, total }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const articles = await client.getEntries({
-    content_type: CONTENT_TYPE.ARTICLE,
+    content_type: 'article',
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });

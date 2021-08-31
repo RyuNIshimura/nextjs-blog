@@ -33,7 +33,7 @@ Content Delivery API is read-only.
 Copy the .env.example and set the API Key for Contentful.
 
 ```bash
-cp .env.example .env.local
+cp .env.local.example .env.local
 ```
 
 ```bash
@@ -48,6 +48,22 @@ It can be built without using Docker.
 yarn install
 yarn dev
 ```
+
+### Contentful type generation
+
+Refer to the following library to generate the Contentful type.
+
+[intercom/contentful-typescript-codegen: Generate TypeScript interfaces from a Contentful environment](https://github.com/intercom/contentful-typescript-codegen)
+
+```bash
+cp .env.example .env
+```
+
+```bash
+yarn contentful-typescript-codegen
+```
+
+Generated in `@types/generated/contentful.d.ts`.
 
 ## Code quality
 - 🔶 TypeScript — Adding static type definitions

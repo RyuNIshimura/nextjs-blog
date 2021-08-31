@@ -43,7 +43,7 @@ function ArticlePage({
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: CONTENT_TYPE.ARTICLE,
+      content_type: 'article',
       'fields.tag.sys.id': relatedTag.sys.id,
       order: '-sys.updatedAt',
       limit: RELATED_ARTICLES_LIMIT,
@@ -161,7 +161,7 @@ function ArticlePage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let articles = await client.getEntries({
-    content_type: CONTENT_TYPE.ARTICLE,
+    content_type: 'article',
     limit: 1,
   });
   const total = articles.total;
@@ -171,7 +171,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [];
   for (const l of maxPageArray) {
     articles = await client.getEntries({
-      content_type: CONTENT_TYPE.ARTICLE,
+      content_type: 'article',
       order: '-fields.publishDate',
       limit: PER_PAGE,
       skip: PER_PAGE * (l - 1),
@@ -195,7 +195,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const article = await client.getEntries({
-    content_type: CONTENT_TYPE.ARTICLE,
+    content_type: 'article',
     'fields.slug': params.slug,
   });
   const { tableOfContents, description } = await generateTableOfContents(
@@ -205,7 +205,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const relatedTag = article.items[0].fields.tag[0];
 
   const initialArticles = await client.getEntries({
-    content_type: CONTENT_TYPE.ARTICLE,
+    content_type: 'article',
     'fields.tag.sys.id': relatedTag.sys.id,
     order: '-sys.updatedAt',
     limit: RELATED_ARTICLES_LIMIT,
