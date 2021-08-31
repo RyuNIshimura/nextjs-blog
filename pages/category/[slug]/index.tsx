@@ -10,16 +10,24 @@ import {
   BASE_URL,
   META_DESCRIPTION,
   PER_PAGE,
-  ARTICLE_TYPE,
-  CATEGORY_TYPE,
+  CONTENT_TYPE,
 } from '@/lib/constants';
+import { BreadcrumbPage } from '@/@types/index';
+import { IArticle, ITypes } from '@/@types/generated/contentful';
 
-function IndexPage({ initialArticles, total, category, pages }: any) {
+interface Props {
+  initialArticles: IArticle[];
+  total: number;
+  category: ITypes;
+  pages: BreadcrumbPage[];
+}
+
+function IndexPage({ initialArticles, total, category, pages }: Props) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: ARTICLE_TYPE,
+      content_type: CONTENT_TYPE.ARTICLE,
       'fields.type.sys.id': category.sys.id,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
@@ -57,7 +65,7 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
         }
         useWindow={true}
       >
-        {articles.map((article: any) => (
+        {articles.map((article: IArticle) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </InfiniteScroll>
@@ -65,34 +73,38 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  params,
+}) => {
   const category = await client
     .getEntries({
-      content_type: CATEGORY_TYPE,
+      content_type: CONTENT_TYPE.CATEGORY,
       'fields.slug': params?.slug,
     })
     .then((res: any) => res.items[0])
     .catch(console.error);
 
   const articles = await client.getEntries({
-    content_type: ARTICLE_TYPE,
+    content_type: CONTENT_TYPE.ARTICLE,
     'fields.type.sys.id': category.sys.id,
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });
+
+  const pages: BreadcrumbPage[] = [
+    {
+      name: category.fields.name,
+      href: `/category/${category.fields.slug}`,
+      current: true,
+    },
+  ];
 
   return {
     props: {
       initialArticles: articles.items,
       total: articles.total,
       category: category,
-      pages: [
-        {
-          name: category.fields.name,
-          href: `/category/${category.fields.slug}`,
-          current: true,
-        },
-      ],
+      pages: pages,
     },
   };
 };

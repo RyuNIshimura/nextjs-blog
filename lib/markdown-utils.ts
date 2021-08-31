@@ -39,7 +39,7 @@ export function removeTags(htmlString: string) {
   return htmlString.replace(removeTagPattern, '').slice(0, 120) + '…';
 }
 
-export async function generateTableOfContents(markdown: any) {
+export async function generateTableOfContents(markdown: string) {
   const result = await remark()?.use(html)?.process(markdown);
   const htmlString = result.toString();
   const description = removeTags(htmlString);

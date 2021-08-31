@@ -9,14 +9,21 @@ import {
   BASE_URL,
   META_DESCRIPTION,
   PER_PAGE,
+  CONTENT_TYPE,
 } from '@/lib/constants';
+import { IBook } from '@/@types/generated/contentful';
 
-function BookPage({ initialBooks, total }: any) {
+interface Props {
+  initialBooks: IBook[];
+  total: number;
+}
+
+function BookPage({ initialBooks, total }: Props) {
   const [books, setBooks] = useState(initialBooks);
 
   const getBooks = async (page: number) => {
     const res = await client.getEntries({
-      content_type: 'book',
+      content_type: CONTENT_TYPE.BOOK,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
       skip: PER_PAGE * (page - 1),
@@ -49,7 +56,7 @@ function BookPage({ initialBooks, total }: any) {
         }
         useWindow={true}
       >
-        {books.map((book: { fields: { title: any } }) => (
+        {books.map((book: IBook) => (
           <BookCard key={book.fields.title} book={book} />
         ))}
       </InfiniteScroll>
@@ -57,9 +64,9 @@ function BookPage({ initialBooks, total }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const books = await client.getEntries({
-    content_type: 'book',
+    content_type: CONTENT_TYPE.BOOK,
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });

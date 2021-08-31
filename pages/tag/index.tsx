@@ -1,16 +1,22 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Tag from '@/components/atoms/tag';
+import Category from '@/components/atoms/category';
 import client from '@/lib/contentful';
 import {
   APP_NAME,
   BASE_URL,
   META_DESCRIPTION,
-  TAG_TYPE,
-  CATEGORY_TYPE,
+  CONTENT_TYPE,
 } from '@/lib/constants';
+import { ITags, ITypes } from '@/@types/generated/contentful';
 
-export default function TagList({ tags, categories }: any) {
+interface Props {
+  tags: ITags[];
+  categories: ITypes[];
+}
+
+export default function TagList({ tags, categories }: Props) {
   return (
     <>
       <Head>
@@ -30,7 +36,7 @@ export default function TagList({ tags, categories }: any) {
               <div className="max-w-screen-xl mb-8">
                 <h1 className="text-2xl font-bold text-center">タグ一覧</h1>
                 <div className="my-8">
-                  {tags.map((tag: any, i: number) => (
+                  {tags.map((tag: ITags, i: number) => (
                     <span
                       className="leading-10"
                       key={`${tag.fields.slug}-${i}`}
@@ -43,12 +49,12 @@ export default function TagList({ tags, categories }: any) {
               <div>
                 <h1 className="text-2xl font-bold text-center">カテゴリ一覧</h1>
                 <div className="my-8">
-                  {categories.map((category: any, i: number) => (
+                  {categories.map((category: ITypes, i: number) => (
                     <span
                       className="leading-10"
                       key={`${category.fields.slug}-${i}`}
                     >
-                      <Tag tag={category} />
+                      <Category category={category} />
                     </span>
                   ))}
                 </div>
@@ -61,21 +67,17 @@ export default function TagList({ tags, categories }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const tags = await client
-    .getEntries({ content_type: TAG_TYPE })
-    .then((res: any) => res.items)
-    .catch(console.error);
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const tags = await client.getEntries({ content_type: CONTENT_TYPE.TAG });
 
-  const categories = await client
-    .getEntries({ content_type: CATEGORY_TYPE })
-    .then((res: any) => res.items)
-    .catch(console.error);
+  const categories = await client.getEntries({
+    content_type: CONTENT_TYPE.CATEGORY,
+  });
 
   return {
     props: {
-      tags,
-      categories,
+      tags: tags.items,
+      categories: categories.items,
     },
   };
 };

@@ -3,9 +3,16 @@ import { Dialog, Transition } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
 import ArticleCard from '@/components/molecules/article-card';
 import client from '@/lib/contentful';
-import { PER_SEARCH, ARTICLE_TYPE } from '@/lib/constants';
+import { PER_SEARCH, CONTENT_TYPE } from '@/lib/constants';
+import { IArticle } from '@/@types/generated/contentful';
 
-export default function SearchModal({ open, parentCallback }: any) {
+export default function SearchModal({
+  open,
+  parentCallback,
+}: {
+  open: boolean;
+  parentCallback: any;
+}) {
   const [snippets, setSnippets] = useState([]);
 
   useEffect(() => {
@@ -24,7 +31,7 @@ export default function SearchModal({ open, parentCallback }: any) {
       return;
     }
     const response = await client.getEntries({
-      content_type: ARTICLE_TYPE,
+      content_type: CONTENT_TYPE.ARTICLE,
       order: '-sys.updatedAt',
       query: e.target.value,
       limit: PER_SEARCH,
@@ -90,7 +97,7 @@ export default function SearchModal({ open, parentCallback }: any) {
                 </div>
                 {!!snippets.length && (
                   <div className="max-w-full mt-5 bg-gray-100 rounded-sm dark:bg-gray-900">
-                    {snippets.map((article: any, i: number) => (
+                    {snippets.map((article: IArticle, i: number) => (
                       <div key={`${article.fields.slug}-${i}`} className="mb-5">
                         <ArticleCard article={article} />
                       </div>

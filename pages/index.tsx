@@ -9,15 +9,21 @@ import {
   BASE_URL,
   META_DESCRIPTION,
   PER_PAGE,
-  ARTICLE_TYPE,
+  CONTENT_TYPE,
 } from '@/lib/constants';
+import { IArticle } from '@/@types/generated/contentful';
 
-function IndexPage({ initialArticles, total }: any) {
+interface Props {
+  initialArticles: IArticle[];
+  total: number;
+}
+
+function IndexPage({ initialArticles, total }: Props) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: ARTICLE_TYPE,
+      content_type: CONTENT_TYPE.ARTICLE,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
       skip: PER_PAGE * (page - 1),
@@ -50,7 +56,7 @@ function IndexPage({ initialArticles, total }: any) {
         }
         useWindow={true}
       >
-        {articles.map((article: any) => (
+        {articles.map((article: IArticle) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </InfiniteScroll>
@@ -58,9 +64,9 @@ function IndexPage({ initialArticles, total }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const articles = await client.getEntries({
-    content_type: ARTICLE_TYPE,
+    content_type: CONTENT_TYPE.ARTICLE,
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });

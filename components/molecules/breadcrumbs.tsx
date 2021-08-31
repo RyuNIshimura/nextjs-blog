@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { HomeIcon } from '@heroicons/react/solid';
+import { BreadcrumbPage } from '@/@types/index';
 
-export default function Breadcrumbs({ pages }: any) {
+export default function Breadcrumbs({ pages }: { pages: BreadcrumbPage[] }) {
   return (
     <nav
       className="flex my-5 bg-white dark:bg-gray-900"
@@ -21,7 +22,7 @@ export default function Breadcrumbs({ pages }: any) {
             </Link>
           </div>
         </li>
-        {pages.map((page: any) => (
+        {pages.map((page: BreadcrumbPage) => (
           <li key={page.name} className="flex">
             <div className="flex items-center">
               <svg
