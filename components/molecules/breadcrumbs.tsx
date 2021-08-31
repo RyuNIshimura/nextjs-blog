@@ -22,7 +22,7 @@ export default function Breadcrumbs({ pages }: { pages: BreadcrumbPage[] }) {
             </Link>
           </div>
         </li>
-        {pages.map((page: any) => (
+        {pages.map((page: BreadcrumbPage) => (
           <li key={page.name} className="flex">
             <div className="flex items-center">
               <svg

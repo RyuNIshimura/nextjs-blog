@@ -49,9 +49,9 @@ yarn install
 yarn dev
 ```
 
-### Contentful type generation
+### Contentful types generation
 
-Refer to the following library to generate the Contentful type.
+Refer to the following library to generate the Contentful types.
 
 [intercom/contentful-typescript-codegen: Generate TypeScript interfaces from a Contentful environment](https://github.com/intercom/contentful-typescript-codegen)
 

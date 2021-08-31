@@ -27,11 +27,7 @@ import {
   CONTENT_TYPE,
 } from '@/lib/constants';
 import { IArticle, ITags } from '@/@types/generated/contentful';
-
-interface ITableOfContent {
-  id: string;
-  name: string;
-}
+import { ITableOfContent } from '@/@types/index';
 
 interface Props {
   article: IArticle;

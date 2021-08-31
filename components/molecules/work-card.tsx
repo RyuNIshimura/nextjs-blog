@@ -1,4 +1,6 @@
-export default function WorkCard({ work }: any) {
+import { IWork } from '@/@types/generated/contentful';
+
+export default function WorkCard({ work }: { work: IWork }) {
   return (
     <div
       key={work.fields.name}

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import { PaperClipIcon } from '@heroicons/react/outline';
 import { RefreshIcon } from '@heroicons/react/solid';
-import { IArticle } from '@/@types/generated/contentful';
+import { IArticle, ITags } from '@/@types/generated/contentful';
 
 export default function ArticleCard({ article }: { article: IArticle }) {
   return (
@@ -30,7 +30,7 @@ export default function ArticleCard({ article }: { article: IArticle }) {
               </a>
             </Link>
             <div className="flex mt-2 flex-nowrap">
-              {article.fields.tag.map((t: any, i: number) => (
+              {article.fields.tag.map((t: ITags, i: number) => (
                 <a
                   key={`${t.fields.slug}-${i}`}
                   href={`/tag/${t.fields.slug}`}

@@ -13,8 +13,16 @@ import {
   CONTENT_TYPE,
 } from '@/lib/constants';
 import { BreadcrumbPage } from '@/lib/types';
+import { IArticle, ITypes } from '@/@types/generated/contentful';
 
-function IndexPage({ initialArticles, total, category, pages }: any) {
+interface Props {
+  initialArticles: IArticle[];
+  total: number;
+  category: ITypes;
+  pages: BreadcrumbPage[];
+}
+
+function IndexPage({ initialArticles, total, category, pages }: Props) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
@@ -57,7 +65,7 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
         }
         useWindow={true}
       >
-        {articles.map((article: any) => (
+        {articles.map((article: IArticle) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </InfiniteScroll>
@@ -65,7 +73,9 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  params,
+}) => {
   const category = await client
     .getEntries({
       content_type: CONTENT_TYPE.CATEGORY,

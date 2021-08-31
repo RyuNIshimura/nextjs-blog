@@ -1,6 +1,7 @@
 import { PaperClipIcon } from '@heroicons/react/outline';
+import { IBook, ITags } from '@/@types/generated/contentful';
 
-export default function BookCard({ book }: any) {
+export default function BookCard({ book }: { book: IBook }) {
   return (
     <div
       key={book.fields.title}
@@ -34,16 +35,17 @@ export default function BookCard({ book }: any) {
               {book.fields.description.substr(0, 100) + '...'}
             </div>
             <div className="flex mt-2 flex-nowrap">
-              {book.fields.tags.map((tag: any, i: number) => (
-                <a
-                  key={`${tag.fields.slug}-${i}`}
-                  href={`/tag/${tag.fields.slug}`}
-                  className="inline-flex items-center py-1 pl-1 pr-2 mr-2 text-xs font-bold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-300 hover:bg-gray-200"
-                >
-                  <PaperClipIcon className="w-4 h-4 mr-1" />
-                  {tag.fields.name}
-                </a>
-              ))}
+              {book.fields.tags &&
+                book.fields.tags.map((tag: ITags, i: number) => (
+                  <a
+                    key={`${tag.fields.slug}-${i}`}
+                    href={`/tag/${tag.fields.slug}`}
+                    className="inline-flex items-center py-1 pl-1 pr-2 mr-2 text-xs font-bold text-gray-800 bg-gray-100 rounded-full dark:bg-gray-300 hover:bg-gray-200"
+                  >
+                    <PaperClipIcon className="w-4 h-4 mr-1" />
+                    {tag.fields.name}
+                  </a>
+                ))}
             </div>
           </div>
         </div>

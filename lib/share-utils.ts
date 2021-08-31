@@ -1,16 +1,21 @@
 import { BASE_URL } from '@/lib/constants';
 import { IArticle } from '@/@types/generated/contentful';
+interface ITwitterShareParams {
+  url: string;
+  text: string;
+}
 
 export function tweet(article: IArticle) {
   let shareURL: string = 'https://twitter.com/share?';
 
-  const params: any = {
+  const params: ITwitterShareParams = {
     url: `${BASE_URL}/${article.fields.slug}`,
     text: article.fields.title,
   };
 
-  for (const prop in params)
-    shareURL += '&' + prop + '=' + encodeURIComponent(params[prop]);
+  shareURL += '&' + 'url' + '=' + encodeURIComponent(params.url);
+  shareURL += '&' + 'text' + '=' + encodeURIComponent(params.text);
+
   window.open(
     shareURL,
     '',

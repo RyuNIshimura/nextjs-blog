@@ -1,7 +1,13 @@
-export default function TableOfContents(props: any) {
+import { ITableOfContent } from '@/@types/index';
+
+export default function TableOfContents({
+  tableOfContents,
+}: {
+  tableOfContents: ITableOfContent[];
+}) {
   return (
     <nav className="space-y-1" aria-label="Sidebar">
-      {props.tableOfContents.map((content: any) => (
+      {tableOfContents.map((content: ITableOfContent) => (
         <a
           key={content.name}
           href={`#${content.id}`}
