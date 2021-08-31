@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Ryu Nishimura",
   "dependencies": {
-    "@headlessui/react": "^1.4.0",
+    "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
     "contentful": "^8.4.2",
     "dayjs": "^1.10.6",
