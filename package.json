@@ -3,12 +3,9 @@
   "version": "1.0.0",
   "author": "Ryu Nishimura",
   "dependencies": {
-    "@contentful/rich-text-types": "^15.1.0",
     "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.4",
     "contentful": "^8.5.0",
-    "contentful-management": "^7.33.1",
-    "contentful-typescript-codegen": "^3.2.2",
     "dayjs": "^1.10.6",
     "keyboardjs": "^2.6.4",
     "next": "^11.1.0",
@@ -27,6 +24,7 @@
     "remark-math": "^4.0.0"
   },
   "devDependencies": {
+    "@contentful/rich-text-types": "^15.1.0",
     "@next/eslint-plugin-next": "^11.1.0",
     "@tailwindcss/jit": "^0.1.18",
     "@types/gtag.js": "^0.0.7",
@@ -36,6 +34,8 @@
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
     "autoprefixer": "^10.3.1",
+    "contentful-management": "^7.33.1",
+    "contentful-typescript-codegen": "^3.2.2",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",

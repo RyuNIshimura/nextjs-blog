@@ -1,6 +1,7 @@
 import { BASE_URL } from '@/lib/constants';
+import { IArticle } from '@/@types/generated/contentful';
 
-export function tweet(article: any) {
+export function tweet(article: IArticle) {
   let shareURL: string = 'https://twitter.com/share?';
 
   const params: any = {
@@ -16,3 +17,7 @@ export function tweet(article: any) {
     'left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0'
   );
 }
+
+export const copyText = (text: string) => {
+  navigator.clipboard.writeText(text);
+};

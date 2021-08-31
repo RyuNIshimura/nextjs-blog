@@ -11,11 +11,10 @@ import {
   PER_PAGE,
   CONTENT_TYPE,
 } from '@/lib/constants';
-import { EntryCollection } from 'contentful';
-import { IArticleFields } from '@/@types/generated/contentful';
+import { IArticle } from '@/@types/generated/contentful';
 
 interface Props {
-  initialArticles: EntryCollection<IArticleFields>[];
+  initialArticles: IArticle[];
   total: number;
 }
 
@@ -57,7 +56,7 @@ function IndexPage({ initialArticles, total }: Props) {
         }
         useWindow={true}
       >
-        {articles.map((article: any) => (
+        {articles.map((article: IArticle) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </InfiniteScroll>
@@ -67,7 +66,7 @@ function IndexPage({ initialArticles, total }: Props) {
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const articles = await client.getEntries({
-    content_type: 'article',
+    content_type: CONTENT_TYPE.ARTICLE,
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });

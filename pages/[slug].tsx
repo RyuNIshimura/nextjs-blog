@@ -18,7 +18,7 @@ import Tag from '@/components/atoms/tag';
 import { TwitterIcon } from '@/components/svg';
 import client from '@/lib/contentful';
 import { generateTableOfContents } from '@/lib/markdown-utils';
-import { tweet } from '@/lib/share-utils';
+import { tweet, copyText } from '@/lib/share-utils';
 import {
   APP_NAME,
   BASE_URL,
@@ -26,9 +26,20 @@ import {
   RELATED_ARTICLES_LIMIT,
   CONTENT_TYPE,
 } from '@/lib/constants';
+import { IArticle, ITags } from '@/@types/generated/contentful';
 
-function copy(text: string) {
-  navigator.clipboard.writeText(text);
+interface ITableOfContent {
+  id: string;
+  name: string;
+}
+
+interface Props {
+  article: IArticle;
+  tableOfContents: ITableOfContent[];
+  description: string;
+  initialArticles: IArticle[];
+  total: number;
+  relatedTag: ITags;
 }
 
 function ArticlePage({
@@ -38,12 +49,12 @@ function ArticlePage({
   initialArticles,
   total,
   relatedTag,
-}: any) {
+}: Props) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
-      content_type: 'article',
+      content_type: CONTENT_TYPE.ARTICLE,
       'fields.tag.sys.id': relatedTag.sys.id,
       order: '-sys.updatedAt',
       limit: RELATED_ARTICLES_LIMIT,
@@ -59,7 +70,7 @@ function ArticlePage({
       <Head>
         <title>{article.fields.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="keywords" content={article.fields.keywords} />
+        <meta name="keywords" content={article.fields.keyword} />
         <meta name="description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={APP_NAME} />
@@ -86,12 +97,12 @@ function ArticlePage({
               {article.fields.title}
               <PaperClipIcon
                 className="relative inline-flex w-6 h-6 ml-1 text-gray-500 cursor-pointer title-clip bottom-1 hover:text-gray-300"
-                onClick={() => copy(`${BASE_URL}/${article.fields.slug}`)}
+                onClick={() => copyText(`${BASE_URL}/${article.fields.slug}`)}
               />
             </h1>
             <div className="flex items-center justify-between flex-nowrap">
               <div>
-                {article.fields.tag.map((tag: any, i: number) => (
+                {article.fields.tag.map((tag: ITags, i: number) => (
                   <Tag key={`${tag.fields.slug}-${i}`} tag={tag} />
                 ))}
               </div>
@@ -144,7 +155,7 @@ function ArticlePage({
                 }
                 useWindow={true}
               >
-                {articles.map((article: any) => (
+                {articles.map((article: IArticle) => (
                   <ArticleCard key={article.fields.slug} article={article} />
                 ))}
               </InfiniteScroll>
@@ -161,7 +172,7 @@ function ArticlePage({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let articles = await client.getEntries({
-    content_type: 'article',
+    content_type: CONTENT_TYPE.ARTICLE,
     limit: 1,
   });
   const total = articles.total;
@@ -171,7 +182,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [];
   for (const l of maxPageArray) {
     articles = await client.getEntries({
-      content_type: 'article',
+      content_type: CONTENT_TYPE.ARTICLE,
       order: '-fields.publishDate',
       limit: PER_PAGE,
       skip: PER_PAGE * (l - 1),
@@ -184,7 +195,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   if (!params?.slug) {
     return {
       redirect: {
@@ -195,7 +206,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const article = await client.getEntries({
-    content_type: 'article',
+    content_type: CONTENT_TYPE.ARTICLE,
     'fields.slug': params.slug,
   });
   const { tableOfContents, description } = await generateTableOfContents(
@@ -205,7 +216,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const relatedTag = article.items[0].fields.tag[0];
 
   const initialArticles = await client.getEntries({
-    content_type: 'article',
+    content_type: CONTENT_TYPE.ARTICLE,
     'fields.tag.sys.id': relatedTag.sys.id,
     order: '-sys.updatedAt',
     limit: RELATED_ARTICLES_LIMIT,

@@ -2,8 +2,9 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import { PaperClipIcon } from '@heroicons/react/outline';
 import { RefreshIcon } from '@heroicons/react/solid';
+import { IArticle } from '@/@types/generated/contentful';
 
-export default function ArticleCard({ article }: any) {
+export default function ArticleCard({ article }: { article: IArticle }) {
   return (
     <div
       key={article.fields.title}
