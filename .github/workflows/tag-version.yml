@@ -1,0 +1,21 @@
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+jobs:
+  release:
+    name: add tag
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.3.4
+      - name: add tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          COMMIT: ${{ github.event.pull_request.head.sha }}
+        run: ./.github/scripts/add-tag.sh
