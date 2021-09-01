@@ -34,7 +34,7 @@
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
     "autoprefixer": "^10.3.1",
-    "contentful-management": "^7.33.1",
+    "contentful-management": "^7.34.0",
     "contentful-typescript-codegen": "^3.2.2",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",

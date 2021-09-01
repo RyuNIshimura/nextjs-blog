@@ -1028,10 +1028,10 @@ constants-browserify@1.0.0, constants-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
 
-contentful-management@^7.33.1:
-  version "7.33.1"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.33.1.tgz#2dd0ed4cada00c6aa1d4250aa97fc976f8221fa4"
-  integrity sha512-vpH/0KoUOdbeqE2bYvZeTCcJKX2wCM0CM1Y1Oe2GLpkUFQMZQiqEmp+nmMwwgueMKKeKuQUywzOPoF86tIe7DQ==
+contentful-management@^7.34.0:
+  version "7.34.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.34.0.tgz#5aadc8c3627e1f65a22f3896fd2a76cebd91f6c8"
+  integrity sha512-u1kIEllGeI7pi5JowiD9NqyhPBpEZ5kG3Oz1W1U+ygZiYH46VG4a/k9LoH8XkDaFIRpCP38GpWlUGwcR7JUqxA==
   dependencies:
     "@types/json-patch" "0.0.30"
     axios "^0.21.0"
@@ -1047,15 +1047,7 @@ contentful-resolve-response@^1.3.0:
   dependencies:
     fast-copy "^2.1.0"
 
-contentful-sdk-core@^6.5.0:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-6.8.0.tgz#b3e24dc1c89444b021dede26062451d9e13db61f"
-  integrity sha512-X45uNrcbQ2qY2p4G/Wx2EFUdnLnoDXjw29i+d0JVTUXqCG58p3q4GHuAPzTX+uafJL4h0ZY2xPOn4nvJ83eRBQ==
-  dependencies:
-    fast-copy "^2.1.0"
-    qs "^6.9.4"
-
-contentful-sdk-core@^6.8.0:
+contentful-sdk-core@^6.5.0, contentful-sdk-core@^6.8.0:
   version "6.8.1"
   resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-6.8.1.tgz#bc91dc7743a3d918903854bc7878387c7e06c7e6"
   integrity sha512-gck+hQ71ST/39rzqW8zgJsHjpw+EDcpuVXg9rVJRO/AN4RrFi8gQv8R8ifFpVeNkqJdTA7wDFiYL3YykkoG7GA==
