@@ -41,7 +41,7 @@ export default function ArticleCard({ article }: { article: IArticle }) {
                 </a>
               ))}
             </div>
-            <div className="flex mt-3 flex-nowrap">
+            <div className="flex mt-5 flex-nowrap">
               <RefreshIcon className="h-5 text-sm text-gray-500 dark:text-gray-400" />
               <span className="ml-1 text-sm text-gray-500 dark:text-gray-400">
                 {dayjs(article.sys.updatedAt).format('YYYY年MM月DD日')}
