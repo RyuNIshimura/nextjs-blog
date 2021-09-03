@@ -33,7 +33,7 @@
     "@types/react-infinite-scroller": "^1.2.2",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
-    "autoprefixer": "^10.3.1",
+    "autoprefixer": "^10.3.4",
     "contentful-management": "^7.36.1",
     "contentful-typescript-codegen": "^3.2.2",
     "dotenv": "^10.0.0",
