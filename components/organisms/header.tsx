@@ -167,12 +167,12 @@ export default function Header() {
                     <label htmlFor="search" className="sr-only">
                       Search
                     </label>
-                    <div className="relative mr-2 text-gray-600 border-b border-gray-600">
+                    <div className="relative mr-2 text-gray-600 border-b border-gray-600 dark:text-gray-100 dark:border-gray-100">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <SearchIcon className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div
-                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer sm:text-sm"
+                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer dark:text-gray-100 sm:text-sm"
                         onClick={() => setOpenSearchModal(true)}
                       >
                         Search
