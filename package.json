@@ -42,7 +42,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.1",
     "fixpack": "^4.0.0",
-    "husky": "^7.0.1",
+    "husky": "^7.0.2",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "rss": "^1.2.2",
