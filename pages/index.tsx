@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import InfiniteScroll from 'react-infinite-scroller';
 import ArticleCard from '@/components/molecules/article-card';
@@ -64,7 +64,7 @@ function IndexPage({ initialArticles, total }: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const articles = await client.getEntries({
     content_type: CONTENT_TYPE.ARTICLE,
     order: '-sys.updatedAt',

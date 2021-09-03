@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Tag from '@/components/atoms/tag';
 import Category from '@/components/atoms/category';
@@ -67,7 +67,7 @@ export default function TagList({ tags, categories }: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const tags = await client.getEntries({ content_type: CONTENT_TYPE.TAG });
 
   const categories = await client.getEntries({

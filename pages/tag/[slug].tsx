@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import InfiniteScroll from 'react-infinite-scroller';
 import ArticleCard from '@/components/molecules/article-card';
@@ -73,9 +73,31 @@ function IndexPage({ initialArticles, total, tag, pages }: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  params,
-}) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  let tags = await client.getEntries({
+    content_type: CONTENT_TYPE.TAG,
+    limit: 1,
+  });
+  const total = tags.total;
+  const maxPage = Math.ceil(total / PER_PAGE);
+  const maxPageArray = [...Array(maxPage).keys()].map((i) => ++i);
+
+  const paths = [];
+  for (const l of maxPageArray) {
+    tags = await client.getEntries({
+      content_type: CONTENT_TYPE.TAG,
+      limit: PER_PAGE,
+      skip: PER_PAGE * (l - 1),
+    });
+    for (const tag of tags.items) {
+      paths.push({ params: { slug: tag.fields.slug } });
+    }
+  }
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const tag = await client
     .getEntries({
       content_type: CONTENT_TYPE.TAG,

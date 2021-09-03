@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import WorkCard from '@/components/molecules/work-card';
 import client from '@/lib/contentful';
 import {
@@ -95,7 +95,7 @@ export default function About({ works }: { works: IWork[] }) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const works = await client.getEntries({
     content_type: 'work',
     order: '-sys.updatedAt',

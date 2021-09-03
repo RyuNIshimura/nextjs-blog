@@ -54,42 +54,6 @@ export interface IArticle extends Entry<IArticleFields> {
   };
 }
 
-export interface IBookFields {
-  /** title */
-  title: string;
-
-  /** description */
-  description: string;
-
-  /** image */
-  image: Asset;
-
-  /** link */
-  link: string;
-
-  /** tags */
-  tags?: ITags[] | undefined;
-}
-
-/** 読んだ本 */
-
-export interface IBook extends Entry<IBookFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'book';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
 export interface ITagsFields {
   /** name */
   name: string;
@@ -180,7 +144,7 @@ export interface IWork extends Entry<IWorkFields> {
   };
 }
 
-export type CONTENT_TYPE = 'article' | 'book' | 'tags' | 'types' | 'work';
+export type CONTENT_TYPE = 'article' | 'tags' | 'types' | 'work';
 
 export type LOCALE_CODE = 'ja';
 
