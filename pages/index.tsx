@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import InfiniteScroll from 'react-infinite-scroller';
-import ArticleCard from '@/components/molecules/article-card';
+import dynamic from 'next/dynamic';
 import client from '@/lib/contentful';
 import {
   APP_NAME,
@@ -12,6 +11,16 @@ import {
   CONTENT_TYPE,
 } from '@/lib/constants';
 import { IArticle } from '@/@types/generated/contentful';
+const ArticleCard = dynamic(
+  () => import('@/components/molecules/article-card'),
+  // eslint-disable-next-line react/display-name
+  { loading: () => <p>loading...</p> }
+);
+const InfiniteScroll = dynamic(
+  () => import('react-infinite-scroller'),
+  // eslint-disable-next-line react/display-name
+  { loading: () => <p>loading...</p> }
+);
 
 interface Props {
   initialArticles: IArticle[];

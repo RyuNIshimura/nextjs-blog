@@ -1,5 +1,6 @@
 import { useState, Fragment } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Popover, Transition, Disclosure } from '@headlessui/react';
 import { SearchIcon, ChevronDownIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
@@ -71,8 +72,9 @@ export default function Header() {
                     <Link href="/">
                       <a className="flex">
                         <span className="sr-only">{APP_NAME}</span>
-                        <img
-                          className="w-auto h-6 sm:h-6"
+                        <Image
+                          width="24"
+                          height="24"
                           src="/icon.png"
                           alt={APP_NAME}
                         />
