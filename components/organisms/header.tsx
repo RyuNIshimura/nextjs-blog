@@ -1,5 +1,6 @@
 import { useState, Fragment } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Popover, Transition, Disclosure } from '@headlessui/react';
 import { SearchIcon, ChevronDownIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
@@ -71,8 +72,9 @@ export default function Header() {
                     <Link href="/">
                       <a className="flex">
                         <span className="sr-only">{APP_NAME}</span>
-                        <img
-                          className="w-auto h-6 sm:h-6"
+                        <Image
+                          width="24"
+                          height="24"
                           src="/icon.png"
                           alt={APP_NAME}
                         />
@@ -167,12 +169,12 @@ export default function Header() {
                     <label htmlFor="search" className="sr-only">
                       Search
                     </label>
-                    <div className="relative mr-2 text-gray-600 border-b border-gray-600">
+                    <div className="relative mr-2 text-gray-600 border-b border-gray-600 dark:text-gray-100 dark:border-gray-100">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <SearchIcon className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div
-                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer sm:text-sm"
+                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer dark:text-gray-100 sm:text-sm"
                         onClick={() => setOpenSearchModal(true)}
                       >
                         Search

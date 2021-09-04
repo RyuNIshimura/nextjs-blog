@@ -29,19 +29,19 @@ export default function ArticleCard({ article }: { article: IArticle }) {
                 {article.fields.title}
               </a>
             </Link>
-            <div className="flex mt-2 flex-nowrap">
+            <div className="flex flex-wrap mt-5">
               {article.fields.tag.map((t: ITags, i: number) => (
                 <a
                   key={`${t.fields.slug}-${i}`}
                   href={`/tag/${t.fields.slug}`}
-                  className="flex items-center py-1 pl-1 pr-2 mr-2 text-xs font-bold text-gray-800 bg-gray-100 rounded-full flex-nowrap dark:bg-gray-300 hover:bg-gray-200"
+                  className="inline-flex items-center px-3 py-2 mt-2 mr-2 text-xs font-bold text-gray-800 bg-gray-100 rounded-lg dark:bg-gray-300 hover:bg-gray-200"
                 >
                   <PaperClipIcon className="w-4 h-4 mr-1" />
                   {t.fields.name}
                 </a>
               ))}
             </div>
-            <div className="flex mt-3 flex-nowrap">
+            <div className="flex mt-5 flex-nowrap">
               <RefreshIcon className="h-5 text-sm text-gray-500 dark:text-gray-400" />
               <span className="ml-1 text-sm text-gray-500 dark:text-gray-400">
                 {dayjs(article.sys.updatedAt).format('YYYY年MM月DD日')}

@@ -25,7 +25,6 @@ export enum CONTENT_TYPE {
   ARTICLE = 'article', // ex) posts
   CATEGORY = 'types', // ex) categories
   TAG = 'tags', // ex) tags
-  BOOK = 'book', // optional
 }
 
 /**
