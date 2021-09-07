@@ -24,7 +24,7 @@
     "remark-math": "^4.0.0"
   },
   "devDependencies": {
-    "@contentful/rich-text-types": "^15.1.0",
+    "@contentful/rich-text-types": "^15.3.3",
     "@next/eslint-plugin-next": "^11.1.2",
     "@tailwindcss/jit": "^0.1.18",
     "@types/gtag.js": "^0.0.7",
