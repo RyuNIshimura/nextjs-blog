@@ -5,7 +5,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
-    "contentful": "^8.5.6",
+    "contentful": "^8.5.7",
     "dayjs": "^1.10.6",
     "keyboardjs": "^2.6.4",
     "next": "^11.1.1",
