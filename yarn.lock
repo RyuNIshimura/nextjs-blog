@@ -1093,10 +1093,10 @@ constants-browserify@1.0.0, constants-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
 
-contentful-management@^7.36.2:
-  version "7.36.2"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.36.2.tgz#e3139ebb0f0b844aa35356f4fd1bb335a92543eb"
-  integrity sha512-pOyHyIuOygqQPDfF9C1MQKTAKAJcounClp4R5afhKkXDdh8jUPc34Ej9BACCtseo99Q9BftLQn49nmk9xJHylQ==
+contentful-management@^7.37.0:
+  version "7.37.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.37.0.tgz#b408aa9fa9d9322e4abfc51d76c9791fa3eb82b4"
+  integrity sha512-5JkDlVttnv1xpNT9Bx+WmiKuTBEo15cUQAd2QNVNZmEbGUyE3P3Q70p7TD5Ef+eOVn00dJtqB/TQ1NyPjbA6kw==
   dependencies:
     "@types/json-patch" "0.0.30"
     axios "^0.21.0"
