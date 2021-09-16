@@ -84,10 +84,10 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
 
-"@contentful/rich-text-types@^15.3.5":
-  version "15.3.5"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-15.3.5.tgz#414e7b4e671d9c3a4f75e5c762e4e109ccd4ba20"
-  integrity sha512-NOAdIfWUadOxhnv4IR+vBtgPtAtV0hv1uoZJogm2mniXZHRIpmKNbEBncjfr/SSHhOG98tQgHCUw6b/nvDTVaQ==
+"@contentful/rich-text-types@^15.3.6":
+  version "15.3.6"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-15.3.6.tgz#9caf022074b86df5a4cd1cb5e1cee01dc2b2cdbe"
+  integrity sha512-mMaS5N1FxjGq7k8l/WDqhBrAV+gu4GHvtDnFBoAwkOQ2V5Qh5oHiy39JKCLesmyXvH9tR+2BNpxwEMp3FVWpzw==
 
 "@corex/deepmerge@^2.6.34":
   version "2.6.34"
