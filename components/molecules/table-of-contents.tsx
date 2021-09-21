@@ -6,7 +6,7 @@ export default function TableOfContents({
   tableOfContents: ITableOfContent[];
 }) {
   return (
-    <nav className="space-y-1" aria-label="Sidebar">
+    <nav className="mt-2 space-y-1" aria-label="Sidebar">
       {tableOfContents.map((content: ITableOfContent) => (
         <a
           key={content.name}
