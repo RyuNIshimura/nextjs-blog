@@ -10,6 +10,7 @@ import {
   PER_PAGE,
   CONTENT_TYPE,
 } from '@/lib/constants';
+import popularPaths from '@/ga.json';
 import { IArticle } from '@/@types/generated/contentful';
 const ArticleCard = dynamic(
   () => import('@/components/molecules/article-card'),
@@ -25,9 +26,10 @@ const InfiniteScroll = dynamic(
 interface Props {
   initialArticles: IArticle[];
   total: number;
+  popularArticles: IArticle[];
 }
 
-function IndexPage({ initialArticles, total }: Props) {
+function IndexPage({ initialArticles, total, popularArticles }: Props) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
@@ -53,6 +55,17 @@ function IndexPage({ initialArticles, total }: Props) {
         <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
+      <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+        人気記事
+      </div>
+      <div className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5">
+        {popularArticles.map((article: IArticle) => (
+          <ArticleCard key={article.fields.slug} article={article} />
+        ))}
+      </div>
+      <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+        新着記事
+      </div>
       <InfiniteScroll
         className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
         pageStart={1}
@@ -74,6 +87,26 @@ function IndexPage({ initialArticles, total }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  // 👇 `ga.json`から人気の記事を取得する
+  let popularArticles = await Promise.all(
+    popularPaths.map(async (path: string) => {
+      let remakePath = path.replace('/', ''); // 👈 先頭の`/`を削除する
+      console.log('✅ PATH:', path.replace('/', ''));
+
+      if (remakePath) {
+        let article = await client.getEntries({
+          content_type: CONTENT_TYPE.ARTICLE,
+          'fields.slug': remakePath,
+        });
+        if (article?.total === 1) {
+          return article.items[0];
+        }
+      }
+    })
+  );
+  popularArticles = popularArticles.filter(Boolean); // 👈 Falseな要素を削除
+  if (popularArticles.length > 10) popularArticles.length = 10; // 👈 11個目の要素から全て削除
+
   const articles = await client.getEntries({
     content_type: CONTENT_TYPE.ARTICLE,
     order: '-sys.updatedAt',
@@ -84,6 +117,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       initialArticles: articles.items,
       total: articles.total,
+      popularArticles: popularArticles,
     },
   };
 };

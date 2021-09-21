@@ -54,7 +54,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "next build && next-sitemap",
+    "build": "node ga.js && next build && next-sitemap",
     "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts",
     "dev": "next dev",
     "format": "prettier --write \"{pages,components,lib}/**/*.{js,jsx,ts,tsx}\"",
@@ -64,6 +64,6 @@
     "prepare": "husky install",
     "start": "next start",
     "type-check": "tsc",
-    "vercel-build": "next build && next-sitemap"
+    "vercel-build": "node ga.js && next build && next-sitemap"
   }
 }
