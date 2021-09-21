@@ -55,16 +55,16 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
         <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
-      <div className="my-8 text-2xl font-bold text-center text-gray-700 underline dark:text-gray-200">
-        人気記事
+      <div className="my-8 text-2xl font-bold text-left text-gray-700 underline sm:m-8 dark:text-gray-200">
+        Featured Posts
       </div>
       <div className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5">
         {popularArticles.map((article: IArticle) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </div>
-      <div className="my-8 text-2xl font-bold text-center text-gray-700 underline dark:text-gray-200">
-        新着記事
+      <div className="my-8 text-2xl font-bold text-left text-gray-700 underline sm:m-8 dark:text-gray-200">
+        All Posts
       </div>
       <InfiniteScroll
         className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
