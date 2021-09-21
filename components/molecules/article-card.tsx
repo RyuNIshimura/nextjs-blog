@@ -7,11 +7,11 @@ export default function ArticleCard({ article }: { article: IArticle }) {
   return (
     <div
       key={article.fields.title}
-      className="flex flex-col col-span-1 bg-white rounded-sm shadow dark:bg-gray-800"
+      className="flex flex-col col-span-1 bg-white border border-gray-300 rounded-sm dark:bg-gray-800"
     >
       <div className="flex flex-col flex-1 p-4 sm:p-6">
         <div className="flex items-center sm:block">
-          <div className="w-20 mr-4 rounded-lg sm:w-auto sm:mr-0 hover:bg-gray-100 hover:opacity-80">
+          <div className="w-20 mr-4 rounded-lg sm:w-auto sm:mr-0">
             <a href={`/${article.fields.slug}`}>
               <img
                 className="h-10 mx-auto sm:h-16"
