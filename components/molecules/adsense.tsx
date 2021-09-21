@@ -1,6 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { CSSProperties, useEffect } from 'react';
 
-export default function Adsense() {
+export type AdSenseProps = {
+  styles?: CSSProperties;
+  client: string;
+  slot: string;
+  format?: string;
+  responsive?: string;
+};
+
+export default function AdSense({
+  client,
+  slot,
+  format,
+  responsive,
+  styles,
+}: AdSenseProps) {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -10,14 +24,14 @@ export default function Adsense() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gray-100 rounded-md">
       <ins
         className="adsbygoogle"
-        style={{ display: 'block', textAlign: 'center' }}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-        data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}
-        data-ad-slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT}
+        style={styles}
+        data-ad-format={format}
+        data-full-width-responsive={responsive}
+        data-ad-client={client}
+        data-ad-slot={slot}
       />
     </div>
   );

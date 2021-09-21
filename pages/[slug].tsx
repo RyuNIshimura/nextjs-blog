@@ -28,7 +28,7 @@ import {
 } from '@/lib/constants';
 import { IArticle, ITags } from '@/@types/generated/contentful';
 import { ITableOfContent } from '@/@types/index';
-import Adsense from '@/components/molecules/adsense';
+import AdSense from '@/components/molecules/adsense';
 
 interface Props {
   article: IArticle;
@@ -159,7 +159,13 @@ function ArticlePage({
             </div>
           </div>
           <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
-            <Adsense />
+            <AdSense
+              styles={{ display: 'block', textAlign: 'center', height: 250 }}
+              format=""
+              responsive="true"
+              client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
+              slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
+            />
             <TableOfContents tableOfContents={tableOfContents} />
           </div>
         </div>
