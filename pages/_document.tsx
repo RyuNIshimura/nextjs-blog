@@ -7,12 +7,13 @@ export default class extends Document {
     return (
       <Html lang={LANG}>
         <Head>
-          {/* <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}`}
-            crossOrigin="anonymous"></script>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script> */}
-          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          {/* 👇 Google Adsense */}
+          <script
+            data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          {/* 👇 Google Analytics */}
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
