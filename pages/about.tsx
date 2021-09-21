@@ -10,6 +10,9 @@ import {
 } from '@/lib/constants';
 import { IWork } from '@/@types/generated/contentful';
 
+const favoStacks = ['Next.js', 'Nest.js', 'Contentful', 'Stripe', 'Prisma'];
+const favoLangs = ['JavaScript'];
+
 export default function About({ works }: { works: IWork[] }) {
   return (
     <>
@@ -61,9 +64,19 @@ export default function About({ works }: { works: IWork[] }) {
                   </span>
                 </h1>
                 <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500 dark:text-gray-200">
-                  <strong>好きな技術: </strong> Next.js, Contentful
+                  <strong>好きな技術: </strong>{' '}
+                  {favoStacks.map((stack) => (
+                    <span className="mr-1" key={stack}>
+                      {`${stack},`}
+                    </span>
+                  ))}
                   <br />
-                  <strong>好きな言語: </strong> JavaScript
+                  <strong>好きな言語: </strong>
+                  {favoLangs.map((lang) => (
+                    <span className="mr-1" key={lang}>
+                      {`${lang},`}
+                    </span>
+                  ))}
                 </p>
               </div>
               <div className="my-8">

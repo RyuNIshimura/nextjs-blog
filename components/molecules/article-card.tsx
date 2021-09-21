@@ -11,7 +11,7 @@ export default function ArticleCard({ article }: { article: IArticle }) {
     >
       <div className="flex flex-col flex-1 p-4 sm:p-6">
         <div className="flex items-center sm:block">
-          <div className="w-20 mr-4 rounded-lg sm:w-auto sm:mr-0 hover:bg-gray-100 hover:opacity-80">
+          <div className="w-20 mr-4 rounded-lg sm:w-auto sm:mr-0">
             <a href={`/${article.fields.slug}`}>
               <img
                 className="h-10 mx-auto sm:h-16"
