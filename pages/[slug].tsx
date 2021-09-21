@@ -28,6 +28,7 @@ import {
 } from '@/lib/constants';
 import { IArticle, ITags } from '@/@types/generated/contentful';
 import { ITableOfContent } from '@/@types/index';
+import Adsense from '@/components/molecules/adsense';
 
 interface Props {
   article: IArticle;
@@ -158,6 +159,7 @@ function ArticlePage({
             </div>
           </div>
           <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
+            <Adsense />
             <TableOfContents tableOfContents={tableOfContents} />
           </div>
         </div>
