@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import dayjs from 'dayjs';
 import { PaperClipIcon } from '@heroicons/react/outline';
 import { RefreshIcon } from '@heroicons/react/solid';
@@ -13,22 +12,21 @@ export default function ArticleCard({ article }: { article: IArticle }) {
       <div className="flex flex-col flex-1 p-4 sm:p-6">
         <div className="flex items-center sm:block">
           <div className="w-20 mr-4 rounded-lg sm:w-auto sm:mr-0 hover:bg-gray-100 hover:opacity-80">
-            <Link href={`/${article.fields.slug}`}>
-              <a>
-                <img
-                  className="h-10 mx-auto sm:h-16"
-                  src={article.fields.image.fields.file.url}
-                  alt={article.fields.title}
-                />
-              </a>
-            </Link>
+            <a href={`/${article.fields.slug}`}>
+              <img
+                className="h-10 mx-auto sm:h-16"
+                src={article.fields.image.fields.file.url}
+                alt={article.fields.title}
+              />
+            </a>
           </div>
           <div className="flex-1 mt-0 sm:block sm:mt-5">
-            <Link href={`/${article.fields.slug}`}>
-              <a className="font-bold text-gray-700 dark:text-gray-200 hover:text-gray-400 lg:text-base 2xl:text-lg">
-                {article.fields.title}
-              </a>
-            </Link>
+            <a
+              href={`/${article.fields.slug}`}
+              className="font-bold text-gray-700 dark:text-gray-200 hover:text-gray-400 lg:text-base 2xl:text-lg"
+            >
+              {article.fields.title}
+            </a>
             <div className="flex flex-wrap mt-5">
               {article.fields.tag.map((t: ITags, i: number) => (
                 <a
