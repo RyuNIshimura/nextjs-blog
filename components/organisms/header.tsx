@@ -9,8 +9,8 @@ import Switch from '@/components/atoms/switch';
 import { APP_NAME, SNS_ITEMS } from '@/lib/constants';
 
 const navigation = [
-  { name: 'ホーム', href: '/' },
-  { name: 'About', href: '/about' },
+  { name: '🏠 Home', href: '/' },
+  { name: '🙋‍♂️ About', href: '/about' },
 ];
 
 const options = [
@@ -38,7 +38,7 @@ const options = [
     name: 'Prisma',
     href: '/tag/prisma',
   },
-  { name: 'その他', href: '/tag' },
+  { name: '📎 Others', href: '/tag' },
 ];
 
 export default function Header() {
@@ -99,7 +99,7 @@ export default function Header() {
                       {({ open }) => (
                         <>
                           <Popover.Button className="inline-flex items-center px-3 py-2 ml-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75 group">
-                            <span>WEB開発</span>
+                            <span>📦 Posts</span>
                             <ChevronDownIcon
                               className="w-5 h-5 ml-2 text-gray-800 dark:text-white"
                               aria-hidden="true"
@@ -118,7 +118,7 @@ export default function Header() {
                           >
                             <Popover.Panel
                               static
-                              className="absolute z-10 w-screen max-w-md px-2 mt-3 -ml-4 transform sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                              className="absolute z-10 w-screen max-w-md px-2 mt-3 -ml-4 transform opacity-100 sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                             >
                               <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                 <div className="relative grid grid-cols-2 gap-6 p-4 bg-white dark:bg-gray-800">
@@ -145,7 +145,7 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="flex justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
-                  <div className="hidden my-auto lg:flex">
+                  <div className="items-center hidden my-auto lg:flex">
                     {SNS_ITEMS.map((item) => (
                       <a
                         key={item.name}

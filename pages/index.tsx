@@ -56,18 +56,18 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
         <meta name="twitter:card" content="summary" />
       </Head>
       <div className="my-8 text-2xl font-bold text-left text-gray-700 underline sm:m-8 dark:text-gray-200">
-        Featured Posts
+        Featured Posts ✅
       </div>
-      <div className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {popularArticles.map((article: IArticle) => (
           <ArticleCard key={article.fields.slug} article={article} />
         ))}
       </div>
       <div className="my-8 text-2xl font-bold text-left text-gray-700 underline sm:m-8 dark:text-gray-200">
-        All Posts
+        All Posts 📜
       </div>
       <InfiniteScroll
-        className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
+        className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5"
         pageStart={1}
         loadMore={getArticles}
         hasMore={articles.length < total}

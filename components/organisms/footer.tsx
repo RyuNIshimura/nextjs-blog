@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="px-5 py-2">
             <Link href="/">
               <a className="text-base text-gray-500 hover:text-gray-900">
-                ホーム
+                🏠 Home
               </a>
             </Link>
           </div>
@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="px-5 py-2">
             <Link href="/about">
               <a className="text-base text-gray-500 hover:text-gray-900">
-                About
+                🙋‍♂️ About
               </a>
             </Link>
           </div>
@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="px-5 py-2">
             <Link href="/privacy">
               <a className="text-base text-gray-500 hover:text-gray-900">
-                プライバシーポリシー
+                📜 Privacy
               </a>
             </Link>
           </div>
@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="px-5 py-2">
             <Link href="/tos">
               <a className="text-base text-gray-500 hover:text-gray-900">
-                利用規約
+                📃 Terms
               </a>
             </Link>
           </div>
