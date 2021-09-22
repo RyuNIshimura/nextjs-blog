@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import WorkCard from '@/components/molecules/work-card';
@@ -42,7 +43,7 @@ export default function About({ works }: { works: IWork[] }) {
                   alt={APP_NAME}
                 />
                 <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500 dark:text-gray-200">
-                  フロントエンドの開発者です
+                  <span>I'm a front-end developer 🙋‍♂️</span>
                 </p>
               </div>
               <div className="my-12">
