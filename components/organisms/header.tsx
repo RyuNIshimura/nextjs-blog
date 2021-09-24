@@ -1,8 +1,8 @@
 import { useState, Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Popover, Transition, Disclosure } from '@headlessui/react';
-import { SearchIcon, ChevronDownIcon } from '@heroicons/react/solid';
+import { Disclosure } from '@headlessui/react';
+import { SearchIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import SearchModal from '@/components/molecules/search-modal';
 import Switch from '@/components/atoms/switch';
@@ -11,34 +11,13 @@ import { APP_NAME, SNS_ITEMS } from '@/lib/constants';
 const navigation = [
   { name: '🏠 Home', href: '/' },
   { name: '🙋‍♂️ About', href: '/about' },
-];
-
-const options = [
+  { name: '🦸‍♂️ Map', href: '/tag' },
   {
-    name: 'JavaScript',
-    href: '/tag/javascript',
+    name: '🍭 Source',
+    href: 'https://github.com/RyuNIshimura/nextjs-blog',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
-  {
-    name: 'TypeScript',
-    href: '/tag/typescript',
-  },
-  {
-    name: 'ReactJS',
-    href: '/tag/reactjs',
-  },
-  {
-    name: 'NextJS',
-    href: '/tag/nextjs',
-  },
-  {
-    name: 'NestJS',
-    href: '/tag/nestjs',
-  },
-  {
-    name: 'Prisma',
-    href: '/tag/prisma',
-  },
-  { name: '📎 Others', href: '/tag' },
 ];
 
 export default function Header() {
@@ -88,60 +67,13 @@ export default function Header() {
                           key={`${item.name}-${itemIdx}`}
                           href={item.href}
                           className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75"
+                          target={item?.target}
+                          rel={item?.rel}
                         >
                           {item.name}
                         </a>
                       ))}
                     </div>
-                  </div>
-                  <div className="hidden sm:block">
-                    <Popover className="relative">
-                      {({ open }) => (
-                        <>
-                          <Popover.Button className="inline-flex items-center px-3 py-2 ml-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75 group">
-                            <span>📦 Posts</span>
-                            <ChevronDownIcon
-                              className="w-5 h-5 ml-2 text-gray-800 dark:text-white"
-                              aria-hidden="true"
-                            />
-                          </Popover.Button>
-
-                          <Transition
-                            show={open}
-                            as={Fragment}
-                            enter="transition ease-out duration-200"
-                            enterFrom="opacity-0 translate-y-1"
-                            enterTo="opacity-100 translate-y-0"
-                            leave="transition ease-in duration-150"
-                            leaveFrom="opacity-100 translate-y-0"
-                            leaveTo="opacity-0 translate-y-1"
-                          >
-                            <Popover.Panel
-                              static
-                              className="absolute z-10 w-screen max-w-md px-2 mt-3 -ml-4 transform opacity-100 sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-                            >
-                              <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                <div className="relative grid grid-cols-2 gap-6 p-4 bg-white dark:bg-gray-800">
-                                  {options.map((item) => (
-                                    <a
-                                      key={item.name}
-                                      href={item.href}
-                                      className="flex items-start px-1 py-3 -m-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
-                                    >
-                                      <div className="ml-4">
-                                        <p className="text-sm font-bold text-gray-800 dark:text-white">
-                                          {item.name}
-                                        </p>
-                                      </div>
-                                    </a>
-                                  ))}
-                                </div>
-                              </div>
-                            </Popover.Panel>
-                          </Transition>
-                        </>
-                      )}
-                    </Popover>
                   </div>
                 </div>
                 <div className="flex justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
@@ -211,6 +143,8 @@ export default function Header() {
                     <a
                       href={item.href}
                       className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg dark:bg-gray-800 dark:text-white text-md"
+                      target={item?.target}
+                      rel={item?.rel}
                     >
                       {item.name}
                     </a>

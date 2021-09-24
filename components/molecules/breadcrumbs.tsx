@@ -13,10 +13,7 @@ export default function Breadcrumbs({ pages }: { pages: BreadcrumbPage[] }) {
           <div className="flex items-center">
             <Link href="/">
               <a className="text-gray-700 dark:text-white hover:text-gray-400">
-                <HomeIcon
-                  className="flex-shrink-0 w-5 h-5"
-                  aria-hidden="true"
-                />
+                <span className="flex-shrink-0 w-5 h-5">🏠</span>
                 <span className="sr-only">Home</span>
               </a>
             </Link>
