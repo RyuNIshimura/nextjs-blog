@@ -37,7 +37,7 @@
     "@types/rss": "^0.0.29",
     "autoprefixer": "^10.3.5",
     "contentful-management": "^7.39.1",
-    "contentful-typescript-codegen": "^3.2.2",
+    "contentful-typescript-codegen": "^3.2.3",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
