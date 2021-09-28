@@ -117,13 +117,13 @@ function ArticlePage({
               <div className="flex items-center">
                 <ClockIcon className="h-5 text-gray-400 text-md" />
                 <span className="ml-1 text-gray-400 text-md">
-                  {dayjs(article.fields.publishDate).format('YYYY年MM月DD日')}
+                  {dayjs(article.fields.publishDate).format('MMM D, YYYY')}
                 </span>
               </div>
               <div className="flex items-center ml-2">
                 <RefreshIcon className="h-5 text-gray-400 text-md" />
                 <span className="ml-1 text-gray-400 text-md">
-                  {dayjs(article.sys.updatedAt).format('YYYY年MM月DD日')}
+                  {dayjs(article.sys.updatedAt).format('MMM D, YYYY')}
                 </span>
               </div>
             </div>
@@ -137,11 +137,11 @@ function ArticlePage({
               remarkPlugins={[gfm, remarkMath]}
             />
             <div className="mt-10">
-              <h2 className="my-8 text-2xl font-bold text-gray-700 dark:text-gray-200">
+              <h2 className="my-8 text-2xl font-bold text-gray-700">
                 関連記事
               </h2>
               <InfiniteScroll
-                className="grid grid-cols-1 gap-4 m-0 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-3"
+                className="m-0"
                 pageStart={1}
                 loadMore={getArticles}
                 hasMore={articles.length < total}

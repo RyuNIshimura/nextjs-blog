@@ -5,7 +5,6 @@ import { Disclosure } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import SearchModal from '@/components/molecules/search-modal';
-import Switch from '@/components/atoms/switch';
 import { APP_NAME, SNS_ITEMS } from '@/lib/constants';
 
 const navigation = [
@@ -13,8 +12,8 @@ const navigation = [
   { name: '🙋‍♂️ About', href: '/about' },
   { name: '🦸‍♂️ Map', href: '/tag' },
   {
-    name: '🍭 Source',
-    href: 'https://github.com/RyuNIshimura/nextjs-blog',
+    name: '🐦 Twitter',
+    href: 'https://twitter.com/ryunishimura87',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
@@ -44,7 +43,7 @@ export default function Header() {
       >
         {({ open }) => (
           <>
-            <div className="max-w-full px-2 mx-auto sm:px-4 lg:px-8">
+            <div className="px-2 mx-auto sm:px-4 lg:px-8 max-w-7xl">
               <div className="relative flex items-center justify-between h-16 lg:border-gray-400 lg:border-opacity-25">
                 <div className="flex items-center px-2 lg:px-0">
                   <div className="flex-shrink-0">
@@ -77,23 +76,6 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="flex justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
-                  <div className="items-center hidden my-auto lg:flex">
-                    {SNS_ITEMS.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hidden mx-2 my-auto text-gray-600 lg:block dark:text-white hover:text-gray-400"
-                      >
-                        <span className="sr-only">{item.name}</span>
-                        <item.icon className="w-6 h-6" aria-hidden="true" />
-                      </a>
-                    ))}
-                  </div>
-                  <div className="hidden mx-3 my-auto lg:block">
-                    <Switch />
-                  </div>
                   <div
                     id="search-container"
                     className="w-full max-w-lg lg:max-w-xs"
@@ -164,11 +146,6 @@ export default function Header() {
                         <item.icon className="w-6 h-6" aria-hidden="true" />
                       </a>
                     ))}
-                  </div>
-                </Fragment>
-                <Fragment>
-                  <div className="block px-3 py-2 bg-white dark:bg-gray-800">
-                    <Switch />
                   </div>
                 </Fragment>
               </div>

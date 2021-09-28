@@ -34,7 +34,7 @@ export default function TagList({ tags, categories }: Props) {
           <div className="relative px-4 sm:px-6 lg:px-8">
             <div className="max-w-screen-xl mx-auto text-lg">
               <div className="max-w-screen-xl mb-8">
-                <h1 className="text-2xl font-bold text-center">タグ一覧</h1>
+                <h1 className="text-2xl font-bold text-center">Tags 🧗</h1>
                 <div className="my-8">
                   {tags.map((tag: ITags, i: number) => (
                     <span
@@ -47,7 +47,9 @@ export default function TagList({ tags, categories }: Props) {
                 </div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-center">カテゴリ一覧</h1>
+                <h1 className="text-2xl font-bold text-center">
+                  Categories 🤸‍♀️
+                </h1>
                 <div className="my-8">
                   {categories.map((category: ITypes, i: number) => (
                     <span
