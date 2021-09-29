@@ -15,20 +15,6 @@ html {
   z-index: 2;
 }
 
-.article {
-  h1 {
-    @apply my-8 text-2xl font-bold text-gray-700 sm:text-3xl;
-
-    .title-clip {
-      display: none;
-    }
-  }
-
-  h1:hover .title-clip {
-    display: inline-flex;
-  }
-}
-
 .markdown-body {
   h1 {
     @apply my-8 text-3xl font-bold text-gray-700;
@@ -67,7 +53,7 @@ html {
   }
 
   code {
-    @apply text-base font-medium leading-10 text-pink-500 break-words;
+    @apply text-base font-medium rounded-sm bg-gray-200 p-1 leading-10 text-gray-600 break-words;
   }
 
   pre {

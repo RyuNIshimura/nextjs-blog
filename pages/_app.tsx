@@ -1,20 +1,13 @@
 import { AppProps } from 'next/app';
 import Router from 'next/router';
-import { ThemeProvider } from 'next-themes';
+import Head from 'next/head';
 import Layout from '@/components/organisms/layout';
 import * as gtag from '@/lib/gtag';
 import '@/styles/globals.css';
 import '@/styles/tailwind-utils.css';
 import '@/styles/tailwind.css';
 import '@/styles/markdown.scss';
-import Head from 'next/head';
-import {
-  APP_NAME,
-  BASE_URL,
-  META_DESCRIPTION,
-  PER_PAGE,
-  CONTENT_TYPE,
-} from '@/lib/constants';
+import { APP_NAME, BASE_URL, META_DESCRIPTION } from '@/lib/constants';
 
 Router.events.on('routeChangeComplete', (url) => gtag.pageview(url));
 
@@ -31,11 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
-      <ThemeProvider attribute="class" defaultTheme="light">
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

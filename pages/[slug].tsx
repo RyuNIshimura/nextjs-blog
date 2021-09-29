@@ -87,17 +87,17 @@ function ArticlePage({
         />
         <meta content="summary" />
       </Head>
-      <div className="max-w-screen-xl mx-3 my-2 lg:mx-auto sm:mx-5">
-        <div className="grid grid-cols-1 lg:grid-cols-4">
-          <div className="col-span-2 article lg:col-span-3">
-            <h1>
-              {article.fields.title}
-              <PaperClipIcon
-                className="relative inline-flex w-6 h-6 ml-1 text-gray-500 cursor-pointer title-clip bottom-1 hover:text-gray-300"
-                onClick={() => copyText(`${BASE_URL}/${article.fields.slug}`)}
-              />
-            </h1>
-            <div className="flex items-center justify-between flex-nowrap">
+      <div className="max-w-3xl mx-3 my-2 lg:mx-auto sm:mx-5">
+        <div className="">
+          <div className="mt-10">
+            <div className="my-12">
+              <h1 className="text-center">
+                <span className="px-3 py-4 text-4xl leading-8 text-white bg-gray-900 text-bold">
+                  {article.fields.title}
+                </span>
+              </h1>
+            </div>
+            <div className="flex items-center justify-between mt-8 flex-nowrap">
               <div>
                 {article.fields.tag.map((tag: ITags, i: number) => (
                   <Tag key={`${tag.fields.slug}-${i}`} tag={tag} />
@@ -106,26 +106,23 @@ function ArticlePage({
               <div className="ml-2 sm:flex-shrink-0 sm:flex sm:items-center">
                 <div
                   onClick={() => tweet(article)}
-                  className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-blue-500 bg-blue-100 border border-blue-100 rounded-lg cursor-pointer hover:bg-blue-200"
+                  className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-blue-500 bg-blue-100 border border-blue-100 rounded-sm cursor-pointer hover:bg-blue-200"
                 >
-                  <TwitterIcon className="w-4 h-4 mr-1" />
-                  ツイート
+                  Tweet
                 </div>
               </div>
             </div>
-            <div className="flex mt-5">
-              <div className="flex items-center">
-                <ClockIcon className="h-5 text-gray-400 text-md" />
-                <span className="ml-1 text-gray-400 text-md">
-                  {dayjs(article.fields.publishDate).format('MMM D, YYYY')}
-                </span>
-              </div>
-              <div className="flex items-center ml-2">
-                <RefreshIcon className="h-5 text-gray-400 text-md" />
-                <span className="ml-1 text-gray-400 text-md">
-                  {dayjs(article.sys.updatedAt).format('MMM D, YYYY')}
-                </span>
-              </div>
+            <div className="flex mx-auto mt-5 text-center">
+              <span className="ml-1 text-gray-800 text-md">
+                {`updated ${dayjs(article.sys.createdAt).format(
+                  'MMM D, YYYY'
+                )}`}
+              </span>
+              <span className="ml-1 text-gray-800 text-md">
+                {`created ${dayjs(article.sys.updatedAt).format(
+                  'MMM D, YYYY'
+                )}`}
+              </span>
             </div>
             <ReactMarkdown
               className="markdown-body"
@@ -158,7 +155,7 @@ function ArticlePage({
               </InfiniteScroll>
             </div>
           </div>
-          <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
+          {/* <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
             <AdSense
               styles={{ display: 'block', textAlign: 'center', height: 250 }}
               format=""
@@ -167,7 +164,7 @@ function ArticlePage({
               slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
             />
             <TableOfContents tableOfContents={tableOfContents} />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

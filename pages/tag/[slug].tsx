@@ -41,34 +41,30 @@ function IndexPage({ initialArticles, total, tag, pages }: Props) {
     <>
       <Head>
         <title>{`${APP_NAME} - ${tag.fields.name}`}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={META_DESCRIPTION} />
         <meta
           property="og:title"
           content={`${APP_NAME} - ${tag.fields.name}`}
         />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:card" content="summary" />
       </Head>
-      <Breadcrumbs pages={pages} />
-      <InfiniteScroll
-        className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5"
-        pageStart={1}
-        loadMore={getArticles}
-        hasMore={articles.length < total}
-        loader={
-          <div className="mx-5 my-2 lg:mx-auto" key={1}>
-            ロード中 ...
-          </div>
-        }
-        useWindow={true}
-      >
-        {articles.map((article: IArticle) => (
-          <ArticleCard key={article.fields.slug} article={article} />
-        ))}
-      </InfiniteScroll>
+      <div className="max-w-4xl mx-auto">
+        <Breadcrumbs pages={pages} />
+        <InfiniteScroll
+          className="m-0"
+          pageStart={1}
+          loadMore={getArticles}
+          hasMore={articles.length < total}
+          loader={
+            <div className="mx-5 my-2 lg:mx-auto" key={1}>
+              ロード中 ...
+            </div>
+          }
+          useWindow={true}
+        >
+          {articles.map((article: IArticle) => (
+            <ArticleCard key={article.fields.slug} article={article} />
+          ))}
+        </InfiniteScroll>
+      </div>
     </>
   );
 }

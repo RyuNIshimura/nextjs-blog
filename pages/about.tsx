@@ -18,14 +18,7 @@ export default function About({ works }: { works: IWork[] }) {
   return (
     <>
       <Head>
-        <title>{`${APP_NAME} - About`}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={META_DESCRIPTION} />
-        <meta property="og:title" content={`${APP_NAME} - About`} />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:card" content="summary" />
+        <title>{`${APP_NAME} - About 🙋‍♂️`}</title>
       </Head>
       <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
         <div className="relative py-16 overflow-hidden bg-white">

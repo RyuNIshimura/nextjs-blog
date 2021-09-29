@@ -96,7 +96,7 @@ export default function Header() {
                       <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                         <button
                           type="button"
-                          className="hidden sm:inline-flex items-center px-2 py-1.5 text-sm leading-4 font-medium rounded-lg bg-gray-100 border-gray-200 border text-gray-600 focus:outline-none"
+                          className="hidden sm:inline-flex items-center px-2 py-1.5 text-sm leading-4 font-medium rounded-sm bg-gray-100 border-gray-200 border text-gray-600 focus:outline-none"
                         >
                           ⌘K
                         </button>

@@ -20,7 +20,7 @@ export default function ArticleCard({ article }: { article: any }) {
                 <a
                   key={`${t.fields.slug}-${i}`}
                   href={`/tag/${t.fields.slug}`}
-                  className="inline-flex items-center px-3 py-2 mt-2 mr-2 text-sm font-bold text-gray-800 bg-gray-100 rounded-sm hover:bg-gray-200"
+                  className="inline-flex items-center px-3 py-3 mt-2 mr-2 text-sm font-bold text-gray-800 bg-gray-100 rounded-sm hover:bg-gray-200"
                   style={{
                     backgroundColor: t.fields.backgroundColor,
                     color: t.fields.color,
@@ -32,7 +32,9 @@ export default function ArticleCard({ article }: { article: any }) {
             </div>
             <div className="flex flex-row-reverse mt-5 flex-nowrap">
               <span className="ml-1 text-sm text-gray-900">
-                {dayjs(article.sys.updatedAt).format('MMM D, YYYY')}
+                {`updated ${dayjs(article.sys.updatedAt).format(
+                  'MMM D, YYYY'
+                )}`}
               </span>
             </div>
           </div>
