@@ -39,7 +39,7 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
   return (
     <>
       <div className="max-w-4xl mx-auto">
-        <div className="text-2xl font-bold text-center text-gray-700 sm:m-8">
+        <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
           Featured Posts ✅
         </div>
         <div className="m-0">
@@ -47,7 +47,7 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
             <ArticleCard key={article.fields.slug} article={article} />
           ))}
         </div>
-        <div className="text-2xl font-bold text-center text-gray-700 sm:m-8">
+        <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
           All Posts 📜
         </div>
         <InfiniteScroll

@@ -41,7 +41,6 @@ interface Props {
 
 function ArticlePage({
   article,
-  tableOfContents,
   description,
   initialArticles,
   total,
@@ -90,39 +89,24 @@ function ArticlePage({
       <div className="max-w-3xl mx-3 my-2 lg:mx-auto sm:mx-5">
         <div className="">
           <div className="mt-10">
-            <div className="my-12">
-              <h1 className="text-center">
-                <span className="px-3 py-4 text-4xl leading-8 text-white bg-gray-900 text-bold">
-                  {article.fields.title}
-                </span>
-              </h1>
-            </div>
-            <div className="flex items-center justify-between mt-8 flex-nowrap">
+            <h1 className="text-center">
+              <span className="px-3 py-4 text-2xl text-white bg-gray-900 sm:text-4xl article-title text-bold">
+                {article.fields.title}
+              </span>
+            </h1>
+            <div className="flex justify-center my-6 text-center">
               <div>
-                {article.fields.tag.map((tag: ITags, i: number) => (
-                  <Tag key={`${tag.fields.slug}-${i}`} tag={tag} />
-                ))}
+                <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
+                  {`updated ${dayjs(article.sys.createdAt).format(
+                    'MMM D, YYYY'
+                  )}`}
+                </span>
+                <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
+                  {`created ${dayjs(article.sys.updatedAt).format(
+                    'MMM D, YYYY'
+                  )}`}
+                </span>
               </div>
-              <div className="ml-2 sm:flex-shrink-0 sm:flex sm:items-center">
-                <div
-                  onClick={() => tweet(article)}
-                  className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-blue-500 bg-blue-100 border border-blue-100 rounded-sm cursor-pointer hover:bg-blue-200"
-                >
-                  Tweet
-                </div>
-              </div>
-            </div>
-            <div className="flex mx-auto mt-5 text-center">
-              <span className="ml-1 text-gray-800 text-md">
-                {`updated ${dayjs(article.sys.createdAt).format(
-                  'MMM D, YYYY'
-                )}`}
-              </span>
-              <span className="ml-1 text-gray-800 text-md">
-                {`created ${dayjs(article.sys.updatedAt).format(
-                  'MMM D, YYYY'
-                )}`}
-              </span>
             </div>
             <ReactMarkdown
               className="markdown-body"
@@ -134,9 +118,9 @@ function ArticlePage({
               remarkPlugins={[gfm, remarkMath]}
             />
             <div className="mt-10">
-              <h2 className="my-8 text-2xl font-bold text-gray-700">
-                関連記事
-              </h2>
+              <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+                Related Posts ✅
+              </div>
               <InfiniteScroll
                 className="m-0"
                 pageStart={1}
@@ -196,7 +180,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params?.slug) {
     return {
       redirect: {
@@ -226,7 +210,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return {
     props: {
       article: article.items[0],
-      tableOfContents,
       description,
       initialArticles: initialArticles.items,
       total: initialArticles.total,

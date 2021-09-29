@@ -5,18 +5,12 @@ import { Disclosure } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import SearchModal from '@/components/molecules/search-modal';
-import { APP_NAME, SNS_ITEMS } from '@/lib/constants';
+import { APP_NAME } from '@/lib/constants';
 
 const navigation = [
   { name: '🏠 Home', href: '/' },
   { name: '🙋‍♂️ About', href: '/about' },
-  { name: '🦸‍♂️ Map', href: '/tag' },
-  {
-    name: '🐦 Twitter',
-    href: 'https://twitter.com/ryunishimura87',
-    target: '_blank',
-    rel: 'noopener noreferrer',
-  },
+  { name: '🦸‍♂️ Tags', href: '/tag' },
 ];
 
 export default function Header() {
@@ -61,7 +55,7 @@ export default function Header() {
                   </div>
                   <div className="hidden lg:block lg:ml-4">
                     <div className="flex space-x-4">
-                      {navigation.map((item, itemIdx) => (
+                      {navigation.map((item: any, itemIdx: number) => (
                         <a
                           key={`${item.name}-${itemIdx}`}
                           href={item.href}
@@ -120,7 +114,7 @@ export default function Header() {
 
             <Disclosure.Panel className="lg:hidden">
               <div className="px-2 pt-2 pb-3 m-1 space-y-1 bg-white border-gray-800 rounded-md shadow border-1">
-                {navigation.map((item) => (
+                {navigation.map((item: any) => (
                   <Fragment key={item.name}>
                     <a
                       href={item.href}
@@ -132,22 +126,6 @@ export default function Header() {
                     </a>
                   </Fragment>
                 ))}
-                <Fragment>
-                  <div className="flex px-3 py-2 bg-white">
-                    {SNS_ITEMS.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mr-4 text-gray-600 hover:text-gray-400"
-                      >
-                        <span className="sr-only">{item.name}</span>
-                        <item.icon className="w-6 h-6" aria-hidden="true" />
-                      </a>
-                    ))}
-                  </div>
-                </Fragment>
               </div>
             </Disclosure.Panel>
           </>
