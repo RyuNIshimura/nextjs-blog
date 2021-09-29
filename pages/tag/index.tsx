@@ -3,38 +3,22 @@ import Head from 'next/head';
 import Tag from '@/components/atoms/tag';
 import Category from '@/components/atoms/category';
 import client from '@/lib/contentful';
-import {
-  APP_NAME,
-  BASE_URL,
-  META_DESCRIPTION,
-  CONTENT_TYPE,
-} from '@/lib/constants';
+import { APP_NAME, CONTENT_TYPE } from '@/lib/constants';
 import { ITags, ITypes } from '@/@types/generated/contentful';
 
-interface Props {
-  tags: ITags[];
-  categories: ITypes[];
-}
-
-export default function TagList({ tags, categories }: Props) {
+export default function TagList({ tags, categories }: any) {
   return (
     <>
       <Head>
-        <title>{`${APP_NAME} - タグ一覧`}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={META_DESCRIPTION} />
-        <meta property="og:title" content={`${APP_NAME} - タグ一覧`} />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:card" content="summary" />
+        <title>{`${APP_NAME} - Map 🛩️`}</title>
+        <meta property="og:title" content={`${APP_NAME} - Map 🛩️`} />
       </Head>
-      <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
-        <div className="relative py-16 overflow-hidden bg-white dark:bg-gray-900">
+      <div className="max-w-4xl mx-3 my-2 lg:mx-auto sm:mx-5">
+        <div className="relative py-16 overflow-hidden bg-white">
           <div className="relative px-4 sm:px-6 lg:px-8">
             <div className="max-w-screen-xl mx-auto text-lg">
               <div className="max-w-screen-xl mb-8">
-                <h1 className="text-2xl font-bold text-center">タグ一覧</h1>
+                <h1 className="text-2xl font-bold text-center">Tags 🧗</h1>
                 <div className="my-8">
                   {tags.map((tag: ITags, i: number) => (
                     <span
@@ -47,7 +31,9 @@ export default function TagList({ tags, categories }: Props) {
                 </div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-center">カテゴリ一覧</h1>
+                <h1 className="text-2xl font-bold text-center">
+                  Categories 🤸‍♀️
+                </h1>
                 <div className="my-8">
                   {categories.map((category: ITypes, i: number) => (
                     <span
@@ -67,11 +53,15 @@ export default function TagList({ tags, categories }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const tags = await client.getEntries({ content_type: CONTENT_TYPE.TAG });
+export const getStaticProps: GetStaticProps = async () => {
+  const tags = await client.getEntries({
+    content_type: CONTENT_TYPE.TAG,
+    order: 'fields.name',
+  });
 
   const categories = await client.getEntries({
     content_type: CONTENT_TYPE.CATEGORY,
+    order: 'fields.name',
   });
 
   return {

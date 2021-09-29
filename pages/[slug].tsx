@@ -41,7 +41,6 @@ interface Props {
 
 function ArticlePage({
   article,
-  tableOfContents,
   description,
   initialArticles,
   total,
@@ -87,43 +86,25 @@ function ArticlePage({
         />
         <meta content="summary" />
       </Head>
-      <div className="max-w-screen-xl mx-3 my-2 lg:mx-auto sm:mx-5">
-        <div className="grid grid-cols-1 lg:grid-cols-4">
-          <div className="col-span-2 article lg:col-span-3">
-            <h1>
-              {article.fields.title}
-              <PaperClipIcon
-                className="relative inline-flex w-6 h-6 ml-1 text-gray-500 cursor-pointer title-clip bottom-1 hover:text-gray-300"
-                onClick={() => copyText(`${BASE_URL}/${article.fields.slug}`)}
-              />
+      <div className="max-w-3xl mx-3 my-2 lg:mx-auto sm:mx-5">
+        <div className="">
+          <div className="mt-10">
+            <h1 className="text-center">
+              <span className="px-3 py-4 text-2xl text-white bg-gray-900 sm:text-4xl article-title text-bold">
+                {article.fields.title}
+              </span>
             </h1>
-            <div className="flex items-center justify-between flex-nowrap">
+            <div className="flex justify-center my-6 text-center">
               <div>
-                {article.fields.tag.map((tag: ITags, i: number) => (
-                  <Tag key={`${tag.fields.slug}-${i}`} tag={tag} />
-                ))}
-              </div>
-              <div className="ml-2 sm:flex-shrink-0 sm:flex sm:items-center">
-                <div
-                  onClick={() => tweet(article)}
-                  className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-blue-500 bg-blue-100 border border-blue-100 rounded-lg cursor-pointer hover:bg-blue-200"
-                >
-                  <TwitterIcon className="w-4 h-4 mr-1" />
-                  ツイート
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-5">
-              <div className="flex items-center">
-                <ClockIcon className="h-5 text-gray-400 text-md" />
-                <span className="ml-1 text-gray-400 text-md">
-                  {dayjs(article.fields.publishDate).format('YYYY年MM月DD日')}
+                <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
+                  {`updated ${dayjs(article.sys.createdAt).format(
+                    'MMM D, YYYY'
+                  )}`}
                 </span>
-              </div>
-              <div className="flex items-center ml-2">
-                <RefreshIcon className="h-5 text-gray-400 text-md" />
-                <span className="ml-1 text-gray-400 text-md">
-                  {dayjs(article.sys.updatedAt).format('YYYY年MM月DD日')}
+                <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
+                  {`created ${dayjs(article.sys.updatedAt).format(
+                    'MMM D, YYYY'
+                  )}`}
                 </span>
               </div>
             </div>
@@ -137,11 +118,11 @@ function ArticlePage({
               remarkPlugins={[gfm, remarkMath]}
             />
             <div className="mt-10">
-              <h2 className="my-8 text-2xl font-bold text-gray-700 dark:text-gray-200">
-                関連記事
-              </h2>
+              <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+                Related Posts ✅
+              </div>
               <InfiniteScroll
-                className="grid grid-cols-1 gap-4 m-0 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-3"
+                className="m-0"
                 pageStart={1}
                 loadMore={getArticles}
                 hasMore={articles.length < total}
@@ -158,7 +139,7 @@ function ArticlePage({
               </InfiniteScroll>
             </div>
           </div>
-          <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
+          {/* <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
             <AdSense
               styles={{ display: 'block', textAlign: 'center', height: 250 }}
               format=""
@@ -167,7 +148,7 @@ function ArticlePage({
               slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
             />
             <TableOfContents tableOfContents={tableOfContents} />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
@@ -199,7 +180,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params?.slug) {
     return {
       redirect: {
@@ -229,7 +210,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return {
     props: {
       article: article.items[0],
-      tableOfContents,
       description,
       initialArticles: initialArticles.items,
       total: initialArticles.total,

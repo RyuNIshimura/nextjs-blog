@@ -1,17 +1,11 @@
 import { useState } from 'react';
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import client from '@/lib/contentful';
-import {
-  APP_NAME,
-  BASE_URL,
-  META_DESCRIPTION,
-  PER_PAGE,
-  CONTENT_TYPE,
-} from '@/lib/constants';
+import { PER_PAGE, CONTENT_TYPE } from '@/lib/constants';
 import popularPaths from '@/ga.json';
 import { IArticle } from '@/@types/generated/contentful';
+
 const ArticleCard = dynamic(
   () => import('@/components/molecules/article-card'),
   // eslint-disable-next-line react/display-name
@@ -39,49 +33,40 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
       limit: PER_PAGE,
       skip: PER_PAGE * (page - 1),
     });
-
     setArticles(articles.concat(res.items));
   };
 
   return (
     <>
-      <Head>
-        <title>{APP_NAME}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={META_DESCRIPTION} />
-        <meta property="og:title" content={APP_NAME} />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:card" content="summary" />
-      </Head>
-      <div className="my-8 text-2xl font-bold text-left text-gray-700 underline sm:m-8 dark:text-gray-200">
-        Featured Posts ✅
+      <div className="max-w-4xl mx-auto">
+        <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+          Featured Posts ✅
+        </div>
+        <div className="m-0">
+          {popularArticles.map((article: IArticle) => (
+            <ArticleCard key={article.fields.slug} article={article} />
+          ))}
+        </div>
+        <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+          All Posts 📜
+        </div>
+        <InfiniteScroll
+          className="m-0"
+          pageStart={1}
+          loadMore={getArticles}
+          hasMore={articles.length < total}
+          loader={
+            <div className="mx-5 my-2 lg:mx-auto" key={1}>
+              ロード中 ...
+            </div>
+          }
+          useWindow={true}
+        >
+          {articles.map((article: IArticle) => (
+            <ArticleCard key={article.fields.slug} article={article} />
+          ))}
+        </InfiniteScroll>
       </div>
-      <div className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {popularArticles.map((article: IArticle) => (
-          <ArticleCard key={article.fields.slug} article={article} />
-        ))}
-      </div>
-      <div className="my-8 text-2xl font-bold text-left text-gray-700 underline sm:m-8 dark:text-gray-200">
-        All Posts 📜
-      </div>
-      <InfiniteScroll
-        className="grid grid-cols-1 gap-6 m-0 sm:m-8 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5"
-        pageStart={1}
-        loadMore={getArticles}
-        hasMore={articles.length < total}
-        loader={
-          <div className="mx-5 my-2 lg:mx-auto" key={1}>
-            ロード中 ...
-          </div>
-        }
-        useWindow={true}
-      >
-        {articles.map((article: IArticle) => (
-          <ArticleCard key={article.fields.slug} article={article} />
-        ))}
-      </InfiniteScroll>
     </>
   );
 }

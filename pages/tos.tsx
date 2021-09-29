@@ -14,7 +14,7 @@ export default function Tos({ content, meta }: any) {
       <div className="max-w-4xl mx-auto my-10">
         <div className="mt-5 md:mt-0 md:col-span-2">
           <div className="overflow-hidden shadow-xl sm:rounded-md">
-            <div className="px-4 py-5 bg-white dark:bg-gray-800 sm:p-6">
+            <div className="px-4 py-5 bg-white sm:p-6">
               <div className="my-6">
                 <h2 className="text-2xl font-bold">{meta.title}</h2>
                 <ReactMarkdown

@@ -4,15 +4,12 @@ import { BreadcrumbPage } from '@/@types/index';
 
 export default function Breadcrumbs({ pages }: { pages: BreadcrumbPage[] }) {
   return (
-    <nav
-      className="flex my-5 bg-white dark:bg-gray-900"
-      aria-label="Breadcrumb"
-    >
+    <nav className="flex my-5 bg-white" aria-label="Breadcrumb">
       <ol className="flex w-full max-w-full px-4 mx-auto space-x-4 sm:px-6 lg:px-8">
         <li className="flex">
           <div className="flex items-center">
             <Link href="/">
-              <a className="text-gray-700 dark:text-white hover:text-gray-400">
+              <a className="text-gray-700hover:text-gray-400">
                 <span className="flex-shrink-0 w-5 h-5">🏠</span>
                 <span className="sr-only">Home</span>
               </a>
@@ -34,7 +31,7 @@ export default function Breadcrumbs({ pages }: { pages: BreadcrumbPage[] }) {
               </svg>
               <Link href={page.href}>
                 <a
-                  className="ml-4 font-bold text-gray-700 dark:text-white hover:text-gray-400"
+                  className="ml-4 font-bold text-gray-700hover:text-gray-400"
                   aria-current={page.current ? 'page' : undefined}
                 >
                   {page.name}

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useTheme } from 'next-themes';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid';
@@ -42,7 +41,6 @@ export const MarkdownComponents = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [enableCopy, setEnableCopy] = useState(true);
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { theme, setTheme } = useTheme();
     const code = String(children).replace(/\n$/, '');
 
     function copySnippet(code: string) {
@@ -101,7 +99,7 @@ export const MarkdownComponents = {
         <SyntaxHighlighter
           className={className}
           customStyle={containerStyle}
-          style={theme === 'dark' ? tomorrow : tomorrow}
+          style={tomorrow}
           language={matchedExt || fileName}
           PreTag="div"
           // eslint-disable-next-line react/no-children-prop

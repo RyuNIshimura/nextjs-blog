@@ -18,22 +18,15 @@ export default function About({ works }: { works: IWork[] }) {
   return (
     <>
       <Head>
-        <title>{`${APP_NAME} - About`}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={META_DESCRIPTION} />
-        <meta property="og:title" content={`${APP_NAME} - About`} />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:image" content={`${BASE_URL}/ogp.png`} />
-        <meta name="twitter:card" content="summary" />
+        <title>{`${APP_NAME} - About 🙋‍♂️`}</title>
       </Head>
       <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
-        <div className="relative py-16 overflow-hidden bg-white dark:bg-gray-900">
+        <div className="relative py-16 overflow-hidden bg-white">
           <div className="relative px-4 sm:px-6 lg:px-8">
             <div className="max-w-screen-xl mx-auto text-lg">
               <div className="max-w-screen-xl mb-8">
                 <h1>
-                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
                     Profile
                   </span>
                 </h1>
@@ -42,13 +35,13 @@ export default function About({ works }: { works: IWork[] }) {
                   src="/icon.png"
                   alt={APP_NAME}
                 />
-                <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500 dark:text-gray-200">
+                <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500">
                   <span>I'm a front-end developer 🙋‍♂️</span>
                 </p>
               </div>
               <div className="my-12">
                 <h1>
-                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
                     Works
                   </span>
                 </h1>
@@ -60,11 +53,11 @@ export default function About({ works }: { works: IWork[] }) {
               </div>
               <div className="my-12">
                 <h1>
-                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
                     Skills
                   </span>
                 </h1>
-                <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500 dark:text-gray-200">
+                <p className="max-w-screen-md mx-auto mt-8 text-xl leading-8 text-center text-gray-500">
                   <strong>好きな技術: </strong>{' '}
                   {favoStacks.map((stack) => (
                     <span className="mr-1" key={stack}>
@@ -82,7 +75,7 @@ export default function About({ works }: { works: IWork[] }) {
               </div>
               <div className="my-8">
                 <h1>
-                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 dark:text-gray-200 sm:text-4xl">
+                  <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
                     Contact
                   </span>
                 </h1>
@@ -93,7 +86,7 @@ export default function About({ works }: { works: IWork[] }) {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-700 dark:text-gray-200 hover:text-gray-500"
+                      className="text-gray-700 hover:text-gray-500"
                     >
                       <span className="sr-only">{item.name}</span>
                       <item.icon className="w-10 h-10" aria-hidden="true" />
