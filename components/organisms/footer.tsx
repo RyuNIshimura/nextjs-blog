@@ -4,7 +4,7 @@ import { APP_NAME } from '@/lib/constants';
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-gray-900">
+    <footer className="bg-white">
       <div className="px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
         <nav
           className="flex flex-wrap justify-center -mx-5 -my-2"
@@ -49,7 +49,7 @@ export default function Footer() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-200 hover:text-gray-500"
+              className="text-gray-600 hover:text-gray-500"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="w-6 h-6" aria-hidden="true" />

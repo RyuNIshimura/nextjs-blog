@@ -17,7 +17,7 @@ html {
 
 .article {
   h1 {
-    @apply my-8 text-2xl font-bold text-gray-700 sm:text-3xl dark:text-gray-200;
+    @apply my-8 text-2xl font-bold text-gray-700 sm:text-3xl;
 
     .title-clip {
       display: none;
@@ -31,11 +31,11 @@ html {
 
 .markdown-body {
   h1 {
-    @apply my-8 text-3xl font-bold text-gray-700 dark:text-gray-200;
+    @apply my-8 text-3xl font-bold text-gray-700;
   }
 
   h2 {
-    @apply pb-4 my-8 text-xl font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-2xl dark:text-gray-200;
+    @apply pb-4 my-8 text-xl font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-2xl;
 
     .clip {
       display: none;
@@ -47,11 +47,11 @@ html {
   }
 
   h3 {
-    @apply pb-4 my-3 text-lg font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-xl dark:text-gray-200;
+    @apply pb-4 my-3 text-lg font-bold leading-10 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-xl;
   }
 
   p {
-    @apply my-2 text-base leading-8 text-gray-600 break-words sm:my-5 sm:text-base dark:text-gray-100 sm:leading-9;
+    @apply my-2 text-base leading-8 text-gray-600 break-words sm:my-5 sm:text-base sm:leading-9;
   }
 
   a {
@@ -62,7 +62,7 @@ html {
     @apply mx-5 list-disc;
 
     li {
-      @apply my-2 text-base leading-10 text-gray-600 break-words sm:text-base dark:text-gray-100;
+      @apply my-2 text-base leading-10 text-gray-600 break-words sm:text-base;
     }
   }
 
@@ -83,7 +83,7 @@ html {
   }
 
   blockquote {
-    @apply p-2 my-10 italic text-gray-600 bg-gray-100 border-l-4 border-gray-500 border-blue-500 rounded-sm dark:bg-gray-700 dark:text-gray-100;
+    @apply p-2 my-10 italic text-gray-600 bg-gray-100 border-l-4 border-blue-500 rounded-sm;
   }
 
   img {
@@ -95,10 +95,10 @@ html {
   }
 
   .html {
-    @apply relative p-4 my-8 border-2 border-gray-300 rounded-md shadow-lg bg-gray-50 dark:bg-gray-800;
+    @apply relative p-4 my-8 border-2 border-gray-300 rounded-md shadow-lg bg-gray-50;
 
     &::before {
-      @apply bg-gray-200 dark:text-gray-700;
+      @apply bg-gray-200;
 
       content: "HTML 実行結果";
       display: inline-block;
@@ -148,7 +148,7 @@ html {
         text-align: left;
         white-space: nowrap;
 
-        @apply p-1 overflow-auto bg-gray-200 dark:text-gray-700;
+        @apply p-1 overflow-auto bg-gray-200;
       }
 
       td {
@@ -156,7 +156,7 @@ html {
         padding: 0.5em 1em;
         vertical-align: top;
 
-        @apply p-1 dark:text-gray-700;
+        @apply p-1;
       }
     }
   }

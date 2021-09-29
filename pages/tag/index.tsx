@@ -30,7 +30,7 @@ export default function TagList({ tags, categories }: Props) {
         <meta name="twitter:card" content="summary" />
       </Head>
       <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
-        <div className="relative py-16 overflow-hidden bg-white dark:bg-gray-900">
+        <div className="relative py-16 overflow-hidden bg-white">
           <div className="relative px-4 sm:px-6 lg:px-8">
             <div className="max-w-screen-xl mx-auto text-lg">
               <div className="max-w-screen-xl mb-8">

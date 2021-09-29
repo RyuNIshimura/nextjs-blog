@@ -76,18 +76,18 @@ export default function SearchModal({
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0"
           >
-            <div className="inline-block overflow-hidden overflow-y-scroll text-left align-bottom transition-all transform bg-gray-100 rounded-sm shadow-xl max-h-96 dark:bg-gray-900 sm:align-middle sm:max-w-3xl sm:w-full">
+            <div className="inline-block overflow-hidden overflow-y-scroll text-left align-bottom transition-all transform bg-gray-100 rounded-sm shadow-xl max-h-96 sm:align-middle sm:max-w-3xl sm:w-full">
               <div id="search-container" className="w-full px-8 py-4">
                 <label htmlFor="search" className="sr-only">
                   Search
                 </label>
                 <div className="relative text-gray-400">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none dark:text-white">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <SearchIcon className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <input
                     id="search"
-                    className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-900 placeholder-gray-500 bg-gray-100 border-b border-gray-400 sm:text-base dark:bg-gray-900 dark:text-white focus:outline-none"
+                    className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-900 placeholder-gray-500 bg-gray-100 border-b border-gray-400 sm:text-base focus:outline-none"
                     placeholder="Search"
                     type="search"
                     name="search"
@@ -96,7 +96,7 @@ export default function SearchModal({
                   />
                 </div>
                 {!!snippets.length && (
-                  <div className="max-w-full mt-5 bg-gray-100 rounded-sm dark:bg-gray-900">
+                  <div className="max-w-full mt-5 bg-gray-100 rounded-sm">
                     {snippets.map((article: IArticle, i: number) => (
                       <div key={`${article.fields.slug}-${i}`} className="mb-5">
                         <ArticleCard article={article} />

@@ -39,7 +39,7 @@ export default function Header() {
     <>
       <Disclosure
         as="nav"
-        className="bg-white border-opacity-25 dark:bg-gray-900 shadow-0 sm:shadow lg:border-none"
+        className="bg-white border-opacity-25 shadow-0 sm:shadow lg:border-none"
       >
         {({ open }) => (
           <>
@@ -65,7 +65,7 @@ export default function Header() {
                         <a
                           key={`${item.name}-${itemIdx}`}
                           href={item.href}
-                          className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-75"
+                          className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-lg hover:bg-gray-200 hover:bg-opacity-75"
                           target={item?.target}
                           rel={item?.rel}
                         >
@@ -83,12 +83,12 @@ export default function Header() {
                     <label htmlFor="search" className="sr-only">
                       Search
                     </label>
-                    <div className="relative mr-2 text-gray-600 border-b border-gray-600 dark:text-gray-100 dark:border-gray-100">
+                    <div className="relative mr-2 text-gray-600 border-b border-gray-600">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <SearchIcon className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div
-                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer dark:text-gray-100 sm:text-sm"
+                        className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-600 rounded-lg cursor-pointer sm:text-sm"
                         onClick={() => setOpenSearchModal(true)}
                       >
                         Search
@@ -106,7 +106,7 @@ export default function Header() {
                 </div>
                 <div className="flex lg:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-800 bg-white rounded-lg dark:bg-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 dark:focus:ring-offset-white focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-800 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XIcon className="block w-6 h-6" aria-hidden="true" />
@@ -119,12 +119,12 @@ export default function Header() {
             </div>
 
             <Disclosure.Panel className="lg:hidden">
-              <div className="px-2 pt-2 pb-3 m-1 space-y-1 bg-white border-gray-800 rounded-md shadow dark:bg-gray-800 border-1">
+              <div className="px-2 pt-2 pb-3 m-1 space-y-1 bg-white border-gray-800 rounded-md shadow border-1">
                 {navigation.map((item) => (
                   <Fragment key={item.name}>
                     <a
                       href={item.href}
-                      className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg dark:bg-gray-800 dark:text-white text-md"
+                      className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg text-md"
                       target={item?.target}
                       rel={item?.rel}
                     >
@@ -133,14 +133,14 @@ export default function Header() {
                   </Fragment>
                 ))}
                 <Fragment>
-                  <div className="flex px-3 py-2 bg-white dark:bg-gray-800">
+                  <div className="flex px-3 py-2 bg-white">
                     {SNS_ITEMS.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mr-4 text-gray-600 dark:text-white hover:text-gray-400"
+                        className="mr-4 text-gray-600 hover:text-gray-400"
                       >
                         <span className="sr-only">{item.name}</span>
                         <item.icon className="w-6 h-6" aria-hidden="true" />

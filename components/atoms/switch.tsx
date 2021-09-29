@@ -31,7 +31,7 @@ export default function SwitchColorMode() {
           onChange={changeTheme}
           className={classNames(
             isLight ? 'bg-yellow-400' : 'bg-gray-800',
-            'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-yellow-400 dark:border-yellow-400 rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none'
+            'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-yellow-400 rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none'
           )}
         >
           <span className="sr-only">Dark Mode</span>
