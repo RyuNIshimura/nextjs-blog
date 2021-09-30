@@ -9,16 +9,10 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import dayjs from 'dayjs';
-import { PaperClipIcon } from '@heroicons/react/outline';
-import { ClockIcon, RefreshIcon } from '@heroicons/react/solid';
 import { MarkdownComponents } from '@/components/organisms/markdown-components';
-import TableOfContents from '@/components/molecules/table-of-contents';
 import ArticleCard from '@/components/molecules/article-card';
-import Tag from '@/components/atoms/tag';
-import { TwitterIcon } from '@/components/svg';
 import client from '@/lib/contentful';
 import { generateTableOfContents } from '@/lib/markdown-utils';
-import { tweet, copyText } from '@/lib/share-utils';
 import {
   APP_NAME,
   BASE_URL,
@@ -66,7 +60,7 @@ function ArticlePage({
       <Head>
         <title>{article.fields.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="keywords" content={article.fields.keyword} />
+        <meta name="keywords" content={article.fields.title} />
         <meta name="description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={APP_NAME} />
@@ -76,15 +70,6 @@ function ArticlePage({
         />
         <meta property="og:title" content={article.fields.title} />
         <meta property="og:description" content={description} />
-        <meta
-          property="og:image"
-          content={`https:${article.fields.image.fields.file.url}`}
-        />
-        <meta
-          property="twitter:image"
-          content={`https:${article.fields.image.fields.file.url}`}
-        />
-        <meta content="summary" />
       </Head>
       <div className="max-w-3xl mx-3 my-2 lg:mx-auto sm:mx-5">
         <div className="">

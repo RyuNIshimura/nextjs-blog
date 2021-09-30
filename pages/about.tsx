@@ -3,15 +3,10 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import WorkCard from '@/components/molecules/work-card';
 import client from '@/lib/contentful';
-import {
-  APP_NAME,
-  BASE_URL,
-  META_DESCRIPTION,
-  SNS_ITEMS,
-} from '@/lib/constants';
+import { APP_NAME, SNS_ITEMS } from '@/lib/constants';
 import { IWork } from '@/@types/generated/contentful';
 
-const favoStacks = ['Next.js', 'Nest.js', 'Contentful', 'Stripe', 'Prisma'];
+const favoStacks = ['React.js', 'Nest.js', 'Contentful', 'Stripe', 'Prisma'];
 const favoLangs = ['JavaScript'];
 
 export default function About({ works }: { works: IWork[] }) {
