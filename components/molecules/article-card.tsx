@@ -20,7 +20,7 @@ export default function ArticleCard({ article }: { article: any }) {
                 {article.fields.tag.map((t: any, i: number) => (
                   <a
                     key={`${t.fields.slug}-${i}`}
-                    href={`/tag/${t.fields.slug}`}
+                    href={`/tags/${t.fields.slug}`}
                     className="inline-flex items-center px-3 py-3 mt-2 mr-2 text-sm font-bold text-gray-800 bg-gray-100 rounded-sm hover:bg-gray-200"
                     style={{
                       backgroundColor: t.fields.backgroundColor,

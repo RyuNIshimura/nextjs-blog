@@ -12,7 +12,7 @@ import dayjs from 'dayjs';
 import { MarkdownComponents } from '@/components/organisms/markdown-components';
 import ArticleCard from '@/components/molecules/article-card';
 import client from '@/lib/contentful';
-import { generateTableOfContents } from '@/lib/markdown-utils';
+import { getDescription } from '@/lib/markdown-utils';
 import {
   BASE_URL,
   PER_PAGE,
@@ -171,9 +171,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     content_type: CONTENT_TYPE.ARTICLE,
     'fields.slug': params.slug,
   });
-  const { description } = await generateTableOfContents(
-    article.items[0].fields.body
-  );
+  const { description } = await getDescription(article.items[0].fields.body);
 
   const relatedTag = article.items[0].fields.tag[0];
 

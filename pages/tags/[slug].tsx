@@ -8,13 +8,13 @@ import client from '@/lib/contentful';
 import { PER_PAGE, CONTENT_TYPE, BASE_URL } from '@/lib/constants';
 import { BreadcrumbPage } from '@/@types/index';
 
-function IndexPage({ initialArticles, total, category, pages }: any) {
+function IndexPage({ initialArticles, total, tag, pages }: any) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
       content_type: CONTENT_TYPE.ARTICLE,
-      'fields.type.sys.id': category.sys.id,
+      'fields.tag.sys.id': tag.sys.id,
       order: '-sys.updatedAt',
       limit: PER_PAGE,
       skip: PER_PAGE * (page - 1),
@@ -26,15 +26,11 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
   return (
     <>
       <Head>
-        <title>{category.fields.name}</title>
-        <meta
-          property="og:title"
-          content={category.fields.name}
-          key="og_title"
-        />
+        <title>{tag.fields.name}</title>
+        <meta property="og:title" content={tag.fields.name} key="og_title" />
         <meta
           property="og:url"
-          content={`${BASE_URL}/tag/${category.fields.slug}`}
+          content={`${BASE_URL}/tags/${tag.fields.slug}`}
           key="og_url"
         />
       </Head>
@@ -47,7 +43,7 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
           hasMore={articles.length < total}
           loader={
             <div className="mx-5 my-2 lg:mx-auto" key={1}>
-              ロード中 ...
+              Loading ...
             </div>
           }
           useWindow={true}
@@ -62,23 +58,23 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  let categories = await client.getEntries({
-    content_type: CONTENT_TYPE.CATEGORY,
+  let tags = await client.getEntries({
+    content_type: CONTENT_TYPE.TAG,
     limit: 1,
   });
-  const total = categories.total;
+  const total = tags.total;
   const maxPage = Math.ceil(total / PER_PAGE);
   const maxPageArray = [...Array(maxPage).keys()].map((i) => ++i);
 
   const paths = [];
   for (const l of maxPageArray) {
-    categories = await client.getEntries({
-      content_type: CONTENT_TYPE.CATEGORY,
+    tags = await client.getEntries({
+      content_type: CONTENT_TYPE.TAG,
       limit: PER_PAGE,
       skip: PER_PAGE * (l - 1),
     });
-    for (const category of categories.items) {
-      paths.push({ params: { slug: category.fields.slug } });
+    for (const tag of tags.items) {
+      paths.push({ params: { slug: tag.fields.slug } });
     }
   }
 
@@ -86,9 +82,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const category = await client
+  const tag = await client
     .getEntries({
-      content_type: CONTENT_TYPE.CATEGORY,
+      content_type: CONTENT_TYPE.TAG,
       'fields.slug': params?.slug,
     })
     .then((res: any) => res.items[0])
@@ -96,15 +92,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const articles = await client.getEntries({
     content_type: CONTENT_TYPE.ARTICLE,
-    'fields.type.sys.id': category.sys.id,
+    'fields.tag.sys.id': tag.sys.id,
     order: '-sys.updatedAt',
     limit: PER_PAGE,
   });
 
   const pages: BreadcrumbPage[] = [
     {
-      name: category.fields.name,
-      href: `/category/${category.fields.slug}`,
+      name: tag.fields.type.fields.name,
+      href: `/categories/${tag.fields.type.fields.slug}`,
+      current: false,
+    },
+    {
+      name: tag.fields.name,
+      href: `/tags/${tag.fields.slug}`,
       current: true,
     },
   ];
@@ -113,7 +114,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       initialArticles: articles.items,
       total: articles.total,
-      category: category,
+      tag: tag,
       pages: pages,
     },
   };

@@ -53,7 +53,6 @@
   "private": true,
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts",
     "dev": "next dev",
     "format": "prettier --write \"{pages,components,lib}/**/*.{js,jsx,ts,tsx}\"",
     "lint": "next lint",
