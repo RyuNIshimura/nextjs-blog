@@ -35,8 +35,6 @@
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
     "autoprefixer": "^10.3.6",
-    "contentful-management": "^7.41.0",
-    "contentful-typescript-codegen": "^3.2.3",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
@@ -55,7 +53,6 @@
   "private": true,
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts",
     "dev": "next dev",
     "format": "prettier --write \"{pages,components,lib}/**/*.{js,jsx,ts,tsx}\"",
     "lint": "next lint",

@@ -10,7 +10,7 @@ import { APP_NAME } from '@/lib/constants';
 const navigation = [
   { name: '🏠 Home', href: '/' },
   { name: '🙋‍♂️ About', href: '/about' },
-  { name: '🦸‍♂️ Tags', href: '/tag' },
+  { name: '🦸‍♂️ Tags', href: '/tags' },
 ];
 
 export default function Header() {

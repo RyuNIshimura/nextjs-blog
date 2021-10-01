@@ -5,10 +5,10 @@ import { Sns } from '@/@types/index';
 /**
  * App Settings.
  **/
-export const APP_NAME: string = 'Nishimura Club'; // ex) My Dev Note
-export const BASE_URL: string = 'https://nishimura.club'; // ex) https://example.com
+export const APP_NAME: string = 'Nishimura Club ⚡️';
+export const BASE_URL: string = 'https://nishimura.club';
 export const META_DESCRIPTION: string =
-  'JavaScript と Web開発 のチュートリアル'; // ex) JavaScript and Web Development Tutorials.
+  'JavaScriptとWeb開発のチュートリアル ⚡️';
 
 /**
  * Content Display Settings.
@@ -30,7 +30,7 @@ export enum CONTENT_TYPE {
 /**
  * Display SNS links in Header, Footer, and About.
  **/
-export const TWITTER_ID: string = 'ryunishimura87'; // ex)@xxxxxxxx
+export const TWITTER_ID: string = 'ryunishimura87';
 export const GITHUB_ID: string = 'RyuNIshimura';
 export const SNS_ITEMS: Sns[] = [
   {

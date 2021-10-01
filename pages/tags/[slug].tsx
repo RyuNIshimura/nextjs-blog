@@ -5,24 +5,10 @@ import InfiniteScroll from 'react-infinite-scroller';
 import ArticleCard from '@/components/molecules/article-card';
 import Breadcrumbs from '@/components/molecules/breadcrumbs';
 import client from '@/lib/contentful';
-import {
-  APP_NAME,
-  BASE_URL,
-  META_DESCRIPTION,
-  PER_PAGE,
-  CONTENT_TYPE,
-} from '@/lib/constants';
+import { PER_PAGE, CONTENT_TYPE, BASE_URL } from '@/lib/constants';
 import { BreadcrumbPage } from '@/@types/index';
-import { IArticle, ITags } from '@/@types/generated/contentful';
 
-interface Props {
-  initialArticles: IArticle[];
-  total: number;
-  tag: ITags;
-  pages: BreadcrumbPage[];
-}
-
-function IndexPage({ initialArticles, total, tag, pages }: Props) {
+function IndexPage({ initialArticles, total, tag, pages }: any) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
@@ -40,10 +26,12 @@ function IndexPage({ initialArticles, total, tag, pages }: Props) {
   return (
     <>
       <Head>
-        <title>{`${APP_NAME} - ${tag.fields.name}`}</title>
+        <title>{tag.fields.name}</title>
+        <meta property="og:title" content={tag.fields.name} key="og_title" />
         <meta
-          property="og:title"
-          content={`${APP_NAME} - ${tag.fields.name}`}
+          property="og:url"
+          content={`${BASE_URL}/tags/${tag.fields.slug}`}
+          key="og_url"
         />
       </Head>
       <div className="max-w-4xl mx-auto">
@@ -55,12 +43,12 @@ function IndexPage({ initialArticles, total, tag, pages }: Props) {
           hasMore={articles.length < total}
           loader={
             <div className="mx-5 my-2 lg:mx-auto" key={1}>
-              ロード中 ...
+              Loading ...
             </div>
           }
           useWindow={true}
         >
-          {articles.map((article: IArticle) => (
+          {articles.map((article: any) => (
             <ArticleCard key={article.fields.slug} article={article} />
           ))}
         </InfiniteScroll>
@@ -93,7 +81,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const tag = await client
     .getEntries({
       content_type: CONTENT_TYPE.TAG,
@@ -112,12 +100,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const pages: BreadcrumbPage[] = [
     {
       name: tag.fields.type.fields.name,
-      href: `/category/${tag.fields.type.fields.slug}`,
+      href: `/categories/${tag.fields.type.fields.slug}`,
       current: false,
     },
     {
       name: tag.fields.name,
-      href: `/tag/${tag.fields.slug}`,
+      href: `/tags/${tag.fields.slug}`,
       current: true,
     },
   ];

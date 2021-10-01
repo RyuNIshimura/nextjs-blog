@@ -12,26 +12,14 @@ import dayjs from 'dayjs';
 import { MarkdownComponents } from '@/components/organisms/markdown-components';
 import ArticleCard from '@/components/molecules/article-card';
 import client from '@/lib/contentful';
-import { generateTableOfContents } from '@/lib/markdown-utils';
+import { getDescription } from '@/lib/markdown-utils';
 import {
-  APP_NAME,
   BASE_URL,
   PER_PAGE,
   RELATED_ARTICLES_LIMIT,
   CONTENT_TYPE,
 } from '@/lib/constants';
-import { IArticle, ITags } from '@/@types/generated/contentful';
-import { ITableOfContent } from '@/@types/index';
 import AdSense from '@/components/molecules/adsense';
-
-interface Props {
-  article: IArticle;
-  tableOfContents: ITableOfContent[];
-  description: string;
-  initialArticles: IArticle[];
-  total: number;
-  relatedTag: ITags;
-}
 
 function ArticlePage({
   article,
@@ -39,7 +27,7 @@ function ArticlePage({
   initialArticles,
   total,
   relatedTag,
-}: Props) {
+}: any) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
@@ -56,22 +44,33 @@ function ArticlePage({
 
   return (
     <>
-      {/* TODO: hid が エラーになるので修正する */}
       <Head>
         <title>{article.fields.title}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="keywords" content={article.fields.title} />
-        <meta name="description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={APP_NAME} />
+        <meta name="description" content={description} key="description" />
         <meta
           property="og:url"
           content={`${BASE_URL}/${article.fields.slug}`}
+          key="og_url"
         />
-        <meta property="og:title" content={article.fields.title} />
-        <meta property="og:description" content={description} />
+        <meta
+          property="og:title"
+          content={article.fields.title}
+          key="og_title"
+        />
+        <meta
+          property="og:description"
+          content={description}
+          key="og_description"
+        />
       </Head>
       <div className="max-w-3xl mx-3 my-2 lg:mx-auto sm:mx-5">
+        <AdSense
+          styles={{ display: 'block', textAlign: 'center' }}
+          format=""
+          responsive="true"
+          client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
+          slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
+        />
         <div className="">
           <div className="mt-10">
             <h1 className="text-center">
@@ -118,22 +117,12 @@ function ArticlePage({
                 }
                 useWindow={true}
               >
-                {articles.map((article: IArticle) => (
+                {articles.map((article: any) => (
                   <ArticleCard key={article.fields.slug} article={article} />
                 ))}
               </InfiniteScroll>
             </div>
           </div>
-          {/* <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
-            <AdSense
-              styles={{ display: 'block', textAlign: 'center', height: 250 }}
-              format=""
-              responsive="true"
-              client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
-              slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
-            />
-            <TableOfContents tableOfContents={tableOfContents} />
-          </div> */}
         </div>
       </div>
     </>
@@ -179,9 +168,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     content_type: CONTENT_TYPE.ARTICLE,
     'fields.slug': params.slug,
   });
-  const { tableOfContents, description } = await generateTableOfContents(
-    article.items[0].fields.body
-  );
+  const { description } = await getDescription(article.items[0].fields.body);
 
   const relatedTag = article.items[0].fields.tag[0];
 

@@ -3,19 +3,20 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import WorkCard from '@/components/molecules/work-card';
 import client from '@/lib/contentful';
-import { APP_NAME, SNS_ITEMS } from '@/lib/constants';
-import { IWork } from '@/@types/generated/contentful';
+import { APP_NAME, BASE_URL, SNS_ITEMS } from '@/lib/constants';
 
-const favoStacks = ['React.js', 'Nest.js', 'Contentful', 'Stripe', 'Prisma'];
+const favoStacks = ['Next.js', 'Nest.js'];
 const favoLangs = ['JavaScript'];
 
-export default function About({ works }: { works: IWork[] }) {
+export default function About({ works }: any) {
   return (
     <>
       <Head>
-        <title>{`${APP_NAME} - About 🙋‍♂️`}</title>
+        <title>About 🙋‍♂️</title>
+        <meta property="og:title" content="About 🙋‍♂️" key="og_title" />
+        <meta property="og:url" content={`${BASE_URL}/about`} key="og_url" />
       </Head>
-      <div className="mx-3 my-2 lg:mx-auto sm:mx-5 max-w-screen-2xl">
+      <div className="max-w-4xl mx-3 my-2 lg:mx-auto sm:mx-5">
         <div className="relative py-16 overflow-hidden bg-white">
           <div className="relative px-4 sm:px-6 lg:px-8">
             <div className="max-w-screen-xl mx-auto text-lg">
@@ -41,7 +42,7 @@ export default function About({ works }: { works: IWork[] }) {
                   </span>
                 </h1>
                 <div className="grid grid-cols-1 gap-6 mt-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
-                  {works.map((work: IWork) => (
+                  {works.map((work: any) => (
                     <WorkCard key={work.fields.name} work={work} />
                   ))}
                 </div>
