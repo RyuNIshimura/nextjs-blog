@@ -21,7 +21,7 @@ Keep all your information in one blog 🖌
 Copy the .env.example and set the API Key for Contentful.
 
 ```bash
-cp .env.local.example .env.local
+cp .env.local.example .env
 ```
 
 ```bash
