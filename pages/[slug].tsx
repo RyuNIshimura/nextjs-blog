@@ -19,7 +19,7 @@ import {
   RELATED_ARTICLES_LIMIT,
   CONTENT_TYPE,
 } from '@/lib/constants';
-// import AdSense from '@/components/molecules/adsense';
+import AdSense from '@/components/molecules/adsense';
 
 function ArticlePage({
   article,
@@ -64,6 +64,13 @@ function ArticlePage({
         />
       </Head>
       <div className="max-w-3xl mx-3 my-2 lg:mx-auto sm:mx-5">
+        <AdSense
+          styles={{ display: 'block', textAlign: 'center' }}
+          format=""
+          responsive="true"
+          client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
+          slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
+        />
         <div className="">
           <div className="mt-10">
             <h1 className="text-center">
@@ -116,16 +123,6 @@ function ArticlePage({
               </InfiniteScroll>
             </div>
           </div>
-          {/* <div className="sticky hidden h-screen col-span-2 ml-5 lg:block lg:col-span-1 top-16">
-            <AdSense
-              styles={{ display: 'block', textAlign: 'center', height: 250 }}
-              format=""
-              responsive="true"
-              client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
-              slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
-            />
-            <TableOfContents tableOfContents={tableOfContents} />
-          </div> */}
         </div>
       </div>
     </>
