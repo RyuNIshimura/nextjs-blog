@@ -1,8 +1,3 @@
-export interface ITableOfContent {
-  id: string;
-  name: string;
-}
-
 export interface BreadcrumbPage {
   name: string;
   href: string;

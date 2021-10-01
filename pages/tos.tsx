@@ -1,4 +1,4 @@
-import { APP_NAME } from '@/lib/constants';
+import { APP_NAME, BASE_URL } from '@/lib/constants';
 import Head from 'next/head';
 import React from 'react';
 import fs from 'fs';
@@ -9,7 +9,9 @@ export default function Tos({ content, meta }: any) {
   return (
     <>
       <Head>
-        <title>{`${APP_NAME} - 利用規約`}</title>
+        <title>Terms 📃</title>
+        <meta property="og:title" content="Terms 📃" key="og_title" />
+        <meta property="og:url" content={`${BASE_URL}/tos`} key="og_url" />
       </Head>
       <div className="max-w-4xl mx-auto my-10">
         <div className="mt-5 md:mt-0 md:col-span-2">

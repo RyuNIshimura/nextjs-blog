@@ -4,26 +4,19 @@ import dynamic from 'next/dynamic';
 import client from '@/lib/contentful';
 import { PER_PAGE, CONTENT_TYPE } from '@/lib/constants';
 import popularPaths from '@/ga.json';
-import { IArticle } from '@/@types/generated/contentful';
 
 const ArticleCard = dynamic(
   () => import('@/components/molecules/article-card'),
   // eslint-disable-next-line react/display-name
-  { loading: () => <p>loading...</p> }
+  { loading: () => <p>Loading ...</p> }
 );
 const InfiniteScroll = dynamic(
   () => import('react-infinite-scroller'),
   // eslint-disable-next-line react/display-name
-  { loading: () => <p>loading...</p> }
+  { loading: () => <p>Loading ...</p> }
 );
 
-interface Props {
-  initialArticles: IArticle[];
-  total: number;
-  popularArticles: IArticle[];
-}
-
-function IndexPage({ initialArticles, total, popularArticles }: Props) {
+function IndexPage({ initialArticles, total, popularArticles }: any) {
   const [articles, setArticles] = useState(initialArticles);
 
   const getArticles = async (page: number) => {
@@ -43,7 +36,7 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
           Featured Posts ✅
         </div>
         <div className="m-0">
-          {popularArticles.map((article: IArticle) => (
+          {popularArticles.map((article: any) => (
             <ArticleCard key={article.fields.slug} article={article} />
           ))}
         </div>
@@ -62,7 +55,7 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
           }
           useWindow={true}
         >
-          {articles.map((article: IArticle) => (
+          {articles.map((article: any) => (
             <ArticleCard key={article.fields.slug} article={article} />
           ))}
         </InfiniteScroll>
@@ -71,7 +64,7 @@ function IndexPage({ initialArticles, total, popularArticles }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // 👇 `ga.json`から人気の記事を取得する
   let popularArticles = await Promise.all(
     popularPaths.map(async (path: string) => {
