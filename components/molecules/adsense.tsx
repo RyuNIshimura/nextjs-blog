@@ -28,7 +28,7 @@ export default function AdSense({
   return (
     <>
       {adSenseLoading && (
-        <div className="bg-gray-100 rounded-md">
+        <div className="my-2 bg-gray-100 rounded-md">
           <ins
             className="adsbygoogle"
             style={styles}

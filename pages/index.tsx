@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import client from '@/lib/contentful';
 import { PER_PAGE, CONTENT_TYPE } from '@/lib/constants';
 import popularPaths from '@/ga.json';
+import AdSense from '@/components/molecules/adsense';
 
 const ArticleCard = dynamic(
   () => import('@/components/molecules/article-card'),
@@ -40,6 +41,13 @@ function IndexPage({ initialArticles, total, popularArticles }: any) {
             <ArticleCard key={article.fields.slug} article={article} />
           ))}
         </div>
+        <AdSense
+          styles={{ display: 'block', textAlign: 'center', height: 250 }}
+          format=""
+          responsive="true"
+          client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
+          slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
+        />
         <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
           All Posts 📜
         </div>
@@ -55,9 +63,28 @@ function IndexPage({ initialArticles, total, popularArticles }: any) {
           }
           useWindow={true}
         >
-          {articles.map((article: any) => (
-            <ArticleCard key={article.fields.slug} article={article} />
-          ))}
+          {articles.map((article: any, i: number) =>
+            !(i == 0) && i % 10 == 0 ? (
+              <>
+                <AdSense
+                  styles={{
+                    display: 'block',
+                    textAlign: 'center',
+                    height: 250,
+                  }}
+                  format=""
+                  responsive="true"
+                  client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
+                  slot={
+                    process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''
+                  }
+                />
+                <ArticleCard key={article.fields.slug} article={article} />
+              </>
+            ) : (
+              <ArticleCard key={article.fields.slug} article={article} />
+            )
+          )}
         </InfiniteScroll>
       </div>
     </>
