@@ -84,13 +84,6 @@ function ArticlePage({
               </span>
             </div>
           </div>
-          <AdSense
-            styles={{ display: 'block', textAlign: 'center', height: 250 }}
-            format=""
-            responsive="true"
-            client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
-            slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
-          />
           <ReactMarkdown
             className="markdown-body"
             components={MarkdownComponents}
