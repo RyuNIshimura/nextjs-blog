@@ -13,11 +13,11 @@
 
 .markdown-body {
   h1 {
-    @apply my-12 text-3xl font-bold text-gray-700;
+    @apply my-12 text-4xl font-bold text-black border-b pb-2;
   }
 
   h2 {
-    @apply pb-2 my-12 text-xl font-bold leading-6 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-2xl;
+    @apply my-12 text-3xl  font-bold text-black border-b pb-2;
 
     .clip {
       display: none;
@@ -29,37 +29,41 @@
   }
 
   h3 {
-    @apply pb-2 my-3 text-lg font-bold leading-6 text-gray-700 border-b border-gray-300 sm:my-6 sm:text-xl;
+    @apply my-12 text-2xl font-bold text-black border-b pb-2;
   }
 
   p {
-    @apply my-2 text-lg leading-8 text-gray-600 break-words sm:my-5 sm:text-lg sm:leading-9;
+    @apply my-6 text-xl font-normal leading-10 text-gray-700 break-words;
+  }
+
+  strong {
+    @apply text-black;
   }
 
   a {
-    @apply font-normal text-blue-400 underline;
+    @apply font-normal text-blue-600 underline mx-2;
   }
 
   ul {
-    @apply mx-5 list-disc;
+    @apply mx-6 my-4 list-disc;
 
     li {
-      @apply my-2 text-lg leading-6 text-gray-600 break-words sm:text-lg;
+      @apply my-2 text-xl font-normal leading-10 text-gray-700 break-words;
     }
   }
 
   code {
-    @apply text-lg font-medium rounded-sm bg-gray-200 p-1 leading-6 text-gray-600 break-words;
+    @apply mx-2 my-1 p-2 text-lg font-normal rounded-md bg-blue-100 leading-10 text-blue-700 break-words;
   }
 
   pre {
-    @apply my-4 sm:my-5;
+    @apply my-8;
 
     div {
       @apply rounded-sm;
 
       code {
-        @apply text-lg font-medium leading-6 text-gray-300 break-words;
+        @apply text-gray-300 break-words;
       }
     }
   }

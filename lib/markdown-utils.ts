@@ -11,14 +11,14 @@ export const getExtend = (filename: string) => {
   return filename.slice(pos + 1);
 };
 
-export const removeTags = (htmlString: string) => {
-  const removeTagPattern = new RegExp('<("[^"]*"|\'[^\']*\'|[^\'">])*>', 'g');
-  return htmlString.replace(removeTagPattern, '');
+export const removeHtmlTags = (htmlString: string) => {
+  const htmlTagPattern = new RegExp('<("[^"]*"|\'[^\']*\'|[^\'">])*>', 'g');
+  return htmlString.replace(htmlTagPattern, '');
 };
 
 export const getDescription = async (markdown: string) => {
   const result = await remark()?.use(html)?.process(markdown);
   const htmlString = result.toString();
-  const description = removeTags(htmlString).slice(0, 120) + '...';
+  const description = removeHtmlTags(htmlString).slice(0, 120) + '...';
   return { description };
 };

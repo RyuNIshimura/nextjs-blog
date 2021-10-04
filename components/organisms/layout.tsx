@@ -8,10 +8,10 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <div className="sticky top-0 z-40">
+      <div className="sticky top-0 z-40 font-body">
         <Header />
       </div>
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl font-body">
         <div>{children}</div>
       </div>
       <Footer />

@@ -65,7 +65,7 @@ function ArticlePage({
       </Head>
       <div className="max-w-3xl mx-3 mt-10 lg:mx-auto">
         <h1 className="text-center">
-          <span className="px-3 py-4 text-2xl text-white bg-gray-900 sm:text-4xl article-title text-bold">
+          <span className="px-3 py-4 text-2xl font-bold text-white bg-gray-900 sm:text-4xl article-title">
             {article.fields.title}
           </span>
         </h1>
@@ -96,7 +96,7 @@ function ArticlePage({
             client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
             slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
           />
-          <div className="my-10 text-2xl font-bold text-center text-gray-700 underline">
+          <div className="my-10 text-2xl font-bold text-center text-black underline">
             Related Posts ✅
           </div>
           <InfiniteScroll
