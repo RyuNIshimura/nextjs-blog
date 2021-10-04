@@ -42,6 +42,9 @@ export default function About() {
               📩 Contact
             </span>
           </h1>
+          <p className="mx-auto mt-8 text-xl leading-8 text-center text-gray-500">
+            <span>ディスカッションや質問を歓迎します 🎉</span>
+          </p>
           <div className="flex justify-center mt-8 space-x-6 md:order-2">
             {SNS_ITEMS.map((item) => (
               <a

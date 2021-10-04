@@ -7,7 +7,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import SearchModal from '@/components/molecules/search-modal';
 import { APP_NAME } from '@/lib/constants';
 
-const navigation = [
+const NAVIGATION = [
   { name: '🏠 Home', href: '/' },
   { name: '🙋‍♂️ About', href: '/about' },
   { name: '🦸‍♂️ Tags', href: '/tags' },
@@ -55,7 +55,7 @@ export default function Header() {
                   </div>
                   <div className="hidden lg:block lg:ml-4">
                     <div className="flex space-x-4">
-                      {navigation.map((item: any, itemIdx: number) => (
+                      {NAVIGATION.map((item: any, itemIdx: number) => (
                         <a
                           key={`${item.name}-${itemIdx}`}
                           href={item.href}
@@ -114,7 +114,7 @@ export default function Header() {
 
             <Disclosure.Panel className="lg:hidden">
               <div className="px-2 pt-2 pb-3 m-1 space-y-1 bg-white border-gray-800 rounded-md shadow border-1">
-                {navigation.map((item: any) => (
+                {NAVIGATION.map((item: any) => (
                   <Fragment key={item.name}>
                     <a
                       href={item.href}

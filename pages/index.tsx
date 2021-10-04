@@ -52,15 +52,10 @@ function IndexPage({ initialArticles, total, popularArticles }: any) {
           All Posts 📜
         </div>
         <InfiniteScroll
-          className="m-0"
           pageStart={1}
           loadMore={getArticles}
           hasMore={articles.length < total}
-          loader={
-            <div className="mx-5 my-2 lg:mx-auto" key={1}>
-              Loading ...
-            </div>
-          }
+          loader={<div key={1}>Loading ...</div>}
           useWindow={true}
         >
           {articles.map((article: any, i: number) =>

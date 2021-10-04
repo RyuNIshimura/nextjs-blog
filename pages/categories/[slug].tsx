@@ -41,15 +41,10 @@ function IndexPage({ initialArticles, total, category, pages }: any) {
       <div className="max-w-4xl mx-auto">
         <Breadcrumbs pages={pages} />
         <InfiniteScroll
-          className="m-0"
           pageStart={1}
           loadMore={getArticles}
           hasMore={articles.length < total}
-          loader={
-            <div className="mx-5 my-2 lg:mx-auto" key={1}>
-              Loading ...
-            </div>
-          }
+          loader={<div key={1}>Loading ...</div>}
           useWindow={true}
         >
           {articles.map((article: any) => (

@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import dayjs from 'dayjs';
+import InfiniteScroll from 'react-infinite-scroller';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import InfiniteScroll from 'react-infinite-scroller';
 import gfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
-import dayjs from 'dayjs';
-import { MarkdownComponents } from '@/components/organisms/markdown-components';
+import { CustomMarkdown } from '@/components/organisms/custom-markdown';
 import ArticleCard from '@/components/molecules/article-card';
+import AdSense from '@/components/molecules/adsense';
 import client from '@/lib/contentful';
 import { getDescription } from '@/lib/markdown-utils';
 import {
@@ -19,7 +20,6 @@ import {
   RELATED_ARTICLES_LIMIT,
   CONTENT_TYPE,
 } from '@/lib/constants';
-import AdSense from '@/components/molecules/adsense';
 
 function ArticlePage({
   article,
@@ -63,64 +63,53 @@ function ArticlePage({
           key="og_description"
         />
       </Head>
-      <div className="max-w-3xl mx-3 my-2 lg:mx-auto sm:mx-5">
-        <div className="mt-10">
-          <h1 className="text-center">
-            <span className="px-3 py-4 text-2xl text-white bg-gray-900 sm:text-4xl article-title text-bold">
-              {article.fields.title}
+      <div className="max-w-3xl mx-3 mt-10 lg:mx-auto">
+        <h1 className="text-center">
+          <span className="px-3 py-4 text-2xl text-white bg-gray-900 sm:text-4xl article-title text-bold">
+            {article.fields.title}
+          </span>
+        </h1>
+        <div className="flex justify-center my-6">
+          <div>
+            <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
+              {`updated ${dayjs(article.sys.createdAt).format('MMM D, YYYY')}`}
             </span>
-          </h1>
-          <div className="flex justify-center my-6 text-center">
-            <div>
-              <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-                {`updated ${dayjs(article.sys.createdAt).format(
-                  'MMM D, YYYY'
-                )}`}
-              </span>
-              <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-                {`created ${dayjs(article.sys.updatedAt).format(
-                  'MMM D, YYYY'
-                )}`}
-              </span>
-            </div>
+            <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
+              {`created ${dayjs(article.sys.updatedAt).format('MMM D, YYYY')}`}
+            </span>
           </div>
-          <ReactMarkdown
-            className="markdown-body"
-            components={MarkdownComponents}
-            linkTarget="_blank"
-            // eslint-disable-next-line react/no-children-prop
-            children={article.fields.body}
-            rehypePlugins={[rehypeRaw, rehypeKatex]}
-            remarkPlugins={[gfm, remarkMath]}
+        </div>
+        <ReactMarkdown
+          className="markdown-body"
+          components={CustomMarkdown}
+          linkTarget="_blank"
+          // eslint-disable-next-line react/no-children-prop
+          children={article.fields.body}
+          rehypePlugins={[rehypeRaw, rehypeKatex]}
+          remarkPlugins={[gfm, remarkMath]}
+        />
+        <div className="mt-10">
+          <AdSense
+            styles={{ display: 'block', textAlign: 'center', height: 250 }}
+            format=""
+            responsive="true"
+            client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
+            slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
           />
-          <div className="mt-10">
-            <AdSense
-              styles={{ display: 'block', textAlign: 'center', height: 250 }}
-              format=""
-              responsive="true"
-              client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
-              slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
-            />
-            <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
-              Related Posts ✅
-            </div>
-            <InfiniteScroll
-              className="m-0"
-              pageStart={1}
-              loadMore={getArticles}
-              hasMore={articles.length < total}
-              loader={
-                <div className="mx-5 my-2 lg:mx-auto" key={1}>
-                  Loading ...
-                </div>
-              }
-              useWindow={true}
-            >
-              {articles.map((article: any) => (
-                <ArticleCard key={article.fields.slug} article={article} />
-              ))}
-            </InfiniteScroll>
+          <div className="my-10 text-2xl font-bold text-center text-gray-700 underline">
+            Related Posts ✅
           </div>
+          <InfiniteScroll
+            pageStart={1}
+            loadMore={getArticles}
+            hasMore={articles.length < total}
+            loader={<div key={1}>Loading ...</div>}
+            useWindow={true}
+          >
+            {articles.map((article: any) => (
+              <ArticleCard key={article.fields.slug} article={article} />
+            ))}
+          </InfiniteScroll>
         </div>
       </div>
     </>
@@ -152,22 +141,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (!params?.slug) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const article = await client.getEntries({
     content_type: CONTENT_TYPE.ARTICLE,
     'fields.slug': params.slug,
   });
-  const { description } = await getDescription(article.items[0].fields.body);
 
+  const { description } = await getDescription(article.items[0].fields.body);
   const relatedTag = article.items[0].fields.tag[0];
 
   const initialArticles = await client.getEntries({
