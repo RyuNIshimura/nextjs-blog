@@ -5,7 +5,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
-    "contentful": "^9.0.0",
+    "contentful": "^9.0.2",
     "dayjs": "^1.10.7",
     "googleapis": "^88.2.0",
     "gray-matter": "^4.0.3",
