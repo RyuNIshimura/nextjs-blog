@@ -1,4 +1,4 @@
-export default function Category({ category }: { category: any }) {
+export default function Category({ category }: any) {
   return (
     <a
       href={`/categories/${category.fields.slug}`}

@@ -12,11 +12,11 @@ export default function SearchModal({
   open: boolean;
   parentCallback: any;
 }) {
-  const [snippets, setSnippets] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     if (!open) {
-      setSnippets([]);
+      setArticles([]);
     }
   }, [open]);
 
@@ -26,7 +26,7 @@ export default function SearchModal({
   }) => {
     e.preventDefault;
     if (!e.target.value) {
-      setSnippets([]);
+      setArticles([]);
       return;
     }
     const response = await client.getEntries({
@@ -35,7 +35,7 @@ export default function SearchModal({
       query: e.target.value,
       limit: PER_SEARCH,
     });
-    setSnippets(response.items);
+    setArticles(response.items);
   };
 
   return (
@@ -94,9 +94,9 @@ export default function SearchModal({
                     onChange={_handleChange}
                   />
                 </div>
-                {!!snippets.length && (
+                {!!articles.length && (
                   <div className="max-w-full mt-5 bg-gray-100 rounded-sm">
-                    {snippets.map((article: any, i: number) => (
+                    {articles.map((article: any, i: number) => (
                       <div key={`${article.fields.slug}-${i}`} className="mb-5">
                         <ArticleCard article={article} />
                       </div>

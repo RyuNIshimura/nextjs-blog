@@ -111,7 +111,7 @@ function ArticlePage({
               hasMore={articles.length < total}
               loader={
                 <div className="mx-5 my-2 lg:mx-auto" key={1}>
-                  ロード中 ...
+                  Loading ...
                 </div>
               }
               useWindow={true}

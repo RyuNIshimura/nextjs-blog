@@ -1,4 +1,4 @@
-export default function Tag({ tag }: { tag: any }) {
+export default function Tag({ tag }: any) {
   return (
     <a
       href={`/tags/${tag.fields.slug}`}

@@ -1,11 +1,3 @@
-html {
-  &.dark {
-    body {
-      @apply bg-gray-900;
-    }
-  }
-}
-
 .snippet-controls {
   margin-left: 14px;
   margin-right: 0;

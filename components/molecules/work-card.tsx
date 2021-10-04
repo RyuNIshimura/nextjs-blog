@@ -1,4 +1,4 @@
-export default function WorkCard({ work }: { work: any }) {
+export default function WorkCard({ work }: any) {
   return (
     <div
       key={work.fields.name}

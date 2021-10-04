@@ -1,3 +1,5 @@
+/* eslint-disable  react-hooks/rules-of-hooks */
+/* eslint-disable  react/no-children-prop */
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -17,18 +19,13 @@ export const MarkdownComponents = {
     );
   },
   h2({ node, children, ...props }: any) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const router = useRouter();
     let id = '';
     if (node.children[0].value) {
       id = node.children[0].value;
     }
     return (
-      <h2
-        // eslint-disable-next-line react/no-children-prop
-        id={id}
-        {...props}
-      >
+      <h2 id={id} {...props}>
         {String(children).replace(/\n$/, '')}
         <PaperClipIcon
           className="relative inline-flex w-5 h-5 mt-1 ml-1 text-gray-500 cursor-pointer clip bottom-1 hover:text-gray-300"
@@ -38,9 +35,7 @@ export const MarkdownComponents = {
     );
   },
   code({ node, inline, className, children, ...props }: any) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [enableCopy, setEnableCopy] = useState(true);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const code = String(children).replace(/\n$/, '');
 
     function copySnippet(code: string) {
@@ -57,17 +52,7 @@ export const MarkdownComponents = {
       fileName = match[1];
     }
 
-    let matchedExt = getExtend(fileName);
-
-    // Custom Highlight
-    if (matchedExt === 'js' || fileName === 'js') {
-      matchedExt = 'javascript';
-    } else if (matchedExt === 'py' || fileName === 'py') {
-      matchedExt = 'python';
-    } else if (matchedExt === 'sh' || fileName === 'sh') {
-      matchedExt = 'bash';
-    }
-
+    const matchedExt = getExtend(fileName);
     const containerStyle = { paddingTop: '48px' };
 
     return !inline || match ? (
@@ -102,18 +87,12 @@ export const MarkdownComponents = {
           style={tomorrow}
           language={matchedExt || fileName}
           PreTag="div"
-          // eslint-disable-next-line react/no-children-prop
           children={code}
           {...props}
         />
       </>
     ) : (
-      <code
-        className={className}
-        // eslint-disable-next-line react/no-children-prop
-        children={code}
-        {...props}
-      />
+      <code className={className} children={code} {...props} />
     );
   },
 };

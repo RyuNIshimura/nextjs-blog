@@ -6,9 +6,10 @@
 
 # Next.js Contentful Blog 💍
 
-Keep all your information in one blog 🖌
+Keep all your information in one blog.
 
-## Requirements
+## 💡 Requirements
+
 - Node.js: 14.x+
 - API Key for Contentful
 
@@ -16,12 +17,12 @@ Keep all your information in one blog 🖌
 
 > Content Delivery API is read-only.
 
-## Setup
+## ⚡️ Setup
 
-Copy the .env.example and set the API Key for Contentful.
+Copy the .env.example and set the API Keys.
 
 ```bash
-cp .env.local.example .env
+cp .env.example .env
 ```
 
 ```bash
