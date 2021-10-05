@@ -51,7 +51,7 @@ export const CustomMarkdown = {
     const fileName = match ? match[1] : ''; // ファイル名
     const matchedExt = getExtend(fileName); // 拡張子
     const containerStyle = { paddingTop: '48px' };
-    console.log('code:', code);
+
     return !inline || match ? (
       <>
         <div className="flex items-center justify-between snippet-controls">
