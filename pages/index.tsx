@@ -33,7 +33,7 @@ function IndexPage({ initialArticles, total, popularArticles }: any) {
   return (
     <>
       <div className="max-w-4xl mx-auto">
-        <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+        <div className="my-8 text-2xl font-bold text-center text-black underline">
           Featured Posts ✅
         </div>
         <div className="m-0">
@@ -48,7 +48,7 @@ function IndexPage({ initialArticles, total, popularArticles }: any) {
           client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ''}
           slot={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SQUARE_SLOT || ''}
         />
-        <div className="my-8 text-2xl font-bold text-center text-gray-700 underline">
+        <div className="my-8 text-2xl font-bold text-center text-black underline">
           All Posts 📜
         </div>
         <InfiniteScroll
