@@ -29,7 +29,7 @@ export const CustomMarkdown = {
         <a href={`#${id}`}>
           <PaperClipIcon
             className="relative inline-flex w-5 h-5 mt-1 ml-1 text-gray-500 cursor-pointer clip bottom-1"
-            onClick={() => copyText(link)}
+            onClick={() => copyText({ text: link })}
           />
         </a>
       </h2>
@@ -39,30 +39,29 @@ export const CustomMarkdown = {
     const [enableCopy, setEnableCopy] = useState(true);
     const code = String(children).replace(/\n$/, '');
 
-    const copySnippet = (text: string) => {
-      copyText(text);
+    const copyCode = ({ code }: { code: string }) => {
+      copyText({ text: code });
       setEnableCopy(false);
       setTimeout(() => {
         setEnableCopy(true);
       }, 500);
     };
 
-    const match = /language-([\w./]*)/.exec(className || '');
-    const fileName = match ? match[1] : ''; // ファイル名
-    const matchedExt = getExtend(fileName); // 拡張子
+    const [_, filename] = /language-([\w./]*)/.exec(className) || [];
+    const extend = getExtend({ filename });
     const containerStyle = { paddingTop: '48px' };
 
-    return !inline || match ? (
+    return !inline ? (
       <>
         <div className="flex items-center justify-between snippet-controls">
           <div className="flex items-center">
             <ControlIcon />
-            <div className="flex ml-2 text-gray-200">{fileName}</div>
+            <div className="flex ml-2 text-gray-200">{filename}</div>
           </div>
           <div className="flex mr-2">
             {enableCopy ? (
               <ClipboardIcon
-                onClick={() => copySnippet(code)}
+                onClick={() => copyCode({ code })}
                 className="w-6 h-6 text-gray-200 cursor-pointer"
                 aria-hidden="true"
               />
@@ -78,7 +77,7 @@ export const CustomMarkdown = {
           className={className}
           customStyle={containerStyle}
           style={tomorrow}
-          language={matchedExt || fileName}
+          language={extend || filename}
           PreTag="div"
           children={code}
           {...props}

@@ -13,7 +13,7 @@ import { CustomMarkdown } from '@/components/organisms/custom-markdown';
 import ArticleCard from '@/components/molecules/article-card';
 import AdSense from '@/components/molecules/adsense';
 import client from '@/lib/contentful';
-import { getDescription } from '@/lib/markdown-utils';
+import { getMetaDescription } from '@/lib/markdown-utils';
 import {
   BASE_URL,
   PER_PAGE,
@@ -147,7 +147,9 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
     'fields.slug': params.slug,
   });
 
-  const { description } = await getDescription(article.items[0].fields.body);
+  const description = await getMetaDescription({
+    text: article.items[0].fields.body,
+  });
   const relatedTag = article.items[0].fields.tag[0];
 
   const initialArticles = await client.getEntries({
