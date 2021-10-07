@@ -41,7 +41,7 @@
     "fixpack": "^4.0.0",
     "googleapis": "^88.2.0",
     "husky": "^7.0.2",
-    "next-sitemap": "^1.6.173",
+    "next-sitemap": "^1.6.179",
     "postcss": "^8.3.9",
     "prettier": "^2.4.1",
     "rss": "^1.2.2",
