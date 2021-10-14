@@ -26,6 +26,6 @@ cp .env.example .env
 ```
 
 ```bash
-yarn install
+yarn
 yarn dev
 ```
