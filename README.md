@@ -6,6 +6,8 @@
 
 # Next.js Contentful Blog 💍
 
+![giphy](https://user-images.githubusercontent.com/40055484/137597358-11a56edc-e311-4aac-b8d1-2a4b773ba8eb.gif)
+
 Keep all your information in one blog.
 
 ## 💡 Requirements
