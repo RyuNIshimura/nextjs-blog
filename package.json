@@ -39,7 +39,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fixpack": "^4.0.0",
-    "googleapis": "^88.2.0",
+    "googleapis": "^89.0.0",
     "husky": "^7.0.2",
     "next-sitemap": "^1.6.179",
     "postcss": "^8.3.9",
