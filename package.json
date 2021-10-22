@@ -11,7 +11,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-infinite-scroller": "^1.2.4",
-    "react-markdown": "^7.0.1",
+    "react-markdown": "^7.1.0",
     "react-syntax-highlighter": "^15.4.4",
     "rehype-katex": "6.0.1",
     "rehype-raw": "^5.1.0",
