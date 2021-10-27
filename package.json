@@ -1,5 +1,6 @@
 {
   "name": "next-blog",
+  "description": "Next.js and Contentful blog.",
   "version": "1.0.0",
   "author": "Ryu Nishimura",
   "dependencies": {
@@ -50,6 +51,7 @@
     "typescript": "^4.4.4"
   },
   "license": "MIT",
+  "main": "dist/index.js",
   "private": true,
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",

@@ -55,9 +55,9 @@ export default function Header() {
                   </div>
                   <div className="hidden lg:block lg:ml-4">
                     <div className="flex space-x-4">
-                      {NAVIGATION.map((item: any, itemIdx: number) => (
+                      {NAVIGATION.map((item: any, i: number) => (
                         <a
-                          key={`${item.name}-${itemIdx}`}
+                          key={`header-${item.name}-${i}`}
                           href={item.href}
                           className="px-3 py-2 text-base font-bold text-gray-800 border border-transparent rounded-lg hover:bg-gray-200 hover:bg-opacity-75"
                           target={item?.target}
@@ -114,8 +114,8 @@ export default function Header() {
 
             <Disclosure.Panel className="lg:hidden">
               <div className="px-2 pt-2 pb-3 m-1 space-y-1 bg-white border-gray-800 rounded-md shadow border-1">
-                {NAVIGATION.map((item: any) => (
-                  <Fragment key={item.name}>
+                {NAVIGATION.map((item: any, i: number) => (
+                  <Fragment key={`mobile-header-${item.name}-${i}`}>
                     <a
                       href={item.href}
                       className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg text-md"
