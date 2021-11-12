@@ -22,7 +22,7 @@
     "remark-math": "^5.1.1"
   },
   "devDependencies": {
-    "@contentful/rich-text-types": "^15.6.2",
+    "@contentful/rich-text-types": "^15.7.0",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@next/eslint-plugin-next": "^12.0.1",
