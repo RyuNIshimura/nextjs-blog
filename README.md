@@ -12,7 +12,7 @@ Keep all your information in one blog.
 
 ## 💡 Requirements
 
-- Node.js: 14.x+
+- Node.js: 16.x+
 - API Key for Contentful
 
 [Content Delivery API | Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)

@@ -1,4 +1,4 @@
-import remark from 'remark';
+import { remark } from 'remark';
 import html from 'remark-html';
 
 export const copyText = ({ text = '' }: { text: string }) => {

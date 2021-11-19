@@ -21,6 +21,18 @@ export default function Header() {
     keyboardJS.bind('command + k', () => {
       setOpenSearchModal(!openSearchModal);
     });
+    keyboardJS.bind('command + /', () => {
+      setOpenSearchModal(!openSearchModal);
+    });
+    keyboardJS.bind('ctrl + h', () => {
+      window.location.href = '/';
+    });
+    keyboardJS.bind('ctrl + a', () => {
+      window.location.href = '/about';
+    });
+    keyboardJS.bind('ctrl + t', () => {
+      window.location.href = '/tags';
+    });
   }
 
   const _handleSearchModal = (
