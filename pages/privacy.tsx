@@ -6,11 +6,12 @@ import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
 export default function Tos({ content, meta }: any) {
+  const title = '📜 Privacy';
   return (
     <>
       <Head>
-        <title>Privacy 📜</title>
-        <meta property="og:title" content="Privacy 📜" key="og_title" />
+        <title>{title}</title>
+        <meta property="og:title" content={title} key="og_title" />
         <meta property="og:url" content={`${BASE_URL}/privacy`} key="og_url" />
       </Head>
       <div className="max-w-4xl mx-auto my-10">

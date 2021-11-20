@@ -31,7 +31,5 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "components/molecules/adsense.tsx"
-  ]
+    "**/*.tsx" ]
 }

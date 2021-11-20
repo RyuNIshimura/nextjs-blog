@@ -5,12 +5,12 @@ import { Disclosure } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import SearchModal from '@/components/molecules/search-modal';
-import { APP_NAME } from '@/lib/constants';
+import { APP_NAME, ADDITIONAL_NAVIGATION } from '@/lib/constants';
+import MoreMenu from '@/components/organisms/MoreMenu';
 
 const NAVIGATION = [
   { name: '🏠 Home', href: '/' },
-  { name: '🙋‍♂️ About', href: '/about' },
-  { name: '🦸‍♂️ Tags', href: '/tags' },
+  { name: '📃 Readme', href: '/readme' },
 ];
 
 export default function Header() {
@@ -32,6 +32,12 @@ export default function Header() {
     });
     keyboardJS.bind('ctrl + t', () => {
       window.location.href = '/tags';
+    });
+    keyboardJS.bind('ctrl + r', () => {
+      window.location.href = '/readme';
+    });
+    keyboardJS.bind('ctrl + m', () => {
+      window.location.href = '/markdown';
     });
   }
 
@@ -78,6 +84,7 @@ export default function Header() {
                           {item.name}
                         </a>
                       ))}
+                      <MoreMenu />
                     </div>
                   </div>
                 </div>
@@ -126,18 +133,20 @@ export default function Header() {
 
             <Disclosure.Panel className="lg:hidden">
               <div className="px-2 pt-2 pb-3 m-1 space-y-1 bg-white border-gray-800 rounded-md shadow border-1">
-                {NAVIGATION.map((item: any, i: number) => (
-                  <Fragment key={`mobile-header-${item.name}-${i}`}>
-                    <a
-                      href={item.href}
-                      className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg text-md"
-                      target={item?.target}
-                      rel={item?.rel}
-                    >
-                      {item.name}
-                    </a>
-                  </Fragment>
-                ))}
+                {NAVIGATION.concat(ADDITIONAL_NAVIGATION).map(
+                  (item: any, i: number) => (
+                    <Fragment key={`mobile-header-${item.name}-${i}`}>
+                      <a
+                        href={item.href}
+                        className="block px-3 py-2 font-bold text-gray-800 bg-white rounded-lg text-md"
+                        target={item?.target}
+                        rel={item?.rel}
+                      >
+                        {item.name}
+                      </a>
+                    </Fragment>
+                  )
+                )}
               </div>
             </Disclosure.Panel>
           </>
