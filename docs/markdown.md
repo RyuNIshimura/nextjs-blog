@@ -5,6 +5,10 @@ date: "2021-11-20"
 
 このブログで使用しているMarkdownのCSSとModuleのプレビューページです。
 
+ソースコードは[コチラ](https://github.com/RyuNIshimura/nextjs-blog)から確認できます。
+
+エンジョイ勢なので是非Contributeしてください😎
+
 ## ヘッダー (Header)
 
 H1 ~ H3までにstyleを当てています。(H4 以下は当てていません。)
@@ -98,6 +102,12 @@ let name = "test"
 そのままテキストで埋め込むと、下記のように表示されます。
 
 https://nishimura.club/
+
+### Giphy
+
+iframeで埋め込みます。
+
+<iframe src="https://giphy.com/embed/nvFjNy6iZTvWw" width="480" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/the-lord-of-rings-galadriel-nvFjNy6iZTvWw">via GIPHY</a></p>
 
 ### OGP
 

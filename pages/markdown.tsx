@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/lib/constants';
+import { BASE_URL, REPOSITORY_URL } from '@/lib/constants';
 import Head from 'next/head';
 import React from 'react';
 import fs from 'fs';
@@ -8,8 +8,12 @@ import rehypeRaw from 'rehype-raw';
 import gfm from 'remark-gfm';
 import { CustomMarkdown } from '@/components/organisms/custom-markdown';
 
-export default function Tos({ content, meta }: any) {
+export default function MarkdownPreview({ content, meta }: any) {
   const title = '📃 Markdown preview';
+  const editGitHub = () => {
+    window.open(`${REPOSITORY_URL}/edit/main/docs/markdown.md`, '_blank');
+  };
+
   return (
     <>
       <Head>
@@ -21,10 +25,17 @@ export default function Tos({ content, meta }: any) {
         <div className="mt-5 md:mt-0 md:col-span-2">
           <div className="overflow-hidden shadow-xl sm:rounded-md">
             <div className="px-4 py-5 bg-white sm:p-6">
-              <div className="my-6">
-                <button className="px-2 py-3 text-white bg-gray-400 rounded-sm shadow-sm text-md">
-                  GitHubで編集する
-                </button>
+              <div className="my-2">
+                <div className="flex items-center sm:block">
+                  <div className="flex flex-wrap mt-5 sm:flex-row-reverse">
+                    <button
+                      onClick={() => editGitHub()}
+                      className="p-2 text-sm text-white bg-gray-400 rounded-sm shadow-sm hover:bg-gray-500"
+                    >
+                      このページをGitHubで編集する
+                    </button>
+                  </div>
+                </div>
                 <h2 className="pb-2 my-12 text-4xl font-bold text-black border-b">
                   {meta.title}
                 </h2>
