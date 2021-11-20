@@ -12,6 +12,8 @@ const NAVIGATION = [
   { name: '🙋‍♂️ About', href: '/about' },
   { name: '🦸‍♂️ Tags', href: '/tags' },
   { name: '📃 README', href: '/readme' },
+  { name: '👀 Markdown Preview', href: '/markdown' },
+  // { name: '💎 More' },
 ];
 
 export default function Header() {
@@ -33,6 +35,12 @@ export default function Header() {
     });
     keyboardJS.bind('ctrl + t', () => {
       window.location.href = '/tags';
+    });
+    keyboardJS.bind('ctrl + r', () => {
+      window.location.href = '/readme';
+    });
+    keyboardJS.bind('ctrl + m', () => {
+      window.location.href = '/markdown';
     });
   }
 
