@@ -12,19 +12,26 @@ Keep all your information in one blog.
 
 ## 💡 Requirements
 
-- Node.js: 16.x+
+- [Node.js: 16.x+](https://nodejs.org/)
 - [Content Delivery API | Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)
 
 > Content Delivery API is read-only.
 
-## 👀 Stack
+## 👀 Tech Stack
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS(UI Framework)](https://tailwindcss.com/)
-- [Contentful(Headless CMS)](https://www.contentful.com/)
-- Google Analytics(Optional)
-- Google Analytics Reporting API(Optional. Used to display articles with the highest number of views.)
-- Google AdSense(Optional)
+### Open Source
+
+- [Next.js (React Framewotk)](https://nextjs.org/)
+- [Tailwind CSS (UI Framework)](https://tailwindcss.com/)
+
+### Infra/Services
+
+- [Vercel (Hosting)](https://vercel.com/)
+- [GitHub Actions (CI/CD)](https://github.co.jp/features/actions)
+- [Contentful (Headless CMS)](https://www.contentful.com/)
+- [Google Analytics (Optional)](https://marketingplatform.google.com/intl/ja/about/analytics/)
+- [Google Analytics Reporting API (Optional. Used to display articles with the highest number of views.)](https://developers.google.com/analytics/devguides/reporting/core/v4)
+- [Google AdSense (Optional)](https://www.google.com/intl/ja_jp/adsense/start/)
 
 I'm using Contentful, but you can use any other Headless CMS service, or you can use your own database or filesystem markdown files. ([docs](https://github.com/RyuNIshimura/nextjs-blog/tree/main/docs) directory is an example of this.) Basically, I would be happy if you refer to the UI and other modules.
 
