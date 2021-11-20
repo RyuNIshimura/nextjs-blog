@@ -11,6 +11,7 @@ const NAVIGATION = [
   { name: '🏠 Home', href: '/' },
   { name: '🙋‍♂️ About', href: '/about' },
   { name: '🦸‍♂️ Tags', href: '/tags' },
+  { name: '📃 README', href: '/readme' },
 ];
 
 export default function Header() {
