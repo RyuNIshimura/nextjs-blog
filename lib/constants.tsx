@@ -12,6 +12,12 @@ export const PER_PAGE = 15;
 export const PER_SEARCH = 5;
 export const RELATED_ARTICLES_LIMIT = 9;
 
+export const ADDITIONAL_NAVIGATION = [
+  { name: '👀 Markdown Preview', href: '/markdown' },
+  { name: '🙋‍♂️ About', href: '/about' },
+  { name: '🦸‍♂️ Tags', href: '/tags' },
+];
+
 export enum CONTENT_TYPE {
   ARTICLE = 'article',
   CATEGORY = 'types',

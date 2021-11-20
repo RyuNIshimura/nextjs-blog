@@ -1,4 +1,4 @@
-import { BASE_URL, REPOSITORY_URL } from '@/lib/constants';
+import { BASE_URL } from '@/lib/constants';
 import Head from 'next/head';
 import React from 'react';
 import fs from 'fs';
@@ -7,12 +7,10 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import gfm from 'remark-gfm';
 import { CustomMarkdown } from '@/components/organisms/custom-markdown';
+import EditGitHubButton from '@/components/atoms/edit-github-button';
 
 export default function Readme({ content, meta }: any) {
-  const title = '📃 README';
-  const editGitHub = () => {
-    window.open(`${REPOSITORY_URL}/edit/main/README.md`, '_blank');
-  };
+  const title = '📃 Readme';
 
   return (
     <>
@@ -26,17 +24,14 @@ export default function Readme({ content, meta }: any) {
           <div className="overflow-hidden shadow-xl sm:rounded-md">
             <div className="px-4 py-5 bg-white sm:p-6">
               <div className="my-2">
-                <div className="flex items-center sm:block">
-                  <div className="flex flex-wrap mt-5 sm:flex-row-reverse">
-                    <button
-                      onClick={() => editGitHub()}
-                      className="p-2 text-sm text-white bg-gray-400 rounded-sm shadow-sm hover:bg-gray-500"
-                    >
-                      このページをGitHubで編集する
-                    </button>
+                <div className="items-center block">
+                  <div className="flex flex-row-reverse flex-wrap mt-5">
+                    <EditGitHubButton filepath="README.md" />
                   </div>
                 </div>
-                <h2 className="text-2xl font-bold">{meta.title}</h2>
+                <h2 className="pb-2 my-12 text-4xl font-bold text-black border-b">
+                  {meta.title}
+                </h2>
                 <ReactMarkdown
                   className="markdown-body"
                   linkTarget="_blank"
