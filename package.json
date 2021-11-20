@@ -1,6 +1,6 @@
 {
-  "name": "next-blog",
-  "description": "Next.js and Contentful blog.",
+  "name": "nextjs-blog",
+  "description": "Next.js Contentful blog.",
   "version": "1.0.0",
   "author": "Ryu Nishimura",
   "dependencies": {
@@ -22,7 +22,6 @@
     "remark-math": "^5.1.1"
   },
   "devDependencies": {
-    "@contentful/rich-text-types": "^15.7.0",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@next/eslint-plugin-next": "^12.0.4",
