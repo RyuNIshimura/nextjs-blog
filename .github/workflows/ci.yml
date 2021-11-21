@@ -2,7 +2,8 @@ name: Ci
 
 on:
   push:
-    branches: [ main, 'feat/**']
+    # TODO: 正規表現でdependabot以外にする
+    branches: [ main, 'feat/**', 'fix/**', 'update/**']
   pull_request:
     branches: [ main ]
 
