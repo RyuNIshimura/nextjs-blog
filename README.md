@@ -42,7 +42,7 @@ I'm using Contentful, but you can use any other Headless CMS service, or you can
 
 ## ⚡️ Setup
 
-Copy the .env.example and set the API Keys.
+Copy the `.env.example` and set the API Keys.
 
 ```bash
 cp .env.example .env
