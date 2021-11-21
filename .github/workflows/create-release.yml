@@ -16,7 +16,7 @@ jobs:
 
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@main
+        uses: martinbeentjes/npm-get-version-action@master
 
       - name: echo-npm-version
         id: echo-version
@@ -24,7 +24,7 @@ jobs:
           echo v${{ steps.package-version.outputs.current-version}}
 
       - name: Create a release pull request
-        uses: bakunyo/git-pr-release-action@main
+        uses: bakunyo/git-pr-release-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_BRANCH_PRODUCTION: release
