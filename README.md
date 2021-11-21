@@ -15,6 +15,8 @@ date: "2021-11-20"
 
 Keep all your information in one blog.
 
+> This project, while the source code is publicly available. It's not planned, it's just a project for me to play with and implement features as I see fit.
+
 ## 💡 Requirements
 
 - [Node.js: 16.x+](https://nodejs.org/)
@@ -42,7 +44,7 @@ I'm using Contentful, but you can use any other Headless CMS service, or you can
 
 ## ⚡️ Setup
 
-Copy the .env.example and set the API Keys.
+Copy the `.env.example` and set the API Keys.
 
 ```bash
 cp .env.example .env

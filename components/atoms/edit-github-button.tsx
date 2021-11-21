@@ -9,7 +9,7 @@ export default function EditGitHubButton({ filepath }: { filepath: string }) {
   return (
     <button
       onClick={() => editGitHub()}
-      className="flex items-center justify-center p-2 text-sm text-white bg-gray-500 rounded-sm shadow-sm hover:bg-gray-600"
+      className="flex items-center justify-center p-2 text-sm text-white bg-gray-600 rounded-md shadow-sm hover:bg-gray-800"
     >
       <GitHubIcon className="w-6 h-6" aria-hidden="true" />
       このページをGitHubで編集する
