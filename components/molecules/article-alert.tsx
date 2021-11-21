@@ -2,7 +2,7 @@ import { ExclamationIcon } from '@heroicons/react/solid';
 
 export default function ArticleAlert() {
   return (
-    <div className="p-4 rounded-md bg-yellow-50">
+    <div className="p-4 rounded-sm shadow-sm bg-yellow-50">
       <div className="flex">
         <div className="flex-shrink-0">
           <ExclamationIcon
@@ -11,14 +11,8 @@ export default function ArticleAlert() {
           />
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-medium text-yellow-800">
-            Attention needed
-          </h3>
-          <div className="mt-2 text-sm text-yellow-700">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              pariatur, ipsum similique veniam quo totam eius aperiam dolorum.
-            </p>
+          <div className="text-sm font-medium text-yellow-800">
+            <p>この記事は最終更新日から1年以上が経過しています。</p>
           </div>
         </div>
       </div>

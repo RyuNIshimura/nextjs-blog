@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
-import dayjs from 'dayjs';
 import InfiniteScroll from 'react-infinite-scroller';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -20,6 +19,8 @@ import {
   RELATED_ARTICLES_LIMIT,
   CONTENT_TYPE,
 } from '@/lib/constants';
+import { changeDateFormat, checkOneYearPassed } from '@/lib/date-module';
+import ArticleAlert from '@/components/molecules/article-alert';
 
 function ArticlePage({
   article,
@@ -29,6 +30,7 @@ function ArticlePage({
   relatedTag,
 }: any) {
   const [articles, setArticles] = useState(initialArticles);
+  const isOneYearPassed = checkOneYearPassed({ date: article.sys.updatedAt });
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
@@ -64,6 +66,11 @@ function ArticlePage({
         />
       </Head>
       <div className="max-w-3xl mx-3 mt-10 lg:mx-auto">
+        {isOneYearPassed && (
+          <div className="my-6">
+            <ArticleAlert />
+          </div>
+        )}
         <h1 className="text-center">
           <span className="px-3 py-4 text-2xl font-bold text-white bg-gray-900 sm:text-4xl article-title">
             {article.fields.title}
@@ -72,10 +79,10 @@ function ArticlePage({
         <div className="flex justify-center my-6">
           <div>
             <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-              {`updated ${dayjs(article.sys.createdAt).format('MMM D, YYYY')}`}
+              {`created ${changeDateFormat({ date: article.sys.createdAt })}`}
             </span>
             <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-              {`created ${dayjs(article.sys.updatedAt).format('MMM D, YYYY')}`}
+              {`updated ${changeDateFormat({ date: article.sys.updatedAt })}`}
             </span>
           </div>
         </div>
