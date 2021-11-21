@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - master
+      - main
 
 jobs:
   create-release-pr:
@@ -16,7 +16,7 @@ jobs:
 
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+        uses: martinbeentjes/npm-get-version-action@main
 
       - name: echo-npm-version
         id: echo-version
@@ -24,11 +24,11 @@ jobs:
           echo v${{ steps.package-version.outputs.current-version}}
 
       - name: Create a release pull request
-        uses: bakunyo/git-pr-release-action@master
+        uses: bakunyo/git-pr-release-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_BRANCH_PRODUCTION: release
-          GIT_PR_RELEASE_BRANCH_STAGING: master
+          GIT_PR_RELEASE_BRANCH_STAGING: main
           GIT_PR_RELEASE_LABELS: release
           NPM_VERSION: v${{ steps.package-version.outputs.current-version}}
           GIT_PR_RELEASE_TEMPLATE: .git-pr-release-template
