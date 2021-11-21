@@ -23,7 +23,7 @@ jobs:
           body: ${{ github.event.pull_request.body }}
           draft: false
           prerelease: false
-      # TODO: Slackに通知する
+      # TODO: Slack に通知する
       # - name: Slack Notification
       #   uses: weseek/ghaction-release-slack-notification@main
       #   with:

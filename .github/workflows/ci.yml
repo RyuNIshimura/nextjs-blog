@@ -1,8 +1,9 @@
+# TODO: 適切な名前にする
 name: Ci
 
 on:
   push:
-    # TODO: 正規表現でdependabot以外にする
+    # TODO: 正規表現で dependabot 以外にする
     branches: [ main, 'feat/**', 'fix/**', 'update/**']
   pull_request:
     branches: [ main ]
