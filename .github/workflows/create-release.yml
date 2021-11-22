@@ -16,7 +16,7 @@ jobs:
         with:
           base: release
           branch: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_GITHUB_TOKEN }}
           commit-message: Release
           title: 'Release'
           body: |
