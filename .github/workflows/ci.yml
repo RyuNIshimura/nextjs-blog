@@ -1,9 +1,6 @@
 name: Continuous Integration
 
 on:
-  push:
-    # HACK: 正規表現
-    branches: [ main, 'feat/**', 'fix/**', 'update/**']
   pull_request:
     branches: [ main ]
 

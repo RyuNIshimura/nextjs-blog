@@ -54,6 +54,13 @@
   "license": "MIT",
   "main": "dist/index.js",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RyuNIshimura/next-blog.git",
+    "branches": [
+      "main"
+    ]
+  },
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
     "dev": "next dev -p 4000",
@@ -62,6 +69,7 @@
     "lint:fix": "next lint --fix",
     "postinstall": "husky install",
     "prepare": "husky install",
+    "semantic-release": "semantic-release",
     "start": "next start",
     "type-check": "tsc",
     "vercel-build": "node ga.js && next build && next-sitemap"
