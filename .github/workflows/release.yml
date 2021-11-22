@@ -1,32 +1,30 @@
-name: Create Release
+name: Release
 
 on:
   pull_request:
-    types: [closed]
     branches:
       - release
-
+    types: [closed]
 jobs:
-  build:
+  release:
+    name: add tag
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
-      - name: Checkout code
-        uses: actions/checkout@main
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: checkout
+        uses: actions/checkout@v2.3.4
+      - name: add tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.event.pull_request.title }}
-          release_name: ${{ github.event.pull_request.title }}
-          body: ${{ github.event.pull_request.body }}
-          draft: false
-          prerelease: false
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          COMMIT: ${{ github.event.pull_request.head.sha }}
+        run: ./.github/scripts/add-tag.sh
+
       # TODO: Slack に通知する
       # - name: Slack Notification
       #   uses: weseek/ghaction-release-slack-notification@main
       #   with:
-      #     channel: '#webev-dev'
+      #     channel: '#channel_name'
       #     url: ${{ secrets.SLACK_WEBHOOK_URL }}
       #     created_tag: '${{ github.event.pull_request.title }}'

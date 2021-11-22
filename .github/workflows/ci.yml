@@ -3,7 +3,7 @@ name: Ci
 
 on:
   push:
-    # TODO: 正規表現で dependabot 以外にする
+    # HACK: 正規表現
     branches: [ main, 'feat/**', 'fix/**', 'update/**']
   pull_request:
     branches: [ main ]

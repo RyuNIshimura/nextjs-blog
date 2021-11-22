@@ -1,7 +1,7 @@
 {
   "name": "nextjs-blog",
   "description": "Next.js Contentful blog.",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "author": "Ryu Nishimura",
   "dependencies": {
     "contentful": "^9.1.4",
@@ -27,8 +27,8 @@
     "@next/eslint-plugin-next": "^12.0.4",
     "@tailwindcss/jit": "^0.1.18",
     "@types/gtag.js": "^0.0.8",
-    "@types/node": "^16.11.8",
-    "@types/react": "^17.0.35",
+    "@types/node": "^16.11.9",
+    "@types/react": "^17.0.36",
     "@types/react-infinite-scroller": "^1.2.2",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
