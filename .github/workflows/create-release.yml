@@ -1,9 +1,11 @@
 name: Create a release pull request
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - main
+
 jobs:
   gitPrRelease:
     name: git-pr-release
