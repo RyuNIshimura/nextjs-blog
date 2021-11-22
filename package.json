@@ -56,7 +56,7 @@
   "private": true,
   "release": {
     "branches": [
-      "main"
+      "release"
     ]
   },
   "repository": {
