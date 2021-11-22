@@ -1,20 +1,16 @@
 name: Continuous Integration
 
 on:
-  push:
-    # HACK: 正規表現
-    branches: [ main, 'feat/**', 'fix/**', 'update/**']
   pull_request:
     branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
     - uses: actions/checkout@v2

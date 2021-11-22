@@ -1,34 +1,25 @@
 name: Release
-
 on:
-  pull_request:
+  push:
     branches:
       - release
-    types: [closed]
-
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
+      - name: Checkout this repository
+        uses: actions/checkout@v2
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      # https://github.com/actions/setup-node
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.3.0'
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.event.pull_request.title }}
-          release_name: ${{ github.event.pull_request.title }}
-          body: ${{ github.event.pull_request.body }}
-          draft: false
-          prerelease: false
-
-      # TODO: Slack に通知する
-      # - name: Slack Notification
-      #   uses: weseek/ghaction-release-slack-notification@main
-      #   with:
-      #     channel: '#channel_name'
-      #     url: ${{ secrets.SLACK_WEBHOOK_URL }}
-      #     created_tag: '${{ github.event.pull_request.title }}'
+        run: yarn semantic-release

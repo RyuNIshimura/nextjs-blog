@@ -46,12 +46,23 @@
     "prettier": "^2.4.1",
     "rss": "^1.2.2",
     "sass": "^1.43.4",
+    "semantic-release": "^18.0.0",
+    "semantic-release-cli": "^5.4.4",
     "tailwindcss": "^2.2.19",
     "typescript": "^4.5.2"
   },
   "license": "MIT",
   "main": "dist/index.js",
   "private": true,
+  "release": {
+    "branches": [
+      "release"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RyuNIshimura/next-blog.git"
+  },
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
     "dev": "next dev -p 4000",
@@ -60,6 +71,7 @@
     "lint:fix": "next lint --fix",
     "postinstall": "husky install",
     "prepare": "husky install",
+    "semantic-release": "semantic-release",
     "start": "next start",
     "type-check": "tsc",
     "vercel-build": "node ga.js && next build && next-sitemap"
