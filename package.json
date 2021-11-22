@@ -1,7 +1,7 @@
 {
   "name": "nextjs-blog",
   "description": "Next.js Contentful blog.",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "author": "Ryu Nishimura",
   "dependencies": {
     "contentful": "^9.1.4",
