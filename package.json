@@ -56,10 +56,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/RyuNIshimura/next-blog.git",
-    "branches": [
-      "main"
-    ]
+    "url": "https://github.com/RyuNIshimura/next-blog.git"
+  },
+  "release": {
+    "branches": ["main"]
   },
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
