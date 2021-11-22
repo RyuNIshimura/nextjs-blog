@@ -54,12 +54,14 @@
   "license": "MIT",
   "main": "dist/index.js",
   "private": true,
+  "release": {
+    "branches": [
+      "release"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/RyuNIshimura/next-blog.git"
-  },
-  "release": {
-    "branches": ["main"]
   },
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
