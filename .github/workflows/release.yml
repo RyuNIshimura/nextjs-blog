@@ -6,20 +6,22 @@ on:
       - release
     types: [closed]
 jobs:
-  release:
-    name: add tag
+  build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     steps:
-      - name: checkout
-        uses: actions/checkout@v2.3.4
-      - name: add tag
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
-          COMMIT: ${{ github.event.pull_request.head.sha }}
-        run: ./.github/scripts/add-tag.sh
+        with:
+          tag_name: ${{ github.event.pull_request.title }}
+          release_name: ${{ github.event.pull_request.title }}
+          body: ${{ github.event.pull_request.body }}
+          draft: false
+          prerelease: false
 
       # TODO: Slack に通知する
       # - name: Slack Notification
