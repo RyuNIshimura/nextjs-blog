@@ -1,6 +1,5 @@
-import { BASE_URL } from '@/lib/constants';
-import Head from 'next/head';
 import React from 'react';
+import Head from 'next/head';
 import fs from 'fs';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
@@ -8,6 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import gfm from 'remark-gfm';
 import { CustomMarkdown } from '@/components/organisms/custom-markdown';
 import EditGitHubButton from '@/components/atoms/edit-github-button';
+import { BASE_URL } from '@/lib/constants';
 
 export default function Readme({ content, meta }: any) {
   const title = '📃 Readme';
@@ -17,7 +17,7 @@ export default function Readme({ content, meta }: any) {
       <Head>
         <title>{title}</title>
         <meta property="og:title" content={title} key="og_title" />
-        <meta property="og:url" content={`${BASE_URL}/privacy`} key="og_url" />
+        <meta property="og:url" content={`${BASE_URL}/readme`} key="og_url" />
       </Head>
       <div className="max-w-4xl mx-auto my-10">
         <div className="mt-5 md:mt-0 md:col-span-2">
@@ -42,7 +42,6 @@ export default function Readme({ content, meta }: any) {
                   remarkPlugins={[gfm]}
                 />
               </div>
-              <div className="mx-auto"></div>
             </div>
           </div>
         </div>
