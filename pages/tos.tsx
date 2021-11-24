@@ -1,9 +1,9 @@
-import { APP_NAME, BASE_URL } from '@/lib/constants';
-import Head from 'next/head';
 import React from 'react';
+import Head from 'next/head';
 import fs from 'fs';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
+import { BASE_URL } from '@/lib/constants';
 
 export default function Tos({ content, meta }: any) {
   const title = '📃 Terms';
@@ -27,7 +27,6 @@ export default function Tos({ content, meta }: any) {
                   children={content}
                 />
               </div>
-              <div className="mx-auto"></div>
             </div>
           </div>
         </div>

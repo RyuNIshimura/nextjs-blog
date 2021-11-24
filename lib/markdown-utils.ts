@@ -11,10 +11,11 @@ export const getExtend = ({ filename = '' }: { filename: string }) => {
   return filename.slice(pos + 1);
 };
 
-export const removeHtmlTags = ({ htmlString = '' }: { htmlString: string }) => {
-  const htmlTagPattern = new RegExp('<("[^"]*"|\'[^\']*\'|[^\'">])*>', 'g');
-  return htmlString.replace(htmlTagPattern, '');
-};
+// HACK: Incomplete multi-character sanitization
+// export const removeHtmlTags = ({ htmlString = '' }: { htmlString: string }) => {
+//   const htmlTagPattern = new RegExp('<("[^"]*"|\'[^\']*\'|[^\'">])*>', 'g');
+//   return htmlString.replace(htmlTagPattern, '');
+// };
 
 export const removeNewLine = ({ text = '' }: { text: string }) => {
   const newText = text.replace(/\r?\n/g, '');
@@ -24,6 +25,7 @@ export const removeNewLine = ({ text = '' }: { text: string }) => {
 export const getMetaDescription = async ({ text = '' }: { text: string }) => {
   const result = await remark()?.use(html)?.process(text);
   const htmlString = removeNewLine({ text: result.toString() });
-  const description = removeHtmlTags({ htmlString }).slice(0, 120) + '...';
+  const description = htmlString.slice(0, 120) + '...';
+  // const description = removeHtmlTags({ htmlString }).slice(0, 120) + '...';
   return description;
 };
