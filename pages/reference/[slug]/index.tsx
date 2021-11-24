@@ -28,7 +28,7 @@ export default function Reference({ slug, posts }: any) {
               <div className="my-2">
                 <div className="items-center block">
                   <div className="flex flex-row-reverse flex-wrap mt-5">
-                    <EditGitHubButton filepath="docs/reference" />
+                    <EditGitHubButton filepath={`docs/reference/${slug}`} />
                   </div>
                 </div>
                 <h2 className="pb-2 my-12 text-4xl font-bold text-black border-b">
