@@ -42,7 +42,7 @@
     "googleapis": "^91.0.0",
     "husky": "^7.0.4",
     "next-sitemap": "^1.6.203",
-    "postcss": "^8.4.1",
+    "postcss": "^8.4.4",
     "prettier": "^2.5.0",
     "rss": "^1.2.2",
     "sass": "^1.43.5",
