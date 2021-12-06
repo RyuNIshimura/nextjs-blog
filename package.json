@@ -39,6 +39,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fixpack": "^4.0.0",
+    "git-cz": "^4.8.0",
     "googleapis": "^92.0.0",
     "husky": "^7.0.4",
     "next-sitemap": "^1.6.203",
@@ -65,6 +66,7 @@
   },
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
+    "cz": "npx git-cz",
     "dev": "next dev -p 4000",
     "format": "prettier --write \"{pages,components,lib}/**/*.{js,jsx,ts,tsx}\"",
     "lint": "next lint",
