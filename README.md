@@ -19,7 +19,7 @@ Keep all your information in one blog.
 
 ## 💡 Requirements
 
-- [Node.js: 16.x+](https://nodejs.org/)
+- [Node.js: 14.x+](https://nodejs.org/)
 - [Content Delivery API | Contentful](https://www.contentful.com/developers/docs/references/content-delivery-api/)
 
 > Content Delivery API is read-only.
