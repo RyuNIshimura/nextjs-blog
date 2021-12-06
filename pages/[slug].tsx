@@ -12,14 +12,14 @@ import { CustomMarkdown } from '@/components/organisms/custom-markdown';
 import ArticleCard from '@/components/molecules/article-card';
 import AdSense from '@/components/molecules/adsense';
 import client from '@/lib/contentful';
-import { getMetaDescription } from '@/lib/markdown-utils';
+import { getMetaDescription } from '@/lib/markdown';
 import {
   BASE_URL,
   PER_PAGE,
   RELATED_ARTICLES_LIMIT,
   CONTENT_TYPE,
 } from '@/lib/constants';
-import { changeDateFormat, checkOneYearPassed } from '@/lib/date-module';
+import { changeDateFormat, checkOneYearPassed } from '@/lib/date';
 import ArticleAlert from '@/components/molecules/article-alert';
 
 function ArticlePage({
@@ -79,10 +79,10 @@ function ArticlePage({
         <div className="flex justify-center my-6">
           <div>
             <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-              {`created ${changeDateFormat({ date: article.sys.createdAt })}`}
+              {`created ${changeDateFormat(article.sys.createdAt)}`}
             </span>
             <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-              {`updated ${changeDateFormat({ date: article.sys.updatedAt })}`}
+              {`updated ${changeDateFormat(article.sys.updatedAt)}`}
             </span>
           </div>
         </div>

@@ -18,6 +18,7 @@ export const checkOneYearPassed = ({ date }: { date: string }) => {
   return false;
 };
 
-export const changeDateFormat = ({ date }: { date: string }) => {
+export const changeDateFormat = (date: string) => {
+  if (!date) return '';
   return dayjs(date).format('YYYY/MM/DD');
 };

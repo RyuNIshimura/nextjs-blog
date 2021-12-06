@@ -7,7 +7,7 @@ import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/solid';
 import { PaperClipIcon } from '@heroicons/react/outline';
 import { ControlIcon } from '@/components/svg';
-import { getExtend, copyText } from '@/lib/markdown-utils';
+import { getExtend, copyText } from '@/lib/markdown';
 import { BASE_URL } from '@/lib/constants';
 
 export const CustomMarkdown = {
