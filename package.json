@@ -87,7 +87,6 @@
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
     "cz": "npx git-cz",
-    "test": "jest",
     "dev": "next dev -p 4000",
     "format": "prettier --write \"{pages,components,lib}/**/*.{js,jsx,ts,tsx}\"",
     "lint": "next lint",
@@ -96,6 +95,7 @@
     "prepare": "husky install",
     "semantic-release": "semantic-release",
     "start": "next start",
+    "test": "jest",
     "type-check": "tsc",
     "vercel-build": "node ga.js && next build && next-sitemap"
   }
