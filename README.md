@@ -54,3 +54,9 @@ cp .env.example .env
 yarn install
 yarn dev
 ```
+
+## 💊 Test
+
+```sh
+yarn test
+```
