@@ -4,31 +4,32 @@
   "version": "2.0.1",
   "author": "Ryu Nishimura",
   "dependencies": {
-    "contentful": "^9.1.4",
+    "contentful": "^9.1.5",
     "dayjs": "^1.10.7",
     "gray-matter": "^4.0.3",
     "keyboardjs": "^2.6.4",
-    "next": "^12.0.4",
+    "next": "^12.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-infinite-scroller": "^1.2.4",
-    "react-markdown": "^7.1.0",
+    "react-markdown": "^7.1.1",
     "react-syntax-highlighter": "^15.4.5",
     "rehype-katex": "6.0.2",
     "rehype-raw": "^5.1.0",
     "remark": "^14.0.2",
     "remark-gfm": "^3.0.1",
-    "remark-html": "^15.0.0",
+    "remark-html": "^15.0.1",
     "remark-math": "^5.1.1"
   },
   "devDependencies": {
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
-    "@next/eslint-plugin-next": "^12.0.4",
+    "@next/eslint-plugin-next": "^12.0.7",
     "@tailwindcss/jit": "^0.1.18",
     "@types/gtag.js": "^0.0.8",
-    "@types/node": "^16.11.10",
-    "@types/react": "^17.0.36",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.11",
+    "@types/react": "^17.0.37",
     "@types/react-infinite-scroller": "^1.2.2",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
@@ -39,17 +40,37 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fixpack": "^4.0.0",
-    "googleapis": "^91.0.0",
+    "git-cz": "^4.8.0",
+    "googleapis": "^92.0.0",
     "husky": "^7.0.4",
+    "jest": "^27.4.3",
     "next-sitemap": "^1.6.203",
-    "postcss": "^8.3.11",
-    "prettier": "^2.4.1",
+    "postcss": "^8.4.4",
+    "prettier": "^2.5.1",
     "rss": "^1.2.2",
-    "sass": "^1.43.4",
-    "semantic-release": "^18.0.0",
+    "sass": "^1.44.0",
+    "semantic-release": "^18.0.1",
     "semantic-release-cli": "^5.4.4",
     "tailwindcss": "^2.2.19",
+    "ts-jest": "^27.1.0",
     "typescript": "^4.5.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/__tests__/**/*.spec.ts"
+    ]
   },
   "license": "MIT",
   "main": "dist/index.js",
@@ -65,6 +86,7 @@
   },
   "scripts": {
     "build": "node ga.js && next build && next-sitemap",
+    "cz": "npx git-cz",
     "dev": "next dev -p 4000",
     "format": "prettier --write \"{pages,components,lib}/**/*.{js,jsx,ts,tsx}\"",
     "lint": "next lint",
@@ -73,6 +95,7 @@
     "prepare": "husky install",
     "semantic-release": "semantic-release",
     "start": "next start",
+    "test": "jest",
     "type-check": "tsc",
     "vercel-build": "node ga.js && next build && next-sitemap"
   }
