@@ -19,7 +19,7 @@ import {
   RELATED_ARTICLES_LIMIT,
   CONTENT_TYPE,
 } from '@/lib/constants';
-import { changeDateFormat, checkOneYearPassed } from '@/lib/date';
+import { isOneYearPassed, dateFormat } from '@/lib/date';
 import ArticleAlert from '@/components/molecules/article-alert';
 
 function ArticlePage({
@@ -30,7 +30,6 @@ function ArticlePage({
   relatedTag,
 }: any) {
   const [articles, setArticles] = useState(initialArticles);
-  const isOneYearPassed = checkOneYearPassed({ date: article.sys.updatedAt });
 
   const getArticles = async (page: number) => {
     const res = await client.getEntries({
@@ -66,7 +65,7 @@ function ArticlePage({
         />
       </Head>
       <div className="max-w-3xl mx-3 mt-10 lg:mx-auto">
-        {isOneYearPassed && (
+        {isOneYearPassed(article.sys.updatedAt) && (
           <div className="my-6">
             <ArticleAlert />
           </div>
@@ -79,10 +78,10 @@ function ArticlePage({
         <div className="flex justify-center my-6">
           <div>
             <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-              {`created ${changeDateFormat(article.sys.createdAt)}`}
+              {`created ${dateFormat(article.sys.createdAt)}`}
             </span>
             <span className="mx-2 text-sm text-gray-600 text-bold sm:text-base">
-              {`updated ${changeDateFormat(article.sys.updatedAt)}`}
+              {`updated ${dateFormat(article.sys.updatedAt)}`}
             </span>
           </div>
         </div>
