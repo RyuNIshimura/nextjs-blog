@@ -57,6 +57,6 @@ yarn dev
 
 ## 💊 Test
 
-```sh
+```bash
 yarn test
 ```
