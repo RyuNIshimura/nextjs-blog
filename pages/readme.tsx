@@ -2,10 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import fs from 'fs';
 import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
-import gfm from 'remark-gfm';
-import { CustomMarkdown } from '@/components/organisms/custom-markdown';
+import Markdown from '@/components/organisms/markdown';
 import EditGitHubButton from '@/components/atoms/edit-github-button';
 import { BASE_URL } from '@/lib/constants';
 
@@ -32,15 +29,7 @@ export default function Readme({ content, meta }: any) {
                 <h2 className="pb-2 my-12 text-4xl font-bold text-black border-b">
                   {meta.title}
                 </h2>
-                <ReactMarkdown
-                  className="markdown-body"
-                  linkTarget="_blank"
-                  components={CustomMarkdown}
-                  // eslint-disable-next-line react/no-children-prop
-                  children={content}
-                  rehypePlugins={[rehypeRaw]}
-                  remarkPlugins={[gfm]}
-                />
+                <Markdown source={content} />
               </div>
             </div>
           </div>
