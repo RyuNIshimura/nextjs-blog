@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import fs from 'fs';
 import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
+import Markdown from '@/components/organisms/markdown';
 import { BASE_URL } from '@/lib/constants';
 
 export default function Tos({ content, meta }: any) {
@@ -20,12 +20,7 @@ export default function Tos({ content, meta }: any) {
             <div className="px-4 py-5 bg-white sm:p-6">
               <div className="my-6">
                 <h2 className="text-2xl font-bold">{meta.title}</h2>
-                <ReactMarkdown
-                  className="markdown-body"
-                  linkTarget="_blank"
-                  // eslint-disable-next-line react/no-children-prop
-                  children={content}
-                />
+                <Markdown source={content} />
               </div>
             </div>
           </div>
