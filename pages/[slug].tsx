@@ -2,13 +2,7 @@ import { useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import InfiniteScroll from 'react-infinite-scroller';
-import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
-import gfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-import 'katex/dist/katex.min.css';
-import { CustomMarkdown } from '@/components/organisms/custom-markdown';
+import Markdown from '@/components/organisms/markdown';
 import ArticleCard from '@/components/molecules/article-card';
 import AdSense from '@/components/molecules/adsense';
 import client from '@/lib/contentful';
@@ -85,15 +79,7 @@ function ArticlePage({
             </span>
           </div>
         </div>
-        <ReactMarkdown
-          className="markdown-body"
-          components={CustomMarkdown}
-          linkTarget="_blank"
-          // eslint-disable-next-line react/no-children-prop
-          children={article.fields.body}
-          rehypePlugins={[rehypeRaw, rehypeKatex]}
-          remarkPlugins={[gfm, remarkMath]}
-        />
+        <Markdown source={article.fields.body} />
         <div className="mt-10">
           <AdSense
             styles={{ display: 'block', textAlign: 'center', height: 250 }}
