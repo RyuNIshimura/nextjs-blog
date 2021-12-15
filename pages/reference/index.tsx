@@ -32,14 +32,14 @@ export default function Reference({ topics }: { topics: string[] }) {
                 <h2 className="pb-2 my-12 text-4xl font-bold text-black border-b">
                   {title}
                 </h2>
-                <h2 className="flex items-center pb-2 my-12 text-4xl font-bold text-black border-b">
+                {/* <h2 className="flex items-center pb-2 my-12 text-4xl font-bold text-black border-b">
                   <img
                     alt="完全に理解した"
                     src="./gif/catjam.gif"
                     className="w-8 h-8"
                   />
                   <span className="ml-1">完全に理解した</span>
-                </h2>
+                </h2> */}
                 <div className="markdown-body">
                   <ul>
                     {topics.map((topic: string, i: number) => (

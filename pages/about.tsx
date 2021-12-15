@@ -14,25 +14,29 @@ export default function About() {
         <div className="mt-8">
           <h1>
             <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
-              🙋‍♂️ Profile
+              Profile
             </span>
           </h1>
           <p className="mx-auto mt-8 text-xl leading-8 text-center text-gray-500">
-            <span>フロントエンドの開発者です 🙋‍♂️</span>
-            <br />
-            <span>ほとんど毎日投稿しています ✏️</span>
+            <span>フロントエンドの開発者です</span>
             <br />
             <span>
-              ブログの
+              考え事や細かな実装は
+              <a className="text-blue-400 underline" href={BASE_URL}>
+                Blog
+              </a>
+              にまとめています 🍿
+            </span>
+            <br />
+            <span>
+              よく見るドキュメントは、
               <a
                 className="text-blue-400 underline"
-                href="https://github.com/RyuNIshimura/nextjs-blog"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`${BASE_URL}/reference`}
               >
-                ソースコード
+                Reference
               </a>
-              🍿
+              にまとめています 📜
             </span>
           </p>
         </div>
@@ -42,9 +46,6 @@ export default function About() {
               📩 Contact
             </span>
           </h1>
-          <p className="mx-auto mt-8 text-xl leading-8 text-center text-gray-500">
-            <span>ディスカッションや質問を歓迎します 🎉</span>
-          </p>
           <div className="flex justify-center mt-8 space-x-6 md:order-2">
             {SNS_ITEMS.map((item) => (
               <a
