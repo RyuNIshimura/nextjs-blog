@@ -8187,10 +8187,10 @@ nerf-dart@^1.0.0:
   resolved "https://registry.yarnpkg.com/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
   integrity sha1-5tq3/r9a2Bbqgc9cYpxaDr3nLBo=
 
-next-sitemap@^1.8.7:
-  version "1.8.7"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.8.7.tgz#80a09fa36c104d019942a6195be3cfee5cfb52cb"
-  integrity sha512-Vd4Qo/FlOa3DfqoHwdY3KaIN5Qke4zde735lpq9V7LKbNWp4mZMLG0XMsAMV9EyxwB9iHENLIcVVnPwJKQPf9A==
+next-sitemap@^1.9.9:
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.9.9.tgz#f36a5315da01836cbd93c6ad9d6730d320c94540"
+  integrity sha512-Tl7otSmXq/k+FDH5FAJGCH1bOMxs6ddRmuPVurgQTrz+pFWzMQ7KIPSP96wiY5vZ5npFjPTPJP2wlCwOqQB1Dw==
   dependencies:
     "@corex/deepmerge" "^2.6.148"
     minimist "^1.2.5"
