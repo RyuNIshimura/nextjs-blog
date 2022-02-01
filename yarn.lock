@@ -3803,10 +3803,10 @@ dot-prop@^5.1.0:
   dependencies:
     is-obj "^2.0.0"
 
-dotenv@^14.3.2:
-  version "14.3.2"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-14.3.2.tgz#7c30b3a5f777c79a3429cb2db358eef6751e8369"
-  integrity sha512-vwEppIphpFdvaMCaHfCEv9IgwcxMljMw2TnAQBB4VWPvzXQLTb82jwmdOKzlEVUL3gNFT4l4TPKO+Bn+sqcrVQ==
+dotenv@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-15.0.0.tgz#2a585639429bf2c2c62f387f0fffde9c75aafde0"
+  integrity sha512-/l1sXXm79ry34KwwS0y4oVZjB468iw/6u9g1W26dtexKcIJAnVL2pMF+hxQwzZ7LutxOwEgtym9eIxvX33CMKg==
 
 dotenv@^5.0.1:
   version "5.0.1"
@@ -5008,10 +5008,10 @@ googleapis-common@^5.0.2:
     url-template "^2.0.8"
     uuid "^8.0.0"
 
-googleapis@^92.0.0:
-  version "92.0.0"
-  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-92.0.0.tgz#291b9826a5a4509a9e9a6974ef942328857bfe18"
-  integrity sha512-5HgJg7XvqEEJ+GO+2gvnzd5cAcDuSS/VB6nW7thoyj2GMq9nH4VvJwncSevinjLCnv06a+VSxrXNiL5vePHojA==
+googleapis@^94.0.0:
+  version "94.0.0"
+  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-94.0.0.tgz#596cc226dbb0cb0e81edfb4310da804c4cafebdf"
+  integrity sha512-Rg5Mib5TF3kddtORJyMGED9Ga0CfR0Wx3tS8urpw3tRpLfANEf7DYfG3FGUWSrnDs+eDanEUVCY4HCy/muhw8w==
   dependencies:
     google-auth-library "^7.0.2"
     googleapis-common "^5.0.2"
@@ -8214,10 +8214,10 @@ nerf-dart@^1.0.0:
   resolved "https://registry.yarnpkg.com/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
   integrity sha1-5tq3/r9a2Bbqgc9cYpxaDr3nLBo=
 
-next-sitemap@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.1.5.tgz#dce63aeaf3047ecbc3dcad8d041a55d18efa756e"
-  integrity sha512-4FDQhofIOa6kJf8s7BJ7XHbm5UdJ4dqwDnOB9sHl7zi4X50rzNf12wPhW/K41wZohtPKZV2jmrrc+XDxj1dpcA==
+next-sitemap@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.1.6.tgz#2105d47c5877e5bdb7e3224812a9463ecbe0095d"
+  integrity sha512-62toKkimpFSV1BhsVk+IyZewtVboQ9JCAhtx9vR7620pPcEfTDvp4Jtb03A1oAX3PMjiqf5T45SvDBO4Kv4LTA==
   dependencies:
     "@corex/deepmerge" "^2.6.148"
     minimist "^1.2.5"
@@ -10353,10 +10353,10 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sass@^1.49.0:
-  version "1.49.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.0.tgz#65ec1b1d9a6bc1bae8d2c9d4b392c13f5d32c078"
-  integrity sha512-TVwVdNDj6p6b4QymJtNtRS2YtLJ/CqZriGg0eIAbAKMlN8Xy6kbv33FsEZSF7FufFFM705SQviHjjThfaQ4VNw==
+sass@^1.49.2:
+  version "1.49.2"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.2.tgz#f87c141099cb64a2f529d55d775c18e0916f9fa8"
+  integrity sha512-GytLeLFxaHgje8aAbfbivPSsRwT01Zj6YBGg6y7d/L63Cw/Gm0MCnT6FtMtMLw32dHpJSWnGwxgQxn+Hh1SyZg==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
