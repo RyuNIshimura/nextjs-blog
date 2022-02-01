@@ -41,7 +41,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "fixpack": "^4.0.0",
     "git-cz": "^4.8.0",
-    "googleapis": "^92.0.0",
+    "googleapis": "^94.0.0",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "next-sitemap": "^2.1.6",
