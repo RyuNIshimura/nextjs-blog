@@ -44,7 +44,7 @@
     "googleapis": "^95.0.0",
     "husky": "^7.0.4",
     "jest": "^27.5.0",
-    "next-sitemap": "^2.1.8",
+    "next-sitemap": "^2.1.9",
     "postcss": "^8.4.6",
     "prettier": "^2.5.1",
     "rss": "^1.2.2",
