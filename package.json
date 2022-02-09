@@ -43,7 +43,7 @@
     "git-cz": "^4.8.0",
     "googleapis": "^95.0.0",
     "husky": "^7.0.4",
-    "jest": "^27.5.0",
+    "jest": "^27.5.1",
     "next-sitemap": "^2.1.13",
     "postcss": "^8.4.6",
     "prettier": "^2.5.1",
