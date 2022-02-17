@@ -8248,10 +8248,10 @@ nerf-dart@^1.0.0:
   resolved "https://registry.yarnpkg.com/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
   integrity sha1-5tq3/r9a2Bbqgc9cYpxaDr3nLBo=
 
-next-sitemap@^2.1.15:
-  version "2.1.15"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.1.15.tgz#a1ce4e28e3d502f7bfece2b9d9290b2ac1cdefba"
-  integrity sha512-otfE6+6HNElca/CojaqDkZOxNoQDL9Z2TIULh+PCxBbt2eGvyqvaQyv+By5dSeWktVPiAomGxYCnIfy+eSOxKg==
+next-sitemap@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.4.2.tgz#f5b9c344ee8c4757ca72467084621b6158e628a2"
+  integrity sha512-cvcK2oXNpVcxizPN4dSkOwA5/KIOUXrJVaWYuk17YQvbBqQzufhhr2JgqgB4QoG0U7sMlB1RB1VPDAZ78kK0Qw==
   dependencies:
     "@corex/deepmerge" "^2.6.148"
     minimist "^1.2.5"
