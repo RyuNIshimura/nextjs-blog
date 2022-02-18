@@ -1,16 +1,16 @@
-version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-      time: "09:00"
-      timezone: "Asia/Tokyo"
-    target-branch: "main"
-    labels:
-      - "npm dependencies"
-      - 'automerge'
-    allow:
-      - dependency-type: "direct"
-    reviewers:
-      - "RyuNIshimura"
+# version: 2
+# updates:
+#   - package-ecosystem: "npm"
+#     directory: "/"
+#     schedule:
+#       interval: "daily"
+#       time: "09:00"
+#       timezone: "Asia/Tokyo"
+#     target-branch: "main"
+#     labels:
+#       - "npm dependencies"
+#       - 'automerge'
+#     allow:
+#       - dependency-type: "direct"
+#     reviewers:
+#       - "RyuNIshimura"
