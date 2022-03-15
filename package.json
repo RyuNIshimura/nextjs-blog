@@ -5,7 +5,7 @@
   "author": "Ryu Nishimura",
   "dependencies": {
     "contentful": "^9.1.13",
-    "dayjs": "^1.10.8",
+    "dayjs": "^1.11.0",
     "gray-matter": "^4.0.3",
     "keyboardjs": "^2.6.4",
     "next": "^12.1.0",
