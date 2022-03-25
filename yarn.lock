@@ -7997,10 +7997,10 @@ minimist-options@4.1.0:
     is-plain-obj "^1.1.0"
     kind-of "^6.0.3"
 
-minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 minimist@~0.0.1:
   version "0.0.10"
@@ -8200,13 +8200,13 @@ nerf-dart@^1.0.0:
   resolved "https://registry.yarnpkg.com/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
   integrity sha1-5tq3/r9a2Bbqgc9cYpxaDr3nLBo=
 
-next-sitemap@^2.5.13:
-  version "2.5.13"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.5.13.tgz#d7ac297130274abbdc90c4206f903ae73c8f6b1e"
-  integrity sha512-MIIqXdabDLj086OwP2MQmpk90KR7Sxup8DWxkDQBD2KZhml/ds2vulCv7sZptpuVjXckCufoMSsP+JjMdr2cSw==
+next-sitemap@^2.5.14:
+  version "2.5.14"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.5.14.tgz#f196c90d4aef8444c6eb7266875bf2179a515bb7"
+  integrity sha512-aJmxGmoE23NClCi1P6KpHov9DUieF/ZZbfGpTiruOYCq4nKu8Q4masOuswlOl3nNKZa0C3u4JG+TPubjslYH9A==
   dependencies:
     "@corex/deepmerge" "^2.6.148"
-    minimist "^1.2.5"
+    minimist "^1.2.6"
 
 next@^12.1.0:
   version "12.1.0"
