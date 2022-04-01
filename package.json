@@ -30,7 +30,7 @@
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
     "@types/react": "^17.0.43",
-    "@types/react-infinite-scroller": "^1.2.2",
+    "@types/react-infinite-scroller": "^1.2.3",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/rss": "^0.0.29",
     "autoprefixer": "^10.4.4",
