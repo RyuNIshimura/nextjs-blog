@@ -42,7 +42,7 @@
     "fixpack": "^4.0.0",
     "git-cz": "^4.8.0",
     "googleapis": "^100.0.0",
-    "husky": "^8.0.0",
+    "husky": "^8.0.1",
     "jest": "^27.5.1",
     "next-sitemap": "^2.5.20",
     "postcss": "^8.4.13",
