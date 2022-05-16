@@ -40,7 +40,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fixpack": "^4.0.0",
-    "git-cz": "^4.8.0",
+    "git-cz": "^4.9.0",
     "googleapis": "^100.0.0",
     "husky": "^8.0.1",
     "jest": "^27.5.1",
