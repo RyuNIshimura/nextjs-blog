@@ -22,7 +22,7 @@
     "remark-math": "^5.1.1"
   },
   "devDependencies": {
-    "@headlessui/react": "^1.6.4",
+    "@headlessui/react": "^1.6.5",
     "@heroicons/react": "^1.0.6",
     "@next/eslint-plugin-next": "^12.1.5",
     "@tailwindcss/jit": "^0.1.18",
