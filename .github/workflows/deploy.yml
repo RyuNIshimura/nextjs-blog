@@ -1,15 +1,15 @@
-name: Deploy to Vercel 8am-daily
-on:
-  schedule:
-    # 08:00(JST) -> 23:00(UTC)
-    - cron: '0 23 * * *'
-jobs:
-  cron:
-    runs-on: ubuntu-latest
-    env:
-      VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
-    steps:
-      - name: Vercel Depoloy
-        run: |
-          curl --request POST \
-          --url "$VERCEL_DEPLOY_HOOK_URL"
+# name: Deploy to Vercel 8am-daily
+# on:
+#   schedule:
+#     # 08:00(JST) -> 23:00(UTC)
+#     - cron: '0 23 * * *'
+# jobs:
+#   cron:
+#     runs-on: ubuntu-latest
+#     env:
+#       VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+#     steps:
+#       - name: Vercel Depoloy
+#         run: |
+#           curl --request POST \
+#           --url "$VERCEL_DEPLOY_HOOK_URL"
