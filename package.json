@@ -28,7 +28,7 @@
     "@tailwindcss/jit": "^0.1.18",
     "@types/gtag.js": "^0.0.11",
     "@types/jest": "^27.5.0",
-    "@types/node": "^18.7.15",
+    "@types/node": "^18.7.17",
     "@types/react": "^18.0.18",
     "@types/react-infinite-scroller": "^1.2.3",
     "@types/react-syntax-highlighter": "^15.5.5",
