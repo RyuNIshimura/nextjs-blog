@@ -33,7 +33,7 @@
     "@types/react-infinite-scroller": "^1.2.3",
     "@types/react-syntax-highlighter": "^15.5.5",
     "@types/rss": "^0.0.29",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.12",
     "dotenv": "^16.0.3",
     "eslint": "<8.0.0\n",
     "eslint-config-next": "^13.0.0",
