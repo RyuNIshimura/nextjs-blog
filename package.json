@@ -4,7 +4,7 @@
   "version": "2.0.1",
   "author": "Ryu Nishimura",
   "dependencies": {
-    "contentful": "^9.2.13",
+    "contentful": "^9.2.14",
     "dayjs": "^1.11.7",
     "gray-matter": "^4.0.3",
     "keyboardjs": "^2.7.0",
