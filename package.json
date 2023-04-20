@@ -46,7 +46,7 @@
     "jest": "^27.5.1",
     "next-sitemap": "^2.5.28",
     "postcss": "^8.4.23",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.7",
     "rss": "^1.2.2",
     "sass": "^1.58.0",
     "semantic-release": "^21.0.0",
