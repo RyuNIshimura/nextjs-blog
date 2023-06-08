@@ -48,7 +48,7 @@
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "rss": "^1.2.2",
-    "sass": "^1.58.0",
+    "sass": "^1.63.1",
     "semantic-release": "^21.0.2",
     "semantic-release-cli": "^5.4.4",
     "tailwindcss": "^2.2.19",
