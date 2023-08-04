@@ -37,7 +37,7 @@
     "dotenv": "^16.0.3",
     "eslint": "<8.0.0\n",
     "eslint-config-next": "^13.1.6",
-    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-prettier": "^4.2.1",
     "fixpack": "^4.0.0",
     "git-cz": "^4.9.0",
